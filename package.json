@@ -1,0 +1,49 @@
+{
+    "name": "next-upturnist",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "npm run partytown && next build",
+        "start": "node server.js",
+        "lint": "next lint",
+        "partytown": "partytown copylib public/~partytown"
+    },
+    "dependencies": {
+        "@apollo/client": "^3.10.8",
+        "@builder.io/partytown": "^0.10.2",
+        "@gsap/react": "^2.1.1",
+        "@heroicons/react": "^2.1.5",
+        "@next/third-parties": "^14.2.8",
+        "animejs": "^3.2.2",
+        "aos": "^2.3.4",
+        "axios": "^1.7.7",
+        "date-fns": "^3.6.0",
+        "framer-motion": "^11.11.9",
+        "graphql": "^16.9.0",
+        "html-to-text": "^9.0.5",
+        "next": "^14.2.8",
+        "react": "^18",
+        "react-animated-cursor": "^2.11.2",
+        "react-day-picker": "^8.10.1",
+        "react-dom": "^18",
+        "react-lottie-player": "^2.1.0",
+        "react-number-format": "^5.4.0",
+        "react-phone-number-input": "^3.4.3",
+        "react-scroll-parallax": "^3.4.5",
+        "react-scroll-to-top": "^3.0.0",
+        "react-slick": "^0.30.2",
+        "react-youtube": "^10.1.0",
+        "scrolltrigger": "^1.0.1",
+        "slick-carousel": "^1.8.1",
+        "swiper": "^11.1.4"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.19",
+        "daisyui": "^4.12.13",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.4",
+        "postcss": "^8",
+        "tailwindcss": "^3.4.1"
+    }
+}
