@@ -3,9 +3,7 @@
 
 import { useModalContext } from '@/context/modalContext';
 import React, { useState, useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
+import Button from './Buttons';
 
 
 
@@ -66,32 +64,26 @@ export default function Packages({ type, title, packages, content, viewMore }) {
 
 
 
-
-
-
-
-
-
-
-
-
     return (<>
 
 
         {type !== 'mini' ?
             <ul className="list-unstyled box-package-">
-                <li className="item- card card-effect sm:rounded-[30px] text-start package_new relative  rounded-[30px] !border-b-0" >
+                <li className="item- card card-effect sm:rounded-[30px] text-start package_new relative  rounded-[30px] !border-b-0" data-package={title} ref={selectedPackageRef}>
 
                     <div className="bg-box-package p-[30px] grid gap-[20px] sticky top-0  border !border-[#ffffff0d] transition-all rounded-[30px] rounded-b-none backdrop-blur-sm">
-                        <div className="inner-2">
+                        <div>
                             <h4 className="text-[24px]">{title}</h4>
                             <small className="block opacity-55">Package</small>
                             <p className="mt-[10px]">{packages.subHeading}</p>
                         </div>
                         <div>
-                            <button title="Package" aria-label="Package" ref={selectedPackageRef} data-package={title} onClick={openPackageBookModal} className="btn btn-small">
-                                Starting at AED {packages.price}
-                            </button>
+                        <Button
+                        size="normal"
+                        label={`Starting at AED ${packages.price}`}
+                        icon={false}
+                         action={openPackageBookModal}
+                      />
                         </div>
                     </div>
 
@@ -154,7 +146,7 @@ export default function Packages({ type, title, packages, content, viewMore }) {
 
             :
             <ul className="list-unstyled box-package-" >
-                <li className="item- card card-effect sm:rounded-[30px] rounded-[16px] overflow-hidden text-start" >
+                <li className="item- card card-effect sm:rounded-[30px] rounded-[16px] overflow-hidden text-start" data-package={title} ref={selectedPackageRef}>
                     <div className="inner-3 bg-price-package">
                         <div className="inner-4 ">
                             <h4 >{title}</h4>
@@ -167,9 +159,13 @@ export default function Packages({ type, title, packages, content, viewMore }) {
                     <div className="key--data-2 list-content-package" dangerouslySetInnerHTML={{ __html: content }} />
 
                     <div className="wrpr-4 ">
-                        <button title="Package" aria-label="Package" ref={selectedPackageRef} data-package={title} onClick={openPackageBookModal} className="button bg-sky-500 border-sky-500 mt-5 rounded-3 p-5 w-full hover:bg-sky-600 hover:border-sky-600  focus:border-sky-600 focus:text-white rounded-md">
-                            Starting at AED {packages.price}
-                        </button>
+                    <Button
+                        size="normal"
+                        label={`Starting at AED ${packages.price}`}
+                        icon={false}
+                        data-package={title}
+                        action={openPackageBookModal}
+                      />
                     </div>
 
                 </li>

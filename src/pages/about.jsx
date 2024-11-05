@@ -105,18 +105,18 @@ export default function WhoWeAre({
     () => {
       const section = document.querySelector(".section-2");
 
-      gsap.set(section, { opacity: 0.2 });
+     // gsap.set(section, { opacity: 0.2 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 70%",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top 70%",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
     },
     { scope: section2 }
   );

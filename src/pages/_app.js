@@ -1,6 +1,6 @@
 import NoInternetConnection from "@/components/NoConnection";
 import "../../public/styles/globals.min.css";
-//import "../../public/styles/tempstyle.css";
+import "../../public/styles/tempstyle.css";
 import CusrsorAnimation from "@/components/CusrsorAnimation";
 import { ModalContextProvider } from "@/context/modalContext";
 import { ThemeProvider } from "@/context/themeContext";

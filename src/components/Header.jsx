@@ -115,7 +115,7 @@ function Nav({ initialData, type }) {
         [id]: !prev[id],
       }));
     };
-  
+
     const groupedItems =
       primaryMenu &&
       primaryMenu.reduce((acc, item) => {
@@ -126,7 +126,7 @@ function Nav({ initialData, type }) {
         acc[parentId].push(item);
         return acc;
       }, {});
-  
+
     const renderItems = (items, level = 0) => {
       return (
         <ul className={`list-ul-1 grid gap-[10px] sm:ml-[20px] mt-[10px]`}>
@@ -134,64 +134,73 @@ function Nav({ initialData, type }) {
             <li
               key={item.ID}
               className="sm:ml-[20px]"
-              onClick={() => toggleItem(item.ID)}
-            >
+              onClick={() => toggleItem(item.ID)}>
               {level === 0 ? (
-                <p className="cursor-pointer" aria-label={item.post_title} title={item.post_title}>
+                <p
+                  className="cursor-pointer"
+                  aria-label={item.post_title}
+                  title={item.post_title}>
                   {item.post_title}
                 </p>
               ) : (
                 item.url && (
                   <Link
-                  onClick={()=> setOpen(!isOpen)}
+                    onClick={() => setOpen(!isOpen)}
                     aria-label={item.post_title}
                     title={item.post_title}
-                    href={`${frontendUrl}/${item?.acf?.slug.replace(/ /g, '-').toLowerCase()}`}
-                  >
+                    href={`${frontendUrl}/${item?.acf?.slug
+                      .replace(/ /g, "-")
+                      .toLowerCase()}`}>
                     {item.post_title}
                   </Link>
                 )
               )}
-  
+
               {/* Check for child items */}
               {
                 expandedItems[item.ID] &&
-                groupedItems[item.ID] &&
-                groupedItems[item.ID].length > 0 &&
-                renderItems(groupedItems[item.ID], level + 1) // Recursive call for child items
+                  groupedItems[item.ID] &&
+                  groupedItems[item.ID].length > 0 &&
+                  renderItems(groupedItems[item.ID], level + 1) // Recursive call for child items
               }
             </li>
           ))}
         </ul>
       );
     };
-  
+
     return (
       primaryMenu &&
       groupedItems["0"]?.map((item, level = 0) => (
         <div key={item.ID}>
-          {item?.acf?.parent === false  ? (
+          {item?.acf?.parent === false ? (
             <Link
-               href={`${frontendUrl}/${item?.acf?.slug.replace(/ /g, '-').toLowerCase()}`}
-            >
+              href={`${frontendUrl}/${item?.acf?.slug
+                .replace(/ /g, "-")
+                .toLowerCase()}`}>
               {item?.title}
             </Link>
           ) : (
-            <p className="cursor-pointer" aria-label={item.title} title={item.title} onClick={() => {
-              toggleItem(item.ID);
-            }}>{item?.title}</p> // For Perception Branding and Funnel Marketing
+            <p
+              className="cursor-pointer"
+              aria-label={item.title}
+              title={item.title}
+              onClick={() => {
+                toggleItem(item.ID);
+              }}>
+              {item?.title}
+            </p> // For Perception Branding and Funnel Marketing
           )}
           {
             expandedItems[item.ID] &&
-            groupedItems[item.ID] &&
-            groupedItems[item.ID].length > 0 &&
-            renderItems(groupedItems[item.ID]) // Render child items
+              groupedItems[item.ID] &&
+              groupedItems[item.ID].length > 0 &&
+              renderItems(groupedItems[item.ID]) // Render child items
           }
         </div>
       ))
     );
   }
-  
 
   return (
     <>
@@ -211,14 +220,17 @@ function Nav({ initialData, type }) {
                 for_page={type}
               />
               <div className="wrpr--nav-1">
-                {/* <button className='hamburger-button cursor-pointer'  onClick={toggleTheme}> */}
-                {/* {theme !== 'light' ? */}
-                {/* <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg> */}
-                {/* : */}
-                {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000000" viewBox="0 0 256 256"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm8,24a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path></svg> */}
-                {/*  */}
-                {/* } */}
-                {/* </button> */}
+              <div 
+             className={`btn-sc`} >
+                <button className='cursor-pointer' onClick={toggleTheme}>
+                {theme !== 'light' ?
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg>
+                :
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000000" viewBox="0 0 256 256"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm8,24a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path></svg>
+
+                }
+                </button>
+                </div>
                 {type == "normal" ? (
                   <>
                     <div className="sm:flex hidden">
@@ -245,13 +257,12 @@ function Nav({ initialData, type }) {
                     />
                   </>
                 ) : (
-                  <button
-                    title="Schedule a Call"
-                    aria-label="Schedule a Call"
-                    className="btn button"
-                    onClick={openCallBackModal}>
-                    Book Your Strategy Call 
-                  </button>
+                  <Button
+                  size="normal"
+                  label="Schedule a Call"
+                  icon={false}
+                  action={openCallBackModal}
+                />
                 )}
               </div>
             </div>
@@ -343,11 +354,6 @@ function Nav({ initialData, type }) {
                           </svg>
                         </Link>
                       </li>
-                      {/* <li> */}
-                      {/* <Link aria-label="Twitter" href={contactData && contactData.twitter} target='_blank'> */}
-                      {/* <svg className="e-font-icon-svg e-fab-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> */}
-                      {/* </Link> */}
-                      {/* </li> */}
                       <li>
                         <Link
                           aria-label="Linkedin"

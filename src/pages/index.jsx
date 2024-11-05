@@ -8,7 +8,7 @@ import Accordion from "@/components/Accordion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Button from "@/components/Buttons";
 import {
   PortfolioSlider,
@@ -19,6 +19,8 @@ import ReadMore from "@/components/ReadMore";
 import Link from "next/link";
 import VideoPreview from "@/components/VideoPreview";
 import { useSiteContext } from "@/context/siteContext";
+import { useThemeContext } from "@/context/themeContext";
+import Video from "@/components/Video";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -33,6 +35,7 @@ export default function Home({
 }) {
   const { setModalFor, setShowModal } = useModalContext();
   const { homeMeues1, homeMeues2 } = useSiteContext();
+  const { theme } = useThemeContext();
 
   const pageData = homePageData.data.pages.nodes[0].homePage;
   const _moreServicesData = moreServicesDatas.data.moreServices.nodes;
@@ -84,43 +87,6 @@ export default function Home({
     },
     { scope: hero }
   );
-
-  // useGSAP(
-  //   () => {
-  //     const section = document.querySelector(".about-top");
-  //     const cardIntroVideo = document.querySelector(".card-about-video");
-
-  //     gsap.set(section, { opacity: 0.2 });
-  //     gsap.set(cardIntroVideo, {
-  //       rotation: 0,
-  //       top: 0,
-  //     });
-
-  //     gsap.to(section, {
-  //       opacity: 1,
-  //       scrollTrigger: {
-  //         trigger: section,
-  //         start: "top center",
-  //         end: "bottom center",
-  //         scrub: 1,
-  //         onEnterBack: () => gsap.to(section, { opacity: 1 }),
-  //       },
-  //     });
-
-  //     gsap.to(cardIntroVideo, {
-  //       rotation: 10,
-  //       top: -150,
-  //       scrollTrigger: {
-  //         trigger: cardIntroVideo,
-  //         start: "top center",
-  //         end: "bottom center",
-  //         scrub: 1,
-  //         //onEnterBack: () => gsap.to(cardIntroVideo, { }),
-  //       },
-  //     });
-  //   },
-  //   { scope: section1 }
-  // );
 
   useGSAP(
     () => {
@@ -374,11 +340,11 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-6");
+      // const section = document.querySelector(".section-6");
       const list = gsap.utils.toArray(".section-6 ul li");
       const heading = document.querySelector(".section-6 .heading-2");
 
-      gsap.set(section, { opacity: 0.3 });
+      // gsap.set(section, { opacity: 0.3 });
 
       // Set different initial rotation angles for each list item
       list.forEach((item, index) => {
@@ -389,16 +355,16 @@ export default function Home({
         });
       });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.to(list, {
         rotation: 0,
@@ -519,22 +485,22 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-9");
+      //const section = document.querySelector(".section-9");
       const img = document.querySelector(".section-9 .image-box-");
 
-      gsap.set(section, { opacity: 0.2 });
+      // gsap.set(section, { opacity: 0.2 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
 
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.set(img, { opacity: 0, rotate: 10 });
 
@@ -748,12 +714,12 @@ export default function Home({
         },
       });
 
-      gsap.set(reviewWrpr, { opacity: 0.3,  });
+      gsap.set(reviewWrpr, { opacity: 0.3 });
 
       gsap.to(reviewWrpr, {
         opacity: 1,
         //filter: "blur(0px)",
-       // filter: "grayscale(0)",
+        // filter: "grayscale(0)",
         scrollTrigger: {
           trigger: reviewWrpr,
           start: "top center",
@@ -917,6 +883,25 @@ export default function Home({
     setModalFor("offer");
   };
 
+  useEffect(() => {
+    // Get the video element by its class name
+    const video = document.getElementsByClassName("video-player")[0];
+
+    // Function to attempt to play the video
+    const playVideo = async () => {
+      try {
+        await video.play();
+      } catch (error) {
+        console.error("Error attempting to play the video:", error);
+      }
+    };
+
+    // Force play after component mounts
+    if (video) {
+      playVideo();
+    }
+  }, []); // Empty dependency array to run only once on mount
+
   return (
     <>
       <Metatags data={homePageData} />
@@ -925,10 +910,20 @@ export default function Home({
         <AOSInit />
 
         <section
-          className="hero-home bg-box flex items-center md:mt-[-100px] sm:mt-[100px] text-center min-h-screen pb-[50px]"
+          className={`${
+            theme === "light"
+              ? "bg-black lg:text-start rounded-[15px] text-center items-center text-white sm:p-[100px] p-[50px] mt-[20px] min-h-[90vh]"
+              : "bg-box text-center items-center min-h-screen pt-0"
+          } hero-home flex overflow-hidden  pb-[50px]`}
           ref={hero}>
-          <div className="container mx-auto">
-            <div className="grid gap-[30px]">
+          <div
+            className={`${
+              theme === "light" ? null : "container"
+            }  mx-auto z-10 relative`}>
+            <div
+              className={`${
+                theme === "light" ? "lg:max-w-[80%]" : null
+              } grid gap-[30px]`}>
               <HeroContent
                 title={pageData && pageData.heroTitle}
                 animatedHeading={pageData && pageData.heroAnimatedHeading}
@@ -937,14 +932,45 @@ export default function Home({
               />
             </div>
           </div>
+          {theme === "light" && (
+            <div className="video-wrpr">
+              <video
+                className="video-player"
+                width="320"
+                height="240"
+                autoplay
+                loop
+                muted
+                playsInline>
+                <source src="/videos/hero.mp4" type="video/mp4" />
+                <track
+                  src="/path/to/captions.vtt"
+                  kind="subtitles"
+                  srcLang="en"
+                  label="English"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          )}
         </section>
 
         <section
           className="relative grid items-center section-1 pt-0"
           ref={section1}>
           <div className="container">
-            <div className="card card-lg card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]">
-              <div className="flex-1  gap-[24px] lg:order-1 order-2">
+            <div
+              className={`${
+                theme === "light"
+                  ? "grid sm:gap-[100px] gap-[30px]"
+                  : "card card-lg card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]"
+              } `}>
+              <div
+                className={`${
+                  theme === "light"
+                    ? null
+                    : "flex-1 gap-[24px] lg:order-1 order-2"
+                } `}>
                 <h3
                   className="para"
                   dangerouslySetInnerHTML={{ __html: strippedHtml }}
@@ -960,28 +986,47 @@ export default function Home({
                 </div>
               </div>
 
-              <div className="image-box- mx-auto lg:order-2 order-1">
-                <div className="line"></div>
+              {theme === "dark" ? (
+                <div className="image-box- mx-auto lg:order-2 order-1">
+                  <div className="line"></div>
+                  <Images
+                    imageurl={
+                      "http://localhost:3000/_next/image/?url=https%3A%2F%2Fdemo.upturnist.com%2Fwp-content%2Fuploads%2F2024%2F10%2F7ec7dc34-4be3-4c95-9f3b-ef1dfeb364cb-ezgif.com-video-to-webp-converter.webp&w=640&q=80"
+                    }
+                    styles={""}
+                    quality={80}
+                    width={"600"}
+                    height={"550"}
+                    alt={
+                      pageData.seoVisibilityReportImage.node.altText &&
+                      pageData.seoVisibilityReportImage.node.altText
+                    }
+                    placeholder={true}
+                    classes={"block w-full"}
+                  />
+                </div>
+              ) : (
                 <Images
-                  imageurl={'http://localhost:3000/_next/image/?url=https%3A%2F%2Fdemo.upturnist.com%2Fwp-content%2Fuploads%2F2024%2F10%2F7ec7dc34-4be3-4c95-9f3b-ef1dfeb364cb-ezgif.com-video-to-webp-converter.webp&w=640&q=80'
+                  imageurl={
+                    "https://img.freepik.com/free-photo/man-suit-standing-office-holding-takeaway-coffee-using-smartphone_1098-17122.jpg?t=st=1730815854~exp=1730819454~hmac=e6fd2b1c1f8af60e5daa34305e5169572e8a06b4dcd0b31773af7aaa882de09a&w=1380"
                   }
                   styles={""}
-                  quality={80}
-                  width={"600"}
-                  height={"550"}
+                  quality={100}
+                  width={"1700"}
+                  height={"1000"}
                   alt={
                     pageData.seoVisibilityReportImage.node.altText &&
                     pageData.seoVisibilityReportImage.node.altText
                   }
                   placeholder={true}
-                  classes={"block w-full"}
+                  classes={"block w-full rounded-[15px] h-[70vh] object-cover"}
                 />
-              </div>
+              )}
             </div>
           </div>
         </section>
 
-        <section className="section-services-1" ref={sectionservices1}>
+        <section className="section-services-1 " ref={sectionservices1}>
           <div className="container grid gap-[50px]">
             <h2 className="heading-2 text-center">
               {pageData.homeMenu1 && pageData.homeMenu1}
@@ -1074,9 +1119,11 @@ export default function Home({
         </section>
 
         <section
-          className=" section-2 relative bg-box flex items-center text-center xl:min-h-screen overflow-hidden"
+          className={`${
+            theme === "light" ? "bg-black rounded-[15px] text-white" : "bg-box"
+          } section-2 relative flex items-center text-center xl:min-h-screen overflow-hidden`}
           ref={section2_1}>
-          <div className="container lg:block grid gap-[50px]">
+          <div className="container lg:block grid gap-[50px] relative z-10">
             <div className="xl:min-h-[70vh]">
               <div className="grid gap-[20px] heading1">
                 <h2 className="heading-1">
@@ -1110,7 +1157,12 @@ export default function Home({
                 />
               </div>
             </div>
-            <div className="card card-lg sm:p-[80px] p-[40px] rounded-[30px] lg:px-[180px] lg:py-[100px]">
+            <div
+              className={`${
+                theme === "light"
+                  ? "card rounded-[15px] text-white"
+                  : "card card-lg"
+              } sm:p-[80px] p-[40px] rounded-[30px] lg:px-[180px] lg:py-[100px]`}>
               <div className="heading4 grid gap-[20px]">
                 <h2 className="heading-3">
                   {pageData.aboutCta4 && pageData.aboutCta4}
@@ -1140,14 +1192,27 @@ export default function Home({
               </div>
             </div>
           </div>
+          {theme === "light" && (
+            <div className="animation-wrapper absolute inset-0"></div>
+          )}
         </section>
 
         <section
-          className=" relative  grid items-center section-3"
+          className="relative grid items-center section-3 pt-0"
           ref={section3}>
           <div className="container">
-            <div className="card card-lg card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]">
-              <div className="flex-1  gap-[24px] lg:order-1 order-2">
+            <div
+              className={`${
+                theme === "light"
+                  ? "grid sm:gap-[100px] gap-[30px]"
+                  : "card card-lg card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]"
+              } `}>
+              <div
+                className={`${
+                  theme === "light"
+                    ? null
+                    : "flex-1 gap-[24px] lg:order-1 order-2"
+                } `}>
                 <h3
                   className="para"
                   dangerouslySetInnerHTML={{ __html: strippedHtml }}
@@ -1156,6 +1221,7 @@ export default function Home({
                   {pageData.seoVisibilityReportHeading2 &&
                     pageData.seoVisibilityReportHeading2}
                 </h2>
+
                 <div className="grid gap-[16px]">
                   <p
                     dangerouslySetInnerHTML={{
@@ -1173,114 +1239,200 @@ export default function Home({
                     />
                   </div>
                 </div>
-                <div></div>
               </div>
 
-              <div className="image-box- mx-auto lg:order-2 order-1">
-                <div className="line"></div>
+              {theme === "dark" ? (
+                <div className="image-box- mx-auto lg:order-2 order-1">
+                  <div className="line"></div>
+                  <Images
+                    imageurl={
+                      pageData.seoVisibilityReportImage.node.sourceUrl &&
+                      pageData.seoVisibilityReportImage.node.sourceUrl
+                    }
+                    styles={""}
+                    quality={80}
+                    width={"600"}
+                    height={"550"}
+                    alt={
+                      pageData.seoVisibilityReportImage.node.altText &&
+                      pageData.seoVisibilityReportImage.node.altText
+                    }
+                    placeholder={true}
+                    classes={"block w-full"}
+                  />
+                </div>
+              ) : (
                 <Images
                   imageurl={
-                    pageData.seoVisibilityReportImage.node.sourceUrl &&
-                    pageData.seoVisibilityReportImage.node.sourceUrl
+                    "https://img.freepik.com/free-photo/low-angle-lawyer-talking-phone_23-2148230746.jpg?t=st=1730809245~exp=1730812845~hmac=c6e09ca0138aeba1cb214ca8c305a8d742786a84c48e89a1d0b929b8ee4d5e91&w=1380"
                   }
                   styles={""}
-                  quality={80}
-                  width={"600"}
-                  height={"550"}
+                  quality={100}
+                  width={"1700"}
+                  height={"1000"}
                   alt={
                     pageData.seoVisibilityReportImage.node.altText &&
                     pageData.seoVisibilityReportImage.node.altText
                   }
                   placeholder={true}
-                  classes={"block w-full"}
+                  classes={"block w-full rounded-[15px] h-[70vh] object-cover"}
                 />
-              </div>
+              )}
             </div>
           </div>
         </section>
 
         <section
-          className=" relative grid items-center section-4 overflow-hidden"
+          className="relative grid items-center section-4 pt-0"
           ref={section4}>
           <div className="container">
-            <div className="card card-lg card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]">
-              <div className="image-box- mx-auto">
-                <div className="line"></div>
-
-                <Images
-                  imageurl={
-                    pageData.specialzeImage.node.sourceUrl &&
-                    pageData.specialzeImage.node.sourceUrl
-                  }
-                  styles={""}
-                  quality={80}
-                  width={"600"}
-                  height={"550"}
-                  alt={
-                    pageData.specialzeImage.node.altText &&
-                    pageData.specialzeImage.node.altText
-                  }
-                  placeholder={true}
-                  classes={"block w-full"}
+            <div
+              className={`${
+                theme === "light"
+                  ? "grid sm:gap-[100px] gap-[30px]"
+                  : "card card-lg card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]"
+              } `}>
+              <div
+                className={`${
+                  theme === "light"
+                    ? null
+                    : "flex-1 gap-[24px] lg:order-1 order-2"
+                } `}>
+                <h3
+                  className="para"
+                  dangerouslySetInnerHTML={{ __html: strippedHtml }}
                 />
-              </div>
-              <div className="flex-1">
-                <h2 className="heading-3 mb-[20px]">
+                <h2 className="heading-3 my-[20px]">
                   {pageData.specialzeHeading && pageData.specialzeHeading}
                 </h2>
+
                 <div className="grid gap-[16px]">
                   <ReadMore maxLength={500}>
                     {pageData.specialzeDesc && pageData.specialzeDesc}
                   </ReadMore>
                 </div>
-                <div></div>
               </div>
+
+              {theme === "dark" ? (
+                <div className="image-box- mx-auto">
+                  <div className="line"></div>
+                  <Images
+                    imageurl={
+                      pageData.specialzeImage.node.sourceUrl &&
+                      pageData.specialzeImage.node.sourceUrl
+                    }
+                    styles={""}
+                    quality={80}
+                    width={"600"}
+                    height={"550"}
+                    alt={
+                      pageData.specialzeImage.node.altText &&
+                      pageData.specialzeImage.node.altText
+                    }
+                    placeholder={true}
+                    classes={"block w-full"}
+                  />
+                </div>
+              ) : (
+                <Images
+                  imageurl={
+                    "https://img.freepik.com/free-photo/young-happy-entrepreneur-working-laptop-while-relaxing-outdoor-cafe_637285-3439.jpg?t=st=1730809496~exp=1730813096~hmac=73d30452fc52770cb8f974038501b5cc14753abf2387e7d48c5e645fbb08dd79&w=1380"
+                  }
+                  styles={""}
+                  quality={100}
+                  width={"1700"}
+                  height={"1000"}
+                  alt={
+                    pageData.seoVisibilityReportImage.node.altText &&
+                    pageData.seoVisibilityReportImage.node.altText
+                  }
+                  placeholder={true}
+                  classes={"block w-full rounded-[15px] h-[70vh] object-cover"}
+                />
+              )}
             </div>
           </div>
         </section>
 
         <section
-          className=" relative  grid items-center section-5"
+          className="relative grid items-center section-5 pt-0"
           ref={section5}>
           <div className="container">
-            <div className="card card-lg card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]">
-              <div className="flex-1  gap-[24px] lg:order-1 order-2">
-                <h2 className="heading-3 mb-[20px]">
+            <div
+              className={`${
+                theme === "light"
+                  ? "grid sm:gap-[100px] gap-[30px]"
+                  : "card card-lg card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]"
+              } `}>
+              <div
+                className={`${
+                  theme === "light"
+                    ? null
+                    : "flex-1 gap-[24px] lg:order-1 order-2"
+                } `}>
+                <h3
+                  className="para"
+                  dangerouslySetInnerHTML={{ __html: strippedHtml }}
+                />
+                <h2 className="heading-3 my-[20px]">
                   {pageData.services1Heading && pageData.services1Heading}
                 </h2>
-                <ReadMore maxLength={500}>
-                  {pageData.services1Description &&
-                    pageData.services1Description}
-                </ReadMore>
-                <div></div>
+
+                <div className="grid gap-[16px]">
+                  <ReadMore maxLength={500}>
+                    {pageData.services1Description &&
+                      pageData.services1Description}
+                  </ReadMore>
+                </div>
               </div>
 
-              {/* https://www.freepik.com/free-video/young-female-customer-meeting-with-financial-advisor_474247#fromView=search&page=1&position=46&uuid=4994f2e0-44fa-42a7-a83c-c6025a0840d2 */}
-              <div className="image-box- mx-auto lg:order-2 order-1">
-                <div className="line"></div>
+              {theme === "dark" ? (
+                <div className="image-box- mx-auto lg:order-2 order-1">
+                  <div className="line"></div>
+                  <Images
+                    imageurl={
+                      pageData.services1Image.node.sourceUrl &&
+                      pageData.services1Image.node.sourceUrl
+                    }
+                    styles={""}
+                    quality={80}
+                    width={"600"}
+                    height={"550"}
+                    alt={
+                      pageData.services1Image.node.altText &&
+                      pageData.services1Image.node.altText
+                    }
+                    placeholder={true}
+                    classes={"block w-full"}
+                  />
+                </div>
+              ) : (
                 <Images
                   imageurl={
-                    pageData.services1Image.node.sourceUrl &&
-                    pageData.services1Image.node.sourceUrl
+                    "https://img.freepik.com/free-photo/arabian-woman-hijab-inside-cafe-working-laptop_1303-14192.jpg?t=st=1730809616~exp=1730813216~hmac=3e15cb7ad92093af6f4dcfb8d5dd9eb19f24694dbd607e188f8425cc8c54e092&w=1380"
                   }
                   styles={""}
-                  quality={80}
-                  width={"600"}
-                  height={"550"}
+                  quality={100}
+                  width={"1700"}
+                  height={"1000"}
                   alt={
-                    pageData.services1Image.node.altText &&
-                    pageData.services1Image.node.altText
+                    pageData.seoVisibilityReportImage.node.altText &&
+                    pageData.seoVisibilityReportImage.node.altText
                   }
                   placeholder={true}
-                  classes={"block w-full"}
+                  classes={"block w-full rounded-[15px] h-[70vh] object-cover"}
                 />
-              </div>
+              )}
             </div>
           </div>
         </section>
 
-        <section className=" relative section-6" ref={section6}>
-          <div className="container grid gap-[70px]">
+        <section
+          className={`${
+            theme === "light" ? "bg-black rounded-[15px] text-white" : null
+          } relative section-6 overflow-hidden`}
+          ref={section6}>
+          <div className="container grid gap-[70px] relative z-10">
             <div>
               <h3 className="heading-3 text-center">
                 {pageData.services2Heading && pageData.services2Heading}
@@ -1292,7 +1444,9 @@ export default function Home({
                 {serviceListHomeData_ &&
                   _servicesHome.map((item, key) => {
                     return (
-                      <li key={key} className="card card-effect p-[40px] rounded-[30px]">
+                      <li
+                        key={key}
+                        className="card card-effect p-[40px] rounded-[30px]">
                         {item?.featuredImage?.node?.sourceUrl && (
                           <div className="icon mb-[20px]">
                             <Images
@@ -1309,7 +1463,7 @@ export default function Home({
                         <h3 className="text-[23px] mb-[16px]">
                           {item.title && item.title}
                         </h3>
-                        
+
                         <ReadMore linesToShow={2}>
                           {item && item.content}
                         </ReadMore>
@@ -1319,15 +1473,31 @@ export default function Home({
               </ul>
             </div>
           </div>
+          {theme === "light" && (
+           <div className="animation-wrapper absolute inset-0"></div>
+          )}
         </section>
 
-        <section className="section-7" ref={section7}>
+        <section 
+          className={`${
+            theme === "light" ? 'min-h-[80vh] flex items-center' : null
+          }  section-7`}
+          ref={section7}>
           <div className="container">
-            <div className="card card-lg card-effect rounded-[30px] sm:rounded-[60px] sm:p-[80px] p-[30px] sm:pb-[90px] border-opacity-15 flex flex-col lg:flex-row gap-[50px]">
-              <VideoPreview data={_videosData} />
+            <div 
+             className={`${
+              theme === "light" ? 'mx-auto max-w-[80%]' : 'card card-lg card-effect rounded-[30px] sm:rounded-[60px] sm:p-[80px] p-[30px] sm:pb-[90px] border-opacity-15 '
+            }  flex flex-col lg:flex-row gap-[50px]`}
+            >
+             {theme === "dark" && <VideoPreview theme="dark" data={_videosData} />}
+             {theme === "light" && <VideoPreview theme="light" data={_videosData} />}
               <div className="flex-1 grid gap-[24px] items-center">
                 <div className="grid gap-[30px]">
-                  <h3 className="heading-3">
+                  <h3
+                   className={`${
+                    theme === "light" ? 'sm:text-[2vw] text-[24px]' : 'heading-3'
+                  }`}
+                  >
                     {pageData.downloadHeading && pageData.downloadHeading}
                   </h3>
                   <div>
@@ -1385,10 +1555,19 @@ export default function Home({
         </section>
 
         <section
-          className="relative grid items-center section-9"
+          className={`${
+            theme === "light"
+              ? "bg-black lg:text-start rounded-[15px] text-center items-center text-white sm:p-[100px] p-[50px] overflow-hidden min-h-[90vh]"
+              : null
+          } relative grid items-center section-9`}
           ref={section9}>
-          <div className="container">
-            <div className="card card-lg card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]">
+          <div className="container relative z-10">
+            <div
+              className={`${
+                theme === "light"
+                  ? "rounded-[15px] text-white"
+                  : "card card-lg card-effect sm:p-[80px] p-[40px] rounded-[30px] "
+              } flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]`}>
               <div className="flex-1 lg:order-1 order-2">
                 <h2 className="heading-3 mb-[20px]">
                   {pageData.about2Heading && pageData.about2Heading}
@@ -1400,27 +1579,50 @@ export default function Home({
               </div>
 
               {/* https://www.freepik.com/free-video/young-female-customer-meeting-with-financial-advisor_474247#fromView=search&page=1&position=46&uuid=4994f2e0-44fa-42a7-a83c-c6025a0840d2 */}
-              <div className="image-box- mx-auto lg:order-2 order-1">
-                <div className="line"></div>
-                <Images
-                  imageurl={
-                    pageData.about2Photo.node.sourceUrl &&
-                    pageData.about2Photo.node.sourceUrl
-                  }
-                  styles={""}
-                  quality={80}
-                  width={"600"}
-                  height={"550"}
-                  alt={
-                    pageData.about2Photo.node.altText &&
-                    pageData.about2Photo.node.altText
-                  }
-                  placeholder={true}
-                  classes={"block w-full"}
-                />
-              </div>
+              {theme === "dark" && (
+                <div className="image-box- mx-auto lg:order-2 order-1">
+                  <div className="line"></div>
+                  <Images
+                    imageurl={
+                      pageData.about2Photo.node.sourceUrl &&
+                      pageData.about2Photo.node.sourceUrl
+                    }
+                    styles={""}
+                    quality={80}
+                    width={"600"}
+                    height={"550"}
+                    alt={
+                      pageData.about2Photo.node.altText &&
+                      pageData.about2Photo.node.altText
+                    }
+                    placeholder={true}
+                    classes={"block w-full"}
+                  />
+                </div>
+              )}
             </div>
           </div>
+          {theme === "light" && (
+            <div className="video-wrpr">
+              <video
+                className="video-player"
+                width="320"
+                height="240"
+                autoplay
+                loop
+                muted
+                playsInline>
+                <source src="/videos/hero.mp4" type="video/mp4" />
+                <track
+                  src="/path/to/captions.vtt"
+                  kind="subtitles"
+                  srcLang="en"
+                  label="English"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          )}
         </section>
 
         <section className=" relative section-10" ref={section10}>
@@ -1466,42 +1668,74 @@ export default function Home({
         </section>
 
         <section
-          className="relative  grid items-center section-11"
+          className="relative grid items-center section-11 pt-0"
           ref={section11}>
           <div className="container">
-            <div className="card card-lg sm:p-[80px] p-[40px] rounded-[30px]  flex flex-col lg:flex-row gap-[30px] sm:gap-[100px]">
-              {/* https://www.freepik.com/free-video/young-female-customer-meeting-with-financial-advisor_474247#fromView=search&page=1&position=46&uuid=4994f2e0-44fa-42a7-a83c-c6025a0840d2 */}
-              <div className="image-box- mx-auto">
-                <div className="line"></div>
-                <Images
-                  imageurl={
-                    pageData.aboutBottom2Image.node.sourceUrl &&
-                    pageData.aboutBottom2Image.node.sourceUrl
-                  }
-                  styles={""}
-                  quality={80}
-                  width={"600"}
-                  height={"550"}
-                  alt={
-                    pageData.aboutBottom2Image.node.altText &&
-                    pageData.aboutBottom2Image.node.altText
-                  }
-                  placeholder={true}
-                  classes={"block w-full"}
+            <div
+              className={`${
+                theme === "light"
+                  ? "grid sm:gap-[100px] gap-[30px]"
+                  : "card card-lg card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]"
+              } `}>
+              <div
+                className={`${
+                  theme === "light"
+                    ? null
+                    : "flex-1 gap-[24px] lg:order-1 order-2"
+                } `}>
+                <h3
+                  className="para"
+                  dangerouslySetInnerHTML={{ __html: strippedHtml }}
                 />
-              </div>
-              <div className="flex-1 grid gap-[24px]">
-                <h2 className="heading-2">
+                <h2 className="heading-3 my-[20px]">
                   {pageData.aboutBottom2 && pageData.aboutBottom2}
                 </h2>
+
                 <div className="grid gap-[16px]">
                   <ReadMore maxLength={500}>
                     {pageData.aboutBottom2Content &&
                       pageData.aboutBottom2Content}
                   </ReadMore>
                 </div>
-                <div></div>
               </div>
+
+              {theme === "dark" ? (
+                <div className="image-box- mx-auto">
+                  <div className="line"></div>
+                  <Images
+                    imageurl={
+                      pageData.aboutBottom2Image.node.sourceUrl &&
+                      pageData.aboutBottom2Image.node.sourceUrl
+                    }
+                    styles={""}
+                    quality={80}
+                    width={"600"}
+                    height={"550"}
+                    alt={
+                      pageData.aboutBottom2Image.node.altText &&
+                      pageData.aboutBottom2Image.node.altText
+                    }
+                    placeholder={true}
+                    classes={"block w-full"}
+                  />
+                </div>
+              ) : (
+                <Images
+                  imageurl={
+                    "https://img.freepik.com/free-photo/man-using-laptop-urban-environment_23-2147961589.jpg?t=st=1730809748~exp=1730813348~hmac=b587bd36091960098f2b8221b9f6b5fd64dfe95f09c2d8b89f7623258763d498&w=1380"
+                  }
+                  styles={""}
+                  quality={100}
+                  width={"1700"}
+                  height={"1000"}
+                  alt={
+                    pageData.seoVisibilityReportImage.node.altText &&
+                    pageData.seoVisibilityReportImage.node.altText
+                  }
+                  placeholder={true}
+                  classes={"block w-full rounded-[15px] h-[70vh] object-cover"}
+                />
+              )}
             </div>
           </div>
         </section>

@@ -7,7 +7,7 @@ import MetatagsServiceSingle from "@/components/SeoServiceSingle";
 import AnimatedTextCharacter from "@/components/AnimatedText";
 import BackgroundAnimation from "@/components/BackgroundAnimation";
 import Accordion from "@/components/Accordion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { HeroContent } from "@/utils/DynamicComponents";
 import ReadMore from "@/components/ReadMore";
@@ -16,19 +16,26 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import Package from "@/components/Package";
+import ComparePackages from "@/components/PackageCompare";
 
-export default function Service({ servicePageData }) {
+export default function Service({ servicePageData, allPackagesData }) {
+  const router = useRouter();
+
   // Destructure data from servicePageData
   const pageData = servicePageData?.data?.pages?.nodes[0];
+  const packageData = allPackagesData.data.packages.nodes;
   const serviceData =
     servicePageData?.data?.pages?.nodes[0]?.mainContentRepeaterFields;
-  const additionalServiceData =
-    servicePageData?.data?.pages?.nodes[0]?.additionalServicesRepeaterFields;
+
+  const content = pageData?.content;
 
   //console.log(servicePageData?.data?.pages?.nodes[0]?.additionalServicesRepeaterFields)
 
   const serviceList = useRef();
   const additionalServiceList = useRef();
+
+  //console.log(pageData?.content)
 
   useGSAP(
     () => {
@@ -128,6 +135,79 @@ export default function Service({ servicePageData }) {
     { scope: additionalServiceList }
   );
 
+  const section1 = useRef();
+  const section2 = useRef();
+
+  useGSAP(
+    () => {
+      const section = document.querySelector(".section-1");
+
+      gsap.set(section, { opacity: 0.2 });
+
+      gsap.to(section, {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: section,
+          start: "top center",
+          end: "bottom center",
+          scrub: 1,
+          onEnterBack: () => gsap.to(section, { opacity: 1 }),
+        },
+      });
+    },
+    { scope: section1 }
+  );
+
+  useGSAP(
+    () => {
+      const section = document.querySelector(".section-2");
+      const list = gsap.utils.toArray(".section-2 ul li");
+
+      gsap.set(section, { opacity: 0.3 });
+
+      // Set different initial rotation angles for each list item
+      list.forEach((item, index) => {
+        gsap.set(item, {
+          filter: "blur(5px)",
+          y: 100 + index * 50, // Each item moves down by 50px incrementally
+        });
+      });
+
+      gsap.to(section, {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: section,
+          start: "top center",
+          end: "bottom center",
+          scrub: 1,
+          onEnterBack: () => gsap.to(section, { opacity: 1 }),
+        },
+      });
+
+      gsap.to(list, {
+        y: 0,
+        filter: "blur(0px)",
+        scrollTrigger: {
+          trigger: list,
+          start: "top 80%",
+          end: "bottom center",
+          scrub: 1,
+        },
+      });
+    },
+    { scope: section2 }
+  );
+
+  const [isExpanded, setIsExpanded] = useState(false);
+  const packageRef = useRef(null);
+
+  const handleShowMorePackage = () => {
+    setIsExpanded(!isExpanded);
+    if (packageRef.current) {
+      packageRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       {pageData && <MetatagsServiceSingle data={servicePageData} />}
@@ -149,7 +229,7 @@ export default function Service({ servicePageData }) {
 
             {servicePageData && (
               <section
-                className="relative grid items-center section-2"
+                className="relative grid items-center section-2 pt-[50px]"
                 data-aos-delay="1000"
                 data-aos="fade-up">
                 <div
@@ -173,7 +253,7 @@ export default function Service({ servicePageData }) {
                                 {item?.title}
                               </h2>
                             )}
-                             {console.log(item?.description)}
+                            {console.log(item?.description)}
                             <ReadMore maxLength={500}>
                               {item?.description}
                             </ReadMore>
@@ -203,64 +283,57 @@ export default function Service({ servicePageData }) {
                 </div>
               </section>
             )}
-            {additionalServiceData && (
+
+            {/* PACKAGES */}
+
+            {router.query.service[0] === "digital-marketing-uae" && (
               <section
-                className="relative grid items-center section-3"
+                className="section-1 flex items-center text-center relative pt-0"
+                ref={section1}>
+                <div className="container mx-auto items-center">
+                  <h2 className="heading-2 mb-[30px] sm:mb-[70px]">
+                    Our Digital Marketing Packages{" "}
+                  </h2>
+                  <div
+                    ref={packageRef}
+                    className="grid grid-cols-1 lg:grid-cols-3 gap-[30px] package-wrpr-">
+                    {packageData &&
+                      packageData.map((item, key) => (
+                        <div key={key}>
+                          <Package
+                            title={item.title}
+                            packages={item.packages}
+                            content={item.content}
+                            viewMore={`${
+                              isExpanded
+                                ? "max-h-[auto] view-full"
+                                : "max-h-[250px] view-less"
+                            }`}
+                          />
+                        </div>
+                      ))}
+                  </div>
+                  <div className="bottom-expand">
+                    <span className="line-1"></span>
+                    <button
+                      className="btn btn-small relative z-1 whitespace-nowrap"
+                      onClick={handleShowMorePackage}>
+                      {isExpanded ? "View less" : "View more features"}
+                    </button>
+                    <span className="line-2"></span>
+                  </div>
+                  <ComparePackages data={packageData} />
+                </div>
+              </section>
+            )}
+
+            {content && (
+              <section
+                className="relative grid items-center section-3 content-service pt-0"
                 data-aos-delay="1000"
                 data-aos="fade-up">
-                <div
-                  className="container grid sm:gap-[100px] gap-[50px] list-items"
-                  ref={additionalServiceList}>
-                  {additionalServiceData &&
-                    pageData?.pages?.headingAdditionlaServices && (
-                      <h2 className="heading-2 text-center">
-                        {pageData?.pages?.headingAdditionlaServices}
-                      </h2>
-                    )}
-                  <div className="lg:flex grid gap-[30px] items-start service-list">
-                    {servicePageData &&
-                      additionalServiceData &&
-                      additionalServiceData.map((item, key) => {
-                        const columnOrder = key % 2 !== 0; // Check if the index is odd
-                        return (
-                          <div
-                            key={key}
-                            className="item card rounded-[30px] w-full min-h-[150px] overflow-hidden">
-                            {item?.image_url && (
-                              <div>
-                                <Images
-                                  imageurl={item?.image_url || ""}
-                                  quality={100}
-                                  width={"200"}
-                                  height={"200"}
-                                  alt={item?.title || ""}
-                                  placeholder={true}
-                                  classes={
-                                    "block w-full h-[250px] object-cover grayscale-[0.6] opacity-[0.6]"
-                                  }
-                                />
-                              </div>
-                            )}
-
-                            <div className="p-[30px] ">
-                              <h3 className="text-[23px] top-0">
-                                {item?.title}
-                              </h3>
-                              <div className="mt-[10px]">
-                                <ReadMore maxLength={500}>
-                                  {item?.description}
-                                </ReadMore>
-                              </div>
-                            </div>
-                            {/* <Link */}
-                            {/* href={`${frontendUrl}/${item?.url}`} */}
-                            {/* className="btn btn-small mt-[16px]"> */}
-                            {/* More info */}
-                            {/* </Link> */}
-                          </div>
-                        );
-                      })}
-                  </div>
+                <div className="container" ref={additionalServiceList}>
+                  <div dangerouslySetInnerHTML={{ __html: content }} />
                 </div>
               </section>
             )}
@@ -400,13 +473,54 @@ export async function getStaticProps(context) {
 
     if (!pageData) {
       return {
-          notFound: true, // Trigger 404 page
+        notFound: true, // Trigger 404 page
       };
     }
+
+    const packagesData = await fetch(
+      wordpressGraphQlApiUrl,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query: `query Posts{
+       packages( where: {orderby: {order: DESC, field: NAME_IN}}){
+        nodes{
+          title
+          content
+          featuredImage{
+            node{
+              altText
+              sourceUrl
+            }
+          }
+          packages{
+          description
+            features
+            price
+            subHeading
+          
+          }
+        }
+      }
+  }
+            `,
+        }),
+        next: { revalidate: 10 },
+      },
+      {
+        cache: "force-cache",
+        cache: "no-store",
+      }
+    );
+    const allPackagesData = await packagesData.json();
 
     return {
       props: {
         servicePageData,
+        allPackagesData,
         test: "test",
       },
       revalidate: 10, // Enable Incremental Static Regeneration
@@ -415,7 +529,7 @@ export async function getStaticProps(context) {
     console.error("Error fetching data:", error);
 
     return {
-        notFound: true, // Trigger 404 page on error
+      notFound: true, // Trigger 404 page on error
     };
   }
 }

@@ -65,7 +65,7 @@ export default function Timeline(data) {
     return (
         <li className={`${isSoon ? 'soon' : ''} card-`} key={key}>
             <div className={`sm:p-20 p-5 relative z-10`}>
-                <span className={`${isSoon ? 'border-[#fff] text-[#13589c] bg-[#fff]' : 'border-[#fff] text-[#13589c] bg-[#fff]'} year border-[2px] ${isOddItem ? ' !right-[-57px] !left-auto' : ''}`}>
+                <span className={`${isSoon ? 'border-[#fff]' : 'border-[#fff] text-[#13589c] bg-[#fff]'} year text-[#13589c] bg-[#fff] border-[2px] ${isOddItem ? ' !right-[-57px] !left-auto' : ''}`}>
                     {item.timeLineAcf.year}
                 </span>
              <div className="content">
