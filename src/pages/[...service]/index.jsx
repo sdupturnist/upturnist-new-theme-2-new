@@ -146,18 +146,18 @@ export default function Service({ servicePageData, allPackagesData }) {
     () => {
       const section = document.querySelector(".section-1");
 
-      gsap.set(section, { opacity: 0.2 });
+    //  gsap.set(section, { opacity: 0.2 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
     },
     { scope: section1 }
   );
@@ -167,7 +167,7 @@ export default function Service({ servicePageData, allPackagesData }) {
       const section = document.querySelector(".section-2");
       const list = gsap.utils.toArray(".section-2 ul li");
 
-      gsap.set(section, { opacity: 0.3 });
+    //  gsap.set(section, { opacity: 0.3 });
 
       // Set different initial rotation angles for each list item
       list.forEach((item, index) => {
@@ -177,16 +177,16 @@ export default function Service({ servicePageData, allPackagesData }) {
         });
       });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.to(list, {
         y: 0,
