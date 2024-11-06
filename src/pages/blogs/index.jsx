@@ -24,7 +24,7 @@ export default function Blogs({ blogPageDatas, getAllBlogsData }) {
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-1");
+     // const section = document.querySelector(".section-1");
       const list = gsap.utils.toArray(".section-1 ul li");
 
       gsap.set(section, { opacity: 0.3 });
@@ -32,27 +32,15 @@ export default function Blogs({ blogPageDatas, getAllBlogsData }) {
       // Set different initial rotation angles for each list item
       list.forEach((item, index) => {
         gsap.set(item, {
-          filter: "blur(5px)",
           rotation: index % 2 === 0 ? -10 : 10,
           y: 100 + index * 50, // Each item moves down by 50px incrementally
         });
       });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
 
       gsap.to(list, {
         rotation: 0,
         y: 0,
-        filter: "blur(0px)",
         scrollTrigger: {
           trigger: list,
           start: "top 80%",

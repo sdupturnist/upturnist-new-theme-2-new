@@ -138,9 +138,7 @@ export default function Contact({ contactPageData, initialData }) {
       <Layout>
         <AOSInit />
 
-        <PageHeading heading={pageData.title && pageData.title} subHeading={pageData.pages.subHeading && pageData.pages.subHeading}
-          banner='https://img.freepik.com/free-photo/low-angle-lawyer-talking-phone_23-2148230746.jpg?t=st=1730809245~exp=1730812845~hmac=c6e09ca0138aeba1cb214ca8c305a8d742786a84c48e89a1d0b929b8ee4d5e91&w=1380'
-        />
+        <PageHeading heading={pageData.title && pageData.title} subHeading={pageData.pages.subHeading && pageData.pages.subHeading}/>
 
 
         <section className="section-1 flex items-center overflow-hidden pt-0 text-center" ref={section1}>
