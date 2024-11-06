@@ -19,42 +19,42 @@ export default function Works({ worksPageData, worksDatas }) {
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-1");
+      //const section = document.querySelector(".section-1");
 
-      gsap.set(section, { opacity: 0.2 });
+     // gsap.set(section, { opacity: 0.2 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
     },
     { scope: section1 }
   );
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-2");
+     // const section = document.querySelector(".section-2");
       const img = document.querySelector(".section-2 .image-box-");
 
-      gsap.set(section, { opacity: 0.2 });
+   //   gsap.set(section, { opacity: 0.2 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          // markers: true, // Uncomment for debugging
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     // markers: true, // Uncomment for debugging
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.set(img, { opacity: 0, rotate: 10 });
 
