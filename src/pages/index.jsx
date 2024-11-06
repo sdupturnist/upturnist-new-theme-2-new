@@ -680,12 +680,11 @@ export default function Home({
       //   },
       // });
 
-      gsap.set(faqWrpr, { opacity: 0.3, filter: "blur(5px) grayscale(1)" });
+      gsap.set(faqWrpr, { opacity: 0.3, 
+        });
 
       gsap.to(faqWrpr, {
         opacity: 1,
-        //filter: "blur(0px)",
-        filter: "grayscale(0)",
         scrollTrigger: {
           trigger: faqWrpr,
           start: "top center",
@@ -980,10 +979,10 @@ export default function Home({
                 } `}>
                 <h3
                   className="para"
-                  dangerouslySetInnerHTML={{ __html: strippedHtml }}
+                  dangerouslySetInnerHTML={{ __html: pageData.aboutHeadingTop && pageData.aboutHeadingTop }}
                 />
-                <h2 className="heading-3 my-[20px]">
-                  {pageData.aboutHeadingTop && pageData.aboutHeadingTop}
+                <h2 className="heading-3 mt-[20px]">
+                  {pageData.aboutHeadingTopTwo && pageData.aboutHeadingTopTwo}
                 </h2>
 
                 <div className="grid gap-[16px]">
@@ -1231,7 +1230,7 @@ export default function Home({
                   className="para"
                   dangerouslySetInnerHTML={{ __html: strippedHtml }}
                 />
-                <h2 className="heading-3 my-[20px]">
+                <h2 className="heading-3 mt-[20px]">
                   {pageData.seoVisibilityReportHeading2 &&
                     pageData.seoVisibilityReportHeading2}
                 </h2>
@@ -1315,11 +1314,7 @@ export default function Home({
                     ? null
                     : "flex-1 gap-[24px] lg:order-1 order-2"
                 } `}>
-                <h3
-                  className="para"
-                  dangerouslySetInnerHTML={{ __html: strippedHtml }}
-                />
-                <h2 className="heading-3 my-[20px]">
+                <h2 className="heading-3 mt-[20px]">
                   {pageData.specialzeHeading && pageData.specialzeHeading}
                 </h2>
 
@@ -1389,11 +1384,7 @@ export default function Home({
                     ? null
                     : "flex-1 gap-[24px] lg:order-1 order-2"
                 } `}>
-                <h3
-                  className="para"
-                  dangerouslySetInnerHTML={{ __html: strippedHtml }}
-                />
-                <h2 className="heading-3 my-[20px]">
+                 <h2 className="heading-3 mt-[20px]">
                   {pageData.services1Heading && pageData.services1Heading}
                 </h2>
 
@@ -1456,11 +1447,11 @@ export default function Home({
           } relative section-6 overflow-hidden`}
           ref={section6}>
           <div className="container grid gap-[70px] relative z-10">
-            <div>
-              <h3 className="heading-3 text-center">
-                {pageData.services2Heading && pageData.services2Heading}
-              </h3>
-            </div>
+            {/* <div> */}
+              {/* <h3 className="heading-3 text-center"> */}
+                {/* {pageData.services2Heading && pageData.services2Heading} */}
+              {/* </h3> */}
+            {/* </div> */}
 
             <div>
               <ul
@@ -1736,11 +1727,7 @@ export default function Home({
                     ? null
                     : "flex-1 gap-[24px] lg:order-1 order-2"
                 } `}>
-                <h3
-                  className="para"
-                  dangerouslySetInnerHTML={{ __html: strippedHtml }}
-                />
-                <h2 className="heading-3 my-[20px]">
+                <h2 className="heading-3 mt-[20px]">
                   {pageData.aboutBottom2 && pageData.aboutBottom2}
                 </h2>
 
