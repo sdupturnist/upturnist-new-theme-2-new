@@ -138,7 +138,13 @@ export default function Contact({ contactPageData, initialData }) {
       <Layout>
         <AOSInit />
 
-        <PageHeading heading={pageData.title && pageData.title} subHeading={pageData.pages.subHeading && pageData.pages.subHeading}/>
+        <PageHeading heading={pageData.title && pageData.title} subHeading={pageData.pages.subHeading && pageData.pages.subHeading}
+           banner={
+            contactPageData &&
+            contactPageData?.data?.pages?.nodes[0]?.pages?.heroBanner?.node
+              ?.sourceUrl
+          }
+        />
 
 
         <section className="section-1 flex items-center overflow-hidden pt-0 text-center" ref={section1}>
@@ -212,10 +218,17 @@ export async function getStaticProps(context) {
             
           nodes{
             title
-             pages{
-                subHeading
-              }
-                   seoKeywords{
+              pages{
+               subHeading
+        heroBanner{
+          node{
+            altText
+            sourceUrl
+          }
+        }
+        heroVideo
+      }
+seoKeywords{
           seoKeywords
         }
                 seo {
