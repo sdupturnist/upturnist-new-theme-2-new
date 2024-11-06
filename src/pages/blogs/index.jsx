@@ -27,7 +27,7 @@ export default function Blogs({ blogPageDatas, getAllBlogsData }) {
      // const section = document.querySelector(".section-1");
       const list = gsap.utils.toArray(".section-1 ul li");
 
-      gsap.set(section, { opacity: 0.3 });
+     // gsap.set(section, { opacity: 0.3 });
 
       // Set different initial rotation angles for each list item
       list.forEach((item, index) => {
