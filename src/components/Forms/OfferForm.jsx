@@ -8,6 +8,7 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import { useRouter } from 'next/navigation'
 import { useModalContext } from "@/context/modalContext";
+import { useThemeContext } from '@/context/themeContext';
 
 
 
@@ -16,6 +17,7 @@ export default function OfferForm({ data }) {
     const router = useRouter()
 
     const { setShowModal } = useModalContext()
+    const { theme } = useThemeContext();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -168,7 +170,12 @@ export default function OfferForm({ data }) {
 
 
 
-          <div className="card card-effect rounded-[30px] sm:p-[40px] p-[24px]">
+          <div
+        className={
+          theme === "dark"
+            ? "card card-effect rounded-[30px] sm:p-[40px] p-[24px]"
+            : null
+        }>
           <h3 className="heading-3">Our Guarantee; No SPAM and your data is safe with us!
           </h3>
               <div className="grid gap-5 ">

@@ -6,13 +6,14 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import { useRouter } from 'next/navigation'
 import { useModalContext } from '@/context/modalContext';
-
+import { useThemeContext } from "@/context/themeContext";
 
 export default function QuickContactForm() {
 
     const router = useRouter()
 
     const { setShowModal } = useModalContext()
+    const { theme } = useThemeContext();
 
     const [chatbox, setChatbox] = useState(false);
 
@@ -141,12 +142,12 @@ export default function QuickContactForm() {
     return (
         <>
 
-            <div className={`${!chatbox ? 'collapsed' : ''} main-card bg-primary-custom`}>
+            <div className={`${!chatbox ? 'collapsed' : ''} ${theme === 'light' ? 'border bg-white' : 'border-[#fff] border border-opacity-5' } main-card bg-primary-custom`}>
                 <button title="Quick Enquiry" aria-label="Quick Enquiry" id="chatbot_toggle" className={`${chatbox ? 'active  backdrop-filter backdrop-blur-lg' : ''} bg-sky-500`} onClick={() => setChatbox(!chatbox)}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        fill="currentColor"
+                        fill="white"
                     >
                         <path d="M0 0h24v24H0V0z" fill="none" />
                         <path d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z" />

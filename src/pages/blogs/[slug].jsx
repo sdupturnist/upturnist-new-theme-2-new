@@ -9,13 +9,13 @@ import TruncatedText from "@/components/TruncateWords";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 const { htmlToText } = require('html-to-text');
-
+import { useThemeContext } from "@/context/themeContext";
 
 export default function BlogSingle({ singleBLogsData, blogSinglePageData, getAllBlogsData }) {
 
   const router = useRouter();
 
-
+  const {theme} = useThemeContext()
 
   const singleBlog = singleBLogsData?.data?.allBlogs?.nodes[0] ?? null;
   const allBlogs = getAllBlogsData?.data?.allBlogs?.nodes ?? null;
@@ -93,7 +93,7 @@ export default function BlogSingle({ singleBLogsData, blogSinglePageData, getAll
 
                       <ul className="grid grid-cols-1 sm:grid-cols-2  gap-7"> {/* Adjusted to use a grid layout with 30px gap */}
                         {allBlogs && allBlogs.filter(post => post.slug !== singleBlog.slug).map((blog, key) => (
-                          <li key={key} className="card card-effect rounded-[30px] overflow-hidden">
+                            <li key={key} className="card card-effect rounded-[30px] overflow-hidden">
                             <Link
                               title={`Read blog: ${blog.title}`}
                               href={`${frontendUrl}/blogs/${blog.slug}/`}
@@ -108,11 +108,15 @@ export default function BlogSingle({ singleBLogsData, blogSinglePageData, getAll
                                   height={500}
                                   alt={blog.featuredImage.node.altText}
                                   placeholder={true}
-                                  classes={'opacity-[0.9] grayscale-[0.7]'}
+                                  classes={`${theme === 'dark' && 'opacity-[0.9] grayscale-[0.7]'} block w-full`}
                                 />
                               )}
-                              <div className="px-[30px] pt-[10px] pb-[30px] grid gap-[10px]">
-                                <h2 className="mt-2 text-lg font-semibold">{blog.title}</h2>
+                              <div 
+                               className={`${theme === 'dark' ? 'gap-[10px] px-[30px] pt-[10px] pb-[30px] ' : 'gap-[16px] px-[34px] pt-[20px] pb-[40px]'} grid `}
+                             >
+                                <h2
+                                className={`${theme === 'dark' ? 'text-lg font-semibold' : 'text-[24px]'} mt-2`}
+                                >{blog.title}</h2>
                                 <div className="overflow-hidden">
                                   <p className="w-full block small">
                                     <TruncatedText text={blog && cleanHTML(blog.content)} maxLength={200} />

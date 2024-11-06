@@ -18,9 +18,13 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import Package from "@/components/Package";
 import ComparePackages from "@/components/PackageCompare";
+import { useThemeContext } from "@/context/themeContext";
+
 
 export default function Service({ servicePageData, allPackagesData }) {
   const router = useRouter();
+
+  const {theme} = useThemeContext()
 
   // Destructure data from servicePageData
   const pageData = servicePageData?.data?.pages?.nodes[0];
@@ -215,7 +219,7 @@ export default function Service({ servicePageData, allPackagesData }) {
         <Layout>
           <AOSInit />
           <div className="service-single">
-            <section className="hero-home bg-box flex items-center text-center pb-0">
+            <section className="hero-home bg-box flex items-center text-center !pb-0">
               <div className="container mx-auto">
                 <div className="grid gap-[30px]">
                   <HeroContent
@@ -245,11 +249,11 @@ export default function Service({ servicePageData, allPackagesData }) {
                           className="card card-lg item card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]">
                           <div className="flex-1 lg:order-1 order-2">
                             {key === 0 ? (
-                              <h1 className="heading-2 mb-[20px]">
+                              <h1 className="heading-3 mb-[20px]">
                                 {item?.title}
                               </h1>
                             ) : (
-                              <h2 className="heading-2 mb-[20px]">
+                              <h2 className="heading-3 mb-[20px]">
                                 {item?.title}
                               </h2>
                             )}
@@ -313,7 +317,7 @@ export default function Service({ servicePageData, allPackagesData }) {
                         </div>
                       ))}
                   </div>
-                  <div className="bottom-expand">
+                  <div className="bottom-expand ">
                     <span className="line-1"></span>
                     <button
                       className="btn btn-small relative z-1 whitespace-nowrap"
@@ -322,7 +326,9 @@ export default function Service({ servicePageData, allPackagesData }) {
                     </button>
                     <span className="line-2"></span>
                   </div>
-                  <ComparePackages data={packageData} />
+                 <div className="mt-[70px]">
+                 <ComparePackages data={packageData} />
+                 </div>
                 </div>
               </section>
             )}

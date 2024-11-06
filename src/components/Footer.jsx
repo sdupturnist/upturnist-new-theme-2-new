@@ -1,8 +1,7 @@
 import Link from "next/link";
-import BlurAnimation from "./BlurAnimation";
-import BackgroundAnimation from "./BackgroundAnimation";
 import FooterCta from "./FooterCta";
 import { ContactData } from "@/hooks/contactData";
+import { useThemeContext } from "@/context/themeContext";
 
 
 
@@ -10,6 +9,7 @@ export default function Footer({ initialData }) {
 
   const { dataContact } = ContactData(initialData);
 
+  const {theme} = useThemeContext()
 
 
 
@@ -25,7 +25,7 @@ export default function Footer({ initialData }) {
 
   return (
     <>
-      <footer className="footer bg-box">
+      <footer className={`${theme === 'dark' && 'bg-box'} footer`}>
     <div className="container">
           <div className="wrpr">
             <div className="inner-1">

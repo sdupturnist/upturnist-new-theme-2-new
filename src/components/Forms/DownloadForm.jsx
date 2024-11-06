@@ -8,6 +8,7 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import { useRouter } from 'next/navigation'
 import { useModalContext } from "@/context/modalContext";
+import { useThemeContext } from "@/context/themeContext";
 
 
 export default function DownloadForm({ data }) {
@@ -16,7 +17,7 @@ export default function DownloadForm({ data }) {
     const router = useRouter()
 
     const { setShowModal } = useModalContext()
-
+    const { theme } = useThemeContext();
 
 
     const [name, setName] = useState('');
@@ -147,7 +148,9 @@ export default function DownloadForm({ data }) {
 
 
 
-            <div className="card card-effect rounded-[30px] sm:p-[40px] p-[24px]">
+            <div 
+             className={theme === 'dark' ? 'card card-effect rounded-[30px] sm:p-[40px] p-[24px]' : null}
+            >
                 <div className="lg:flex">
                     <Images
                         imageurl={'https://admin.upturnist.com/wp-content/uploads/2024/02/download-725x1024.webp'}

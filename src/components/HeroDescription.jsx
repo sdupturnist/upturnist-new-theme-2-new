@@ -18,7 +18,7 @@ export default function HeroDescription({
           <AnimatedTextCharacter text={animatedHeading && animatedHeading} />
         </span>
       </span>
-      {desc && (
+      {desc  && (
         <p
           data-aos="fade-up"
           data-delay="500"
@@ -28,17 +28,17 @@ export default function HeroDescription({
           dangerouslySetInnerHTML={{ __html: desc && desc }}
         />
       )}
-      <div className="mt-3 flex items-center">
-        {modalAction && (
+      {modalAction && <div className="mt-3 flex items-center">
+        
           <Button
             size="normal"
             label="Let's start"
             icon={true}
             action={modalAction}
-            classes={`${theme === "light" ? null : "mx-auto"}`}
+            classes={`${theme === "light" ? 'lg:m-0 mx-auto' : "mx-auto"}`}
           />
-        )}
-      </div>
+        
+      </div>}
     </>
   );
 }

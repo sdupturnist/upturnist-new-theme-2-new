@@ -2,7 +2,7 @@
 import Button from "@/components/Buttons";
 import { useState } from 'react';
 
-const ReadMore = ({ children, linesToShow }) => {
+const ReadMore = ({ children, linesToShow, btnpos }) => {
     const [isReadMore, setIsReadMore] = useState(true);
 
     const toggleReadMore = () => {
@@ -38,7 +38,7 @@ const ReadMore = ({ children, linesToShow }) => {
                 label={isReadMore ? 'Read More' : 'Show Less'}
                 icon={false}
                 action={toggleReadMore}
-                classes="mt-[24px]"
+                classes={`${btnpos === 'center' ? 'mx-auto' : null} !mt-[24px]`}
             />
         </div>
     );

@@ -7,6 +7,8 @@ import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { useRouter } from 'next/navigation'
 import { useModalContext } from "@/context/modalContext";
+import { useThemeContext } from '@/context/themeContext';
+
 
 
 export default function ScheduleCallForm() {
@@ -14,6 +16,7 @@ export default function ScheduleCallForm() {
     const router = useRouter()
 
     const { setShowModal } = useModalContext()
+    const {theme} = useThemeContext()
 
     const formField = useRef(null);
     const timesRef = useRef(null);
@@ -217,8 +220,8 @@ export default function ScheduleCallForm() {
                                 disabled={disableDates}
                             />
                         </div>
-                        <div ref={timesRef} className={`${!timeBox ? 'hidden' : ''} w-full lg:border-l border-t border-[#fff] border-opacity-5`}>
-                            <div className="text-center text-[1rem] sm:p-[18px] p-3 border-b border-[#fff] border-opacity-5">
+                        <div ref={timesRef} className={`${!timeBox ? 'hidden' : ''} ${theme === 'dark' ? 'border-[#fff] border-opacity-5' : ''} w-full lg:border-l`}>
+                            <div className={`${theme === 'dark' ? 'border-[#fff] border-opacity-5' : ''} text-center text-[1rem] sm:p-[18px] p-3 border-b `}>
                                 <p className="m-0">Choose a time</p>
                             </div>
                             <div className="sm:p-10 p-5">
@@ -239,7 +242,9 @@ export default function ScheduleCallForm() {
                         </div>
                     </div>
                     <div className={`${!formBox ? 'hidden' : ''} w-full border-t border-[#fff] border-opacity-5`}>
-                        <div className="text-center text-[1rem] sm:p-[18px] p-3 border-b border-[#fff] border-opacity-5">
+                        <div
+                        className={`${theme === 'dark' ? 'border-[#fff] border-opacity-5' : 'border'} text-center text-[1rem] sm:p-[18px] p-3 border-b `}
+                    >
                             <p className="m-0">Contact Details</p>
                         </div>
                         <div className="sm:p-10 p-5">
@@ -285,7 +290,9 @@ export default function ScheduleCallForm() {
                                     name="message"
                                 ></textarea>
                                 <p>Your preferred mode of meeting</p>
-                                <div className="grid gap-5 w-full rounded-3 border-[#fff] border-opacity-5 border sm:p-5 p-4  bg-transparent rounded-md text-white">
+                                <div
+                                 className={`${theme === 'dark' ? 'border-[#fff] border-opacity-5 text-white' : 'border'} grid gap-5 w-full rounded-3  border sm:p-5 p-4  bg-transparent rounded-md `}
+                               >
                                     <div className="flex items-center">
                                         <input
                                             type="radio"

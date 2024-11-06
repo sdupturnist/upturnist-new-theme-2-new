@@ -10,6 +10,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useEffect, useRef } from "react";
 import Button from "@/components/Buttons";
+
 import {
   PortfolioSlider,
   HeroContent,
@@ -20,7 +21,7 @@ import Link from "next/link";
 import VideoPreview from "@/components/VideoPreview";
 import { useSiteContext } from "@/context/siteContext";
 import { useThemeContext } from "@/context/themeContext";
-import Video from "@/components/Video";
+import BackgroundAnimation from "@/components/BackgroundAnimation";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -90,22 +91,22 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-1");
+      // const section = document.querySelector(".section-1");
       const img = document.querySelector(".section-1 .image-box-");
 
-      gsap.set(section, { opacity: 0.2 });
+      //  gsap.set(section, { opacity: 0.2 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
 
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.set(img, { opacity: 0, rotate: 10 });
 
@@ -129,7 +130,7 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-2");
+      //  const section = document.querySelector(".section-2");
       const heading1 = document.querySelector(".section-2 .heading1");
       //  const heading2 = document.querySelector(".section-2 .heading2");
       const heading3 = document.querySelector(".section-2 .heading3");
@@ -224,22 +225,22 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-3");
+      //  const section = document.querySelector(".section-3");
       const img = document.querySelector(".section-3 .image-box-");
 
-      gsap.set(section, { opacity: 0.2 });
+      //   gsap.set(section, { opacity: 0.2 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
 
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.set(img, { opacity: 0, rotate: 10 });
 
@@ -263,22 +264,22 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-4");
+      // const section = document.querySelector(".section-4");
       const img = document.querySelector(".section-4 .image-box-");
 
-      gsap.set(section, { opacity: 0.2 });
+      //   gsap.set(section, { opacity: 0.2 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
 
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.set(img, { opacity: 0, rotate: -10 });
 
@@ -302,22 +303,22 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-5");
+      //  const section = document.querySelector(".section-5");
       const img = document.querySelector(".section-5 .image-box-");
 
-      gsap.set(section, { opacity: 0.2 });
+      // gsap.set(section, { opacity: 0.2 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
 
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.set(img, { opacity: 0, rotate: 10 });
 
@@ -379,11 +380,11 @@ export default function Home({
         },
       });
 
-      gsap.set(heading, {
-        position: "relative",
-        y: 0,
-        // filter: 'blur(5px)',
-      });
+      // gsap.set(heading, {
+      //   position: "relative",
+      //   y: 0,
+      //   // filter: 'blur(5px)',
+      // });
 
       gsap.to(heading, {
         position: "sticky",
@@ -403,27 +404,27 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-7");
+      //  const section = document.querySelector(".section-7");
       const cardIntroVideo = document.querySelector(
         ".section-7 .card-about-video"
       );
 
-      gsap.set(section, { opacity: 0.3 });
+      //   gsap.set(section, { opacity: 0.3 });
       gsap.set(cardIntroVideo, {
         rotation: 0,
         top: 0,
       });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.to(cardIntroVideo, {
         rotation: -10,
@@ -442,10 +443,10 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-8");
+      //   const section = document.querySelector(".section-8");
       const list = gsap.utils.toArray(".section-8 .col-wrpr li");
 
-      gsap.set(section, { opacity: 0.3 });
+      //  gsap.set(section, { opacity: 0.3 });
 
       // Set different initial rotation angles for each list item
       list.forEach((item, index) => {
@@ -456,16 +457,16 @@ export default function Home({
         });
       });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.to(list, {
         rotation: 0,
@@ -523,11 +524,11 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-10");
+      //  const section = document.querySelector(".section-10");
       const list = gsap.utils.toArray(".section-10 ul li");
       const heading = document.querySelector(".section-10 .heading-wrpr");
 
-      gsap.set(section, { opacity: 0.3 });
+      //   gsap.set(section, { opacity: 0.3 });
 
       // Set different initial rotation angles for each list item
       list.forEach((item, index) => {
@@ -538,16 +539,16 @@ export default function Home({
         });
       });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.to(list, {
         rotation: 0,
@@ -585,22 +586,22 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-11");
+      //     const section = document.querySelector(".section-11");
       const img = document.querySelector(".section-11 .image-box-");
 
-      gsap.set(section, { opacity: 0.2 });
+      //  gsap.set(section, { opacity: 0.2 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
 
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.set(img, { opacity: 0, rotate: -10 });
 
@@ -624,21 +625,21 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-12");
+      //  const section = document.querySelector(".section-12");
       const workWrpr = document.querySelector(".section-12 .work-wrpr");
 
-      gsap.set(section, { opacity: 0.3 });
+      //  gsap.set(section, { opacity: 0.3 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.set(workWrpr, {
         opacity: 0.3,
@@ -663,21 +664,21 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-13");
+      //  const section = document.querySelector(".section-13");
       const faqWrpr = document.querySelector(".section-13 .faq-wrpr");
 
-      gsap.set(section, { opacity: 0.3 });
+      //   gsap.set(section, { opacity: 0.3 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.set(faqWrpr, { opacity: 0.3, filter: "blur(5px) grayscale(1)" });
 
@@ -698,21 +699,21 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-14");
+      //   const section = document.querySelector(".section-14");
       const reviewWrpr = document.querySelector(".section-14 .reviews-wrpr");
 
-      gsap.set(section, { opacity: 0.3 });
+      //  gsap.set(section, { opacity: 0.3 });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.set(reviewWrpr, { opacity: 0.3 });
 
@@ -733,11 +734,11 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-services-1");
+      // const section = document.querySelector(".section-services-1");
       const list = gsap.utils.toArray(".section-services-1 ul li");
       const heading = document.querySelector(".section-services-1 .heading-2");
 
-      gsap.set(section, { opacity: 0.3 });
+      //   gsap.set(section, { opacity: 0.3 });
 
       // Set different initial rotation angles for each list item
       list.forEach((item, index) => {
@@ -748,16 +749,16 @@ export default function Home({
         });
       });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.to(list, {
         rotation: 0,
@@ -772,11 +773,11 @@ export default function Home({
         },
       });
 
-      gsap.set(heading, {
-        //  filter: "blur(5px)",
-        opacity: 0.5,
-        // filter: 'blur(5px)',
-      });
+      // gsap.set(heading, {
+      //   //  filter: "blur(5px)",
+      //   opacity: 0.5,
+      //   // filter: 'blur(5px)',
+      // });
 
       gsap.to(heading, {
         // filter: "blur(0px)",
@@ -796,11 +797,11 @@ export default function Home({
 
   useGSAP(
     () => {
-      const section = document.querySelector(".section-services-2");
+      // const section = document.querySelector(".section-services-2");
       const list = gsap.utils.toArray(".section-services-2 ul li");
       const heading = document.querySelector(".section-services-2 .heading-2");
 
-      gsap.set(section, { opacity: 0.3 });
+      //  gsap.set(section, { opacity: 0.3 });
 
       // Set different initial rotation angles for each list item
       list.forEach((item, index) => {
@@ -811,16 +812,16 @@ export default function Home({
         });
       });
 
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
+      // gsap.to(section, {
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top center",
+      //     end: "bottom center",
+      //     scrub: 1,
+      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
+      //   },
+      // });
 
       gsap.to(list, {
         rotation: 0,
@@ -835,11 +836,11 @@ export default function Home({
         },
       });
 
-      gsap.set(heading, {
-        //filter: "blur(5px)",
-        opacity: 0.5,
-        // filter: 'blur(5px)',
-      });
+      // gsap.set(heading, {
+      //   //filter: "blur(5px)",
+      //   opacity: 0.5,
+      //   // filter: 'blur(5px)',
+      // });
 
       gsap.to(heading, {
         //filter: "blur(0px)",
@@ -912,7 +913,7 @@ export default function Home({
         <section
           className={`${
             theme === "light"
-              ? "bg-black lg:text-start rounded-[15px] text-center items-center text-white sm:p-[100px] p-[50px] mt-[20px] min-h-[90vh]"
+              ? "bg-black lg:text-start rounded-[15px] text-center items-center text-white sm:p-[100px] p-[30px] mt-[5px] min-h-[80vh]"
               : "bg-box text-center items-center min-h-screen pt-0"
           } hero-home flex overflow-hidden  pb-[50px]`}
           ref={hero}>
@@ -922,7 +923,7 @@ export default function Home({
             }  mx-auto z-10 relative`}>
             <div
               className={`${
-                theme === "light" ? "lg:max-w-[80%]" : null
+                theme === "light" ? "lg:max-w-[78%]" : null
               } grid gap-[30px]`}>
               <HeroContent
                 title={pageData && pageData.heroTitle}
@@ -933,7 +934,7 @@ export default function Home({
             </div>
           </div>
           {theme === "light" && (
-            <div className="video-wrpr">
+            <div className="video-wrpr rounded-[15px] overflow-hidden">
               <video
                 className="video-player"
                 width="320"
@@ -942,7 +943,13 @@ export default function Home({
                 loop
                 muted
                 playsInline>
-                <source src="/videos/hero.mp4" type="video/mp4" />
+                <source
+                  src={
+                    pageData &&
+                    homePageData?.data?.pages?.nodes[0]?.pages?.heroVideo
+                  }
+                  type="video/mp4"
+                />
                 <track
                   src="/path/to/captions.vtt"
                   kind="subtitles"
@@ -991,16 +998,14 @@ export default function Home({
                   <div className="line"></div>
                   <Images
                     imageurl={
-                      "http://localhost:3000/_next/image/?url=https%3A%2F%2Fdemo.upturnist.com%2Fwp-content%2Fuploads%2F2024%2F10%2F7ec7dc34-4be3-4c95-9f3b-ef1dfeb364cb-ezgif.com-video-to-webp-converter.webp&w=640&q=80"
+                      pageData.aboutDescription &&
+                      pageData?.aboutImageDark?.node?.sourceUrl
                     }
                     styles={""}
-                    quality={80}
+                    quality={100}
                     width={"600"}
                     height={"550"}
-                    alt={
-                      pageData.seoVisibilityReportImage.node.altText &&
-                      pageData.seoVisibilityReportImage.node.altText
-                    }
+                    alt={pageData?.aboutImageDark?.node?.altText || "Upturnist"}
                     placeholder={true}
                     classes={"block w-full"}
                   />
@@ -1008,18 +1013,18 @@ export default function Home({
               ) : (
                 <Images
                   imageurl={
-                    "https://img.freepik.com/free-photo/man-suit-standing-office-holding-takeaway-coffee-using-smartphone_1098-17122.jpg?t=st=1730815854~exp=1730819454~hmac=e6fd2b1c1f8af60e5daa34305e5169572e8a06b4dcd0b31773af7aaa882de09a&w=1380"
+                    pageData.aboutDescription &&
+                    pageData?.aboutImageLight?.node?.sourceUrl
                   }
                   styles={""}
                   quality={100}
                   width={"1700"}
                   height={"1000"}
-                  alt={
-                    pageData.seoVisibilityReportImage.node.altText &&
-                    pageData.seoVisibilityReportImage.node.altText
-                  }
+                  alt={pageData?.aboutImageDark?.node?.altText || "Upturnist"}
                   placeholder={true}
-                  classes={"block w-full rounded-[15px] h-[70vh] object-cover"}
+                  classes={
+                    "block w-full rounded-[15px] sm:h-[70vh] object-cover"
+                  }
                 />
               )}
             </div>
@@ -1038,7 +1043,9 @@ export default function Home({
                   return (
                     <li
                       key={key}
-                      className="card p-[40px] rounded-[30px] w-full min-h-[150px]">
+                      className={`${
+                        theme === "dark" ? "rounded-[30px]" : "rounded-[16px]"
+                      } card p-[40px] w-full min-h-[150px]`}>
                       {item?.acf?.icon && (
                         <div className="icon mb-[20px]">
                           {item?.acf?.icon && (
@@ -1085,7 +1092,9 @@ export default function Home({
                   return (
                     <li
                       key={key}
-                      className="card p-[40px] rounded-[30px] w-full min-h-[150px]">
+                      className={`${
+                        theme === "dark" ? "rounded-[30px]" : "rounded-[16px]"
+                      } card p-[40px] w-full min-h-[150px]`}>
                       {item?.acf?.icon && (
                         <div className="icon mb-[20px]">
                           <Images
@@ -1120,7 +1129,9 @@ export default function Home({
 
         <section
           className={`${
-            theme === "light" ? "bg-black rounded-[15px] text-white" : "bg-box"
+            theme === "light"
+              ? "bg-black rounded-[15px] text-white sm:pb-[100px] pb-[24px]"
+              : "bg-box"
           } section-2 relative flex items-center text-center xl:min-h-screen overflow-hidden`}
           ref={section2_1}>
           <div className="container lg:block grid gap-[50px] relative z-10">
@@ -1160,7 +1171,7 @@ export default function Home({
             <div
               className={`${
                 theme === "light"
-                  ? "card rounded-[15px] text-white"
+                  ? "card !rounded-[15px] text-white"
                   : "card card-lg"
               } sm:p-[80px] p-[40px] rounded-[30px] lg:px-[180px] lg:py-[100px]`}>
               <div className="heading4 grid gap-[20px]">
@@ -1193,7 +1204,10 @@ export default function Home({
             </div>
           </div>
           {theme === "light" && (
-            <div className="animation-wrapper absolute inset-0"></div>
+           <>
+            <BackgroundAnimation/>
+            {/* <div className="animation-wrapper absolute inset-0"></div> */}
+           </>
           )}
         </section>
 
@@ -1264,18 +1278,21 @@ export default function Home({
               ) : (
                 <Images
                   imageurl={
-                    "https://img.freepik.com/free-photo/low-angle-lawyer-talking-phone_23-2148230746.jpg?t=st=1730809245~exp=1730812845~hmac=c6e09ca0138aeba1cb214ca8c305a8d742786a84c48e89a1d0b929b8ee4d5e91&w=1380"
+                    pageData.aboutDescription &&
+                    pageData?.seoVisibilityReportImageLight?.node?.sourceUrl
                   }
                   styles={""}
                   quality={100}
                   width={"1700"}
                   height={"1000"}
                   alt={
-                    pageData.seoVisibilityReportImage.node.altText &&
-                    pageData.seoVisibilityReportImage.node.altText
+                    pageData?.seoVisibilityReportImageLight?.node?.altText ||
+                    "Upturnist"
                   }
                   placeholder={true}
-                  classes={"block w-full rounded-[15px] h-[70vh] object-cover"}
+                  classes={
+                    "block w-full rounded-[15px] sm:h-[70vh] object-cover"
+                  }
                 />
               )}
             </div>
@@ -1336,18 +1353,20 @@ export default function Home({
               ) : (
                 <Images
                   imageurl={
-                    "https://img.freepik.com/free-photo/young-happy-entrepreneur-working-laptop-while-relaxing-outdoor-cafe_637285-3439.jpg?t=st=1730809496~exp=1730813096~hmac=73d30452fc52770cb8f974038501b5cc14753abf2387e7d48c5e645fbb08dd79&w=1380"
+                    pageData.aboutDescription &&
+                    pageData?.specialzeImageLight?.node?.sourceUrl
                   }
                   styles={""}
                   quality={100}
                   width={"1700"}
                   height={"1000"}
                   alt={
-                    pageData.seoVisibilityReportImage.node.altText &&
-                    pageData.seoVisibilityReportImage.node.altText
+                    pageData?.specialzeImageLight?.node?.altText || "Upturnist"
                   }
                   placeholder={true}
-                  classes={"block w-full rounded-[15px] h-[70vh] object-cover"}
+                  classes={
+                    "block w-full rounded-[15px] sm:h-[70vh] object-cover"
+                  }
                 />
               )}
             </div>
@@ -1409,18 +1428,20 @@ export default function Home({
               ) : (
                 <Images
                   imageurl={
-                    "https://img.freepik.com/free-photo/arabian-woman-hijab-inside-cafe-working-laptop_1303-14192.jpg?t=st=1730809616~exp=1730813216~hmac=3e15cb7ad92093af6f4dcfb8d5dd9eb19f24694dbd607e188f8425cc8c54e092&w=1380"
+                    pageData.aboutDescription &&
+                    pageData?.services1ImageLight?.node?.sourceUrl
                   }
                   styles={""}
                   quality={100}
                   width={"1700"}
                   height={"1000"}
                   alt={
-                    pageData.seoVisibilityReportImage.node.altText &&
-                    pageData.seoVisibilityReportImage.node.altText
+                    pageData?.services1ImageLight?.node?.altText || "Upturnist"
                   }
                   placeholder={true}
-                  classes={"block w-full rounded-[15px] h-[70vh] object-cover"}
+                  classes={
+                    "block w-full rounded-[15px] sm:h-[70vh] object-cover"
+                  }
                 />
               )}
             </div>
@@ -1429,7 +1450,9 @@ export default function Home({
 
         <section
           className={`${
-            theme === "light" ? "bg-black rounded-[15px] text-white" : null
+            theme === "light"
+              ? "bg-black rounded-[15px] text-white sm:pb-[100px] pb-[24px]"
+              : null
           } relative section-6 overflow-hidden`}
           ref={section6}>
           <div className="container grid gap-[70px] relative z-10">
@@ -1440,13 +1463,18 @@ export default function Home({
             </div>
 
             <div>
-              <ul className="grid md:grid-cols-2 gap-[50px] col-wrpr">
+              <ul
+                className={`${
+                  theme === "light" ? "sm:gap-[50px] gap-[24px]" : "gap-[50px]"
+                } grid md:grid-cols-2 col-wrpr`}>
                 {serviceListHomeData_ &&
                   _servicesHome.map((item, key) => {
                     return (
                       <li
                         key={key}
-                        className="card card-effect p-[40px] rounded-[30px]">
+                        className={`${
+                          theme === "dark" ? "rounded-[30px]" : "rounded-[16px]"
+                        } card card-effect p-[40px]`}>
                         {item?.featuredImage?.node?.sourceUrl && (
                           <div className="icon mb-[20px]">
                             <Images
@@ -1474,30 +1502,40 @@ export default function Home({
             </div>
           </div>
           {theme === "light" && (
-           <div className="animation-wrapper absolute inset-0"></div>
+            <>
+             <BackgroundAnimation/>
+             {/* <div className="animation-wrapper absolute inset-0"></div> */}
+            </>
+           
           )}
         </section>
 
-        <section 
+        <section
           className={`${
-            theme === "light" ? 'min-h-[80vh] flex items-center' : null
-          }  section-7`}
+            theme === "light" ? "min-h-[80vh] flex items-center" : null
+          }  section-7 overflow-hidden relative`}
           ref={section7}>
           <div className="container">
-            <div 
-             className={`${
-              theme === "light" ? 'mx-auto max-w-[80%]' : 'card card-lg card-effect rounded-[30px] sm:rounded-[60px] sm:p-[80px] p-[30px] sm:pb-[90px] border-opacity-15 '
-            }  flex flex-col lg:flex-row gap-[50px]`}
-            >
-             {theme === "dark" && <VideoPreview theme="dark" data={_videosData} />}
-             {theme === "light" && <VideoPreview theme="light" data={_videosData} />}
+            <div
+              className={`${
+                theme === "light"
+                  ? "mx-auto lg:max-w-[80%] w-full"
+                  : "card card-lg card-effect rounded-[30px] sm:rounded-[60px] sm:p-[80px] p-[30px] sm:pb-[90px] border-opacity-15 "
+              }  flex flex-col lg:flex-row gap-[50px]`}>
+              {theme === "dark" && (
+                <VideoPreview theme="dark" data={_videosData} />
+              )}
+              {theme === "light" && (
+                <VideoPreview theme="light" data={_videosData} />
+              )}
               <div className="flex-1 grid gap-[24px] items-center">
                 <div className="grid gap-[30px]">
                   <h3
-                   className={`${
-                    theme === "light" ? 'sm:text-[2vw] text-[24px]' : 'heading-3'
-                  }`}
-                  >
+                    className={`${
+                      theme === "light"
+                        ? "sm:text-[2vw] text-[24px]"
+                        : "heading-3"
+                    }`}>
                     {pageData.downloadHeading && pageData.downloadHeading}
                   </h3>
                   <div>
@@ -1514,7 +1552,9 @@ export default function Home({
           </div>
         </section>
 
-        <section className="bg-box section-8" ref={section8}>
+        <section
+          className={`${theme === "dark" && "bg-box"} section-8`}
+          ref={section8}>
           <div className="container gap-[70px] grid">
             <h3 className="heading-3 text-center">
               {pageData.servicesListHeading && pageData.servicesListHeading}
@@ -1523,7 +1563,11 @@ export default function Home({
               {_moreServicesData &&
                 _moreServicesData.map((service, key) => {
                   return (
-                    <li key={key} className="card p-[40px] rounded-[30px] ">
+                    <li
+                      key={key}
+                      className={`${
+                        theme === "dark" ? "rounded-[30px]" : "rounded-[16px]"
+                      } card p-[40px]`}>
                       {service?.featuredImage?.node?.sourceUrl && (
                         <div className="icon mb-[20px]">
                           <Images
@@ -1557,7 +1601,7 @@ export default function Home({
         <section
           className={`${
             theme === "light"
-              ? "bg-black lg:text-start rounded-[15px] text-center items-center text-white sm:p-[100px] p-[50px] overflow-hidden min-h-[90vh]"
+              ? "bg-black  rounded-[15px] text-center items-center text-white sm:p-[100px] p-[20px] overflow-hidden sm:min-h-[90vh]"
               : null
           } relative grid items-center section-9`}
           ref={section9}>
@@ -1572,10 +1616,9 @@ export default function Home({
                 <h2 className="heading-3 mb-[20px]">
                   {pageData.about2Heading && pageData.about2Heading}
                 </h2>
-                <ReadMore maxLength={500}>
+                <ReadMore btnpos="center" maxLength={500}>
                   {pageData.about2Description && pageData.about2Description}
                 </ReadMore>
-                <div></div>
               </div>
 
               {/* https://www.freepik.com/free-video/young-female-customer-meeting-with-financial-advisor_474247#fromView=search&page=1&position=46&uuid=4994f2e0-44fa-42a7-a83c-c6025a0840d2 */}
@@ -1612,7 +1655,13 @@ export default function Home({
                 loop
                 muted
                 playsInline>
-                <source src="/videos/hero.mp4" type="video/mp4" />
+                <source
+                  src={
+                    pageData &&
+                    homePageData?.data?.pages?.nodes[0]?.pages?.heroVideo
+                  }
+                  type="video/mp4"
+                />
                 <track
                   src="/path/to/captions.vtt"
                   kind="subtitles"
@@ -1641,7 +1690,11 @@ export default function Home({
                 {_whoWeAreDatas &&
                   _whoWeAreDatas.map((item, key) => {
                     return (
-                      <li key={key} className="card p-[30px] rounded-[30px]">
+                      <li
+                        key={key}
+                        className={`${
+                          theme === "dark" ? "rounded-[30px]" : "rounded-[16px]"
+                        } card p-[30px] `}>
                         {item?.featuredImage?.node?.sourceUrl && (
                           <div className="icon mb-[20px]">
                             <Images
@@ -1722,25 +1775,27 @@ export default function Home({
               ) : (
                 <Images
                   imageurl={
-                    "https://img.freepik.com/free-photo/man-using-laptop-urban-environment_23-2147961589.jpg?t=st=1730809748~exp=1730813348~hmac=b587bd36091960098f2b8221b9f6b5fd64dfe95f09c2d8b89f7623258763d498&w=1380"
+                    pageData.aboutDescription &&
+                    pageData?.about2PhotoLight?.node?.sourceUrl
                   }
                   styles={""}
                   quality={100}
                   width={"1700"}
                   height={"1000"}
-                  alt={
-                    pageData.seoVisibilityReportImage.node.altText &&
-                    pageData.seoVisibilityReportImage.node.altText
-                  }
+                  alt={pageData?.about2PhotoLight?.node?.altText || "Upturnist"}
                   placeholder={true}
-                  classes={"block w-full rounded-[15px] h-[70vh] object-cover"}
+                  classes={
+                    "block w-full rounded-[15px] sm:h-[70vh] object-cover"
+                  }
                 />
               )}
             </div>
           </div>
         </section>
 
-        <section className="bg-box section-12  pb-0" ref={section12}>
+        <section
+          className={`${theme === "dark" && "bg-box"} section-12 pb-0`}
+          ref={section12}>
           <div className="container">
             <h3 className="heading-2 text-center sm:mb-[70px] mb-[30px]">
               {pageData.ourWorksHeading && pageData.ourWorksHeading}
@@ -1818,7 +1873,46 @@ export async function getStaticProps(context) {
       seoKeywords {
         seoKeywords
       }
+      pages{
+        heroVideo
+      }
       homePage {
+        aboutImageDark{
+          node{
+            altText
+            sourceUrl
+          }
+        }
+           aboutImageLight{
+          node{
+            altText
+            sourceUrl
+          }
+        }
+           seoVisibilityReportImageLight{
+          node{
+            altText
+            sourceUrl
+          }
+        }
+           specialzeImageLight{
+          node{
+            altText
+            sourceUrl
+          }
+        }
+        services1ImageLight{
+          node{
+            altText
+            sourceUrl
+          }
+        }
+           about2PhotoLight{
+          node{
+            altText
+            sourceUrl
+          }
+        }
         aboutBottom2
         aboutBottom2Content
         aboutBottom2
@@ -1838,6 +1932,7 @@ export async function getStaticProps(context) {
             sourceUrl
           }
         }
+        
         aboutCta1
         aboutCta1Desc
         aboutCta2

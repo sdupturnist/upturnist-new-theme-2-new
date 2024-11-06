@@ -4,13 +4,15 @@
 import { useModalContext } from '@/context/modalContext';
 import React, { useState, useEffect, useRef } from 'react';
 import Button from './Buttons';
-
+import { useThemeContext } from '@/context/themeContext';
+import { CheckBadgeIcon } from "@heroicons/react/24/outline";
 
 
 export default function Packages({ type, title, packages, content, viewMore }) {
 
 
     const { setModalFor, setShowModal, setModalData, setIsClassAdded } = useModalContext()
+    const {theme} = useThemeContext()
 
 
     const jsonArray = packages && JSON.parse(packages.features);
@@ -71,7 +73,7 @@ export default function Packages({ type, title, packages, content, viewMore }) {
             <ul className="list-unstyled box-package-">
                 <li className="item- card card-effect sm:rounded-[30px] text-start package_new relative  rounded-[30px] !border-b-0" data-package={title} ref={selectedPackageRef}>
 
-                    <div className="bg-box-package p-[30px] grid gap-[20px] sticky top-0  border !border-[#ffffff0d] transition-all rounded-[30px] rounded-b-none backdrop-blur-sm">
+                    <div className={`${theme === 'dark' ? 'backdrop-blur-sm border !border-[#ffffff0d]' : 'bg-white border-b'} bg-box-package p-[30px] grid gap-[20px] sticky top-0 transition-all rounded-[30px] rounded-b-none`}>
                         <div>
                             <h4 className="text-[24px]">{title}</h4>
                             <small className="block opacity-55">Package</small>
@@ -105,33 +107,9 @@ export default function Packages({ type, title, packages, content, viewMore }) {
                                         </p>
                                         <div className='item-flex'>
                                             {item.value !== 'x' ? (
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20">
-                                                    <g clipPath="url(#a)">
-                                                        <path
-                                                            stroke="url(#b)"
-                                                            d="M9.16.672a2.854 2.854 0 0 1 3.68 0l.495.425a2.86 2.86 0 0 0 1.605.66l.66.048A2.83 2.83 0 0 1 18.195 4.4l.047.66a2.86 2.86 0 0 0 .661 1.604l.425.496a2.854 2.854 0 0 1 0 3.68l-.425.495a2.86 2.86 0 0 0-.66 1.605l-.048.66a2.83 2.83 0 0 1-2.595 2.595l-.66.047a2.86 2.86 0 0 0-1.604.661l-.496.425a2.854 2.854 0 0 1-3.68 0l-.496-.425a2.86 2.86 0 0 0-1.604-.66l-.66-.048A2.83 2.83 0 0 1 3.805 13.6l-.047-.66a2.86 2.86 0 0 0-.661-1.604l-.425-.496a2.854 2.854 0 0 1 0-3.68l.425-.496a2.86 2.86 0 0 0 .66-1.604l.048-.66A2.83 2.83 0 0 1 6.4 1.805l.66-.047a2.86 2.86 0 0 0 1.604-.661L9.16.672Z"
-                                                            opacity=".2"
-                                                        />
-                                                        <path
-                                                            stroke="url(#c)"
-                                                            strokeLinecap="round"
-                                                            d="m9 9.785.756.939c.296.368.755.368 1.051 0L13 8"
-                                                        />
-                                                    </g>
-                                                    <defs>
-                                                        <linearGradient id="b" x1="11" x2="11" y1="0" y2="18" gradientUnits="userSpaceOnUse">
-                                                            <stop stopColor="#fff" stopOpacity=".75" />
-                                                            <stop offset="1" stopColor="#fff" stopOpacity=".5" />
-                                                        </linearGradient>
-                                                        <linearGradient id="c" x1="11" x2="11" y1="8" y2="11" gradientUnits="userSpaceOnUse">
-                                                            <stop stopColor="#fff" stopOpacity=".75" />
-                                                            <stop offset="1" stopColor="#fff" stopOpacity=".5" />
-                                                        </linearGradient>
-                                                        <clipPath id="a">
-                                                            <path fill="#fff" d="M.668 0h20v20h-20z" />
-                                                        </clipPath>
-                                                    </defs>
-                                                </svg>
+                                                <CheckBadgeIcon
+                                                className="max-w-4 max-h-4 min-w-4 min-h-4"
+                                                />
                                             ) : null}
                                         </div>
                                     </li>

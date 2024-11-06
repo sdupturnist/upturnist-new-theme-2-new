@@ -14,7 +14,8 @@ import PackageBookingForm from "./Forms/PackageBookingForm";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import BackgroundAnimation from "./BackgroundAnimation";
-import YouTube from 'react-youtube';
+import YouTube from "react-youtube";
+import { useThemeContext } from "@/context/themeContext";
 
 export default function Layout({ children, type }) {
   const {
@@ -25,6 +26,8 @@ export default function Layout({ children, type }) {
     modalFor,
     setIsClassAdded,
   } = useModalContext();
+
+  const { theme } = useThemeContext();
 
   //console.log(modalData[0])
 
@@ -67,21 +70,19 @@ export default function Layout({ children, type }) {
     setModalData([]);
   };
 
+  const opts = {
+    height: "500",
+    width: "100%",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1, // 1 for autoplay, 0 for no autoplay
+    },
+  };
 
-    const opts = {
-      height: '500',
-      width: '100%',
-      playerVars: {
-        // https://developers.google.com/youtube/player_parameters
-        autoplay: 1, // 1 for autoplay, 0 for no autoplay
-      },
-    };
-
-  
   return (
     <div>
       {/* <BackgroundAnimation /> */}
-      <div className="blob" ref={cursorRef}></div>
+      {theme === "dark" && <div className="blob" ref={cursorRef}></div>}
       {type == "landing-page" ? (
         <Header type="landing-page" />
       ) : (
@@ -96,19 +97,34 @@ export default function Layout({ children, type }) {
 
       {/* ALL POPUP MODALS START HERE */}
       {showModal && (
-        <div className="fixed top-0 left-0 right-0 bottom-0  z-[99] bg-body-blur overflow-auto items-center grid py-20">
+        <div
+          className={`${
+            theme === "dark" ? "bg-body-blur" : "bg-white"
+          } fixed top-0 left-0 right-0 bottom-0  z-[99]  overflow-auto items-center grid py-20`}>
           <button
             title="Close button"
             className="closeButton mb-10"
             onClick={closeModal}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="#dcf4ff"
-              viewBox="0 0 256 256">
-              <path d="M204.24,195.76a6,6,0,1,1-8.48,8.48L128,136.49,60.24,204.24a6,6,0,0,1-8.48-8.48L119.51,128,51.76,60.24a6,6,0,0,1,8.48-8.48L128,119.51l67.76-67.75a6,6,0,0,1,8.48,8.48L136.49,128Z"></path>
-            </svg>
+            {theme === "light" && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="black"
+                viewBox="0 0 256 256">
+                <path d="M204.24,195.76a6,6,0,1,1-8.48,8.48L128,136.49,60.24,204.24a6,6,0,0,1-8.48-8.48L119.51,128,51.76,60.24a6,6,0,0,1,8.48-8.48L128,119.51l67.76-67.75a6,6,0,0,1,8.48,8.48L136.49,128Z"></path>
+              </svg>
+            )}
+            {theme === "dark" && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="#dcf4ff"
+                viewBox="0 0 256 256">
+                <path d="M204.24,195.76a6,6,0,1,1-8.48,8.48L128,136.49,60.24,204.24a6,6,0,0,1-8.48-8.48L119.51,128,51.76,60.24a6,6,0,0,1,8.48-8.48L128,119.51l67.76-67.75a6,6,0,0,1,8.48,8.48L136.49,128Z"></path>
+              </svg>
+            )}
           </button>
 
           {/* MODAL WORKS START*/}
@@ -227,12 +243,11 @@ export default function Layout({ children, type }) {
           ) : null}
           {/* MODAL PACKAGE END*/}
 
-
-             {/* MODAL VIDEO START*/}
-             {modalFor == "video" ? (
+          {/* MODAL VIDEO START*/}
+          {modalFor == "video" ? (
             <div className="container py-10">
               <div className="md:w-2/3 mx-auto">
-              <YouTube videoId={modalData} opts={opts}  />
+                <YouTube videoId={modalData} opts={opts} />
               </div>
             </div>
           ) : null}

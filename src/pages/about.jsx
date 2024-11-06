@@ -14,6 +14,7 @@ import { useRef } from "react";
 import ReadMore from "@/components/ReadMore";
 import Timeline from "@/components/TimeLine";
 import VideosSlider from "@/components/VideosSlider";
+import { useThemeContext } from "@/context/themeContext";
 
 export default function WhoWeAre({
   aboutPageData,
@@ -29,6 +30,8 @@ export default function WhoWeAre({
   const _teamsData = teamsData?.data?.teams?.nodes;
   const _timelineData = timelineData?.data?.allTimeLine?.nodes;
   const _videosData = videosData?.data?.allVideos?.nodes;
+
+  const { theme } = useThemeContext();
 
   const section1 = useRef();
   const section2 = useRef();
@@ -105,7 +108,7 @@ export default function WhoWeAre({
     () => {
       const section = document.querySelector(".section-2");
 
-     // gsap.set(section, { opacity: 0.2 });
+      // gsap.set(section, { opacity: 0.2 });
 
       // gsap.to(section, {
       //   opacity: 1,
@@ -345,13 +348,21 @@ export default function WhoWeAre({
       <Metatags data={aboutPageData} />
       <Layout>
         <AOSInit />
+
         <PageHeading
           heading={pageData.title && pageData.title}
           subHeading={pageData.pages.subHeading && pageData.pages.subHeading}
+          banner={
+            aboutPageData &&
+            aboutPageData?.data?.pages?.nodes[0]?.pages?.heroBanner?.node
+              ?.sourceUrl
+          }
         />
 
         <section
-          className="section-1 bg-box flex items-center sm:mt-[-100px] text-center  overflow-hidden "
+          className={`${
+            theme === "dark" && "bg-box"
+          } section-1 flex items-center sm:mt-[-100px] text-center overflow-hidden`}
           ref={section1}>
           <div className="container mx-auto">
             <div className="grid gap-[5px] sm:max-w-[70%] mx-auto">
@@ -559,26 +570,27 @@ export default function WhoWeAre({
                       <div
                         key={key}
                         className="card sm:p-[60px] p-[40px] rounded-[30px]">
-                          {team.featuredImage && (
-                            <Images
-                              imageurl={
-                                team.featuredImage.node.sourceUrl &&
-                                team.featuredImage.node.sourceUrl
-                              }
-                              styles={""}
-                              quality={80}
-                              width={"150"}
-                              height={"150"}
-                              alt={
-                                team.featuredImage.node.altText &&
-                                team.featuredImage.node.altText
-                              }
-                              placeholder={true}
-                              classes={"block size-[100px] rounded-full object-cover mb-[30px] grayscale-[0.6] opacity-[0.8]"}
-                            />
+                        {team.featuredImage && (
+                          <Images
+                            imageurl={
+                              team.featuredImage.node.sourceUrl &&
+                              team.featuredImage.node.sourceUrl
+                            }
+                            styles={""}
+                            quality={80}
+                            width={"150"}
+                            height={"150"}
+                            alt={
+                              team.featuredImage.node.altText &&
+                              team.featuredImage.node.altText
+                            }
+                            placeholder={true}
+                            classes={
+                              "block size-[100px] rounded-full object-cover mb-[30px] grayscale-[0.6] opacity-[0.8]"
+                            }
+                          />
                         )}
-                        <div
-                          className={`flex-1`}>
+                        <div className={`flex-1`}>
                           <h2 className="sub-heading">{team.title}</h2>
                           <p className="mb-[20px]">{team.teamAcf.position}</p>
                           <div
@@ -602,7 +614,6 @@ export default function WhoWeAre({
                           </div>
                           <div></div>
                         </div>
-                        
                       </div>
                     );
                   })}
@@ -630,6 +641,15 @@ export async function getStaticProps(context) {
   pages(where: {id: 798}) {
     nodes {
       title
+      pages{
+        heroBanner{
+          node{
+            altText
+            sourceUrl
+          }
+        }
+        heroVideo
+      }
       seo {
         canonical
         focuskw

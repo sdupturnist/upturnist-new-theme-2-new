@@ -61,7 +61,7 @@ export default function VideoPreview({ data, type, classes, desc, theme }) {
       </div> :
 
 <div 
-className="max-w-[450px]"
+className="lg:max-w-[450px] w-[100%]"
 >
 <Images
   imageurl={

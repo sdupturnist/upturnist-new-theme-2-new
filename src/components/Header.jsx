@@ -10,8 +10,8 @@ import { useState, useEffect, use } from "react";
 import { useThemeContext } from "@/context/themeContext";
 import { frontendUrl } from "@/utils/variables";
 import Button from "./Buttons";
-import BackgroundAnimation from "./BackgroundAnimation";
 import { useSiteContext } from "@/context/siteContext";
+import { MoonIcon, SunIcon, Bars2Icon } from "@heroicons/react/24/outline";
 
 function Nav({ initialData, type }) {
   const { setModalFor, setShowModal } = useModalContext();
@@ -209,27 +209,38 @@ function Nav({ initialData, type }) {
         className="sticky "
         variants={headerVariants}
         animate={hidden ? "hidden" : "visible"}>
-        <header className={`header `}>
+        <header className={`${theme === "light" ? "bg-white" : null} header`}>
           <div className="sm:px-8 px-4">
             <div className="inner---">
               {/* {theme} */}
+              {theme === 'dark' ?
               <Logo
                 url={`${frontendUrl}/images/upturnist-logo.webp`}
                 alt="digital marketing expert in Dubai_upturnist_logo"
                 logoTitle="digital marketing expert in Dubai_upturnist_logo"
                 for_page={type}
               />
+              :
+              <Logo
+              url={`${frontendUrl}/images/upturnist-logo-2.webp`}
+              alt="digital marketing expert in Dubai_upturnist_logo"
+              logoTitle="digital marketing expert in Dubai_upturnist_logo"
+              for_page={type}
+            />
+              }
               <div className="wrpr--nav-1">
-              <div 
-             className={`btn-sc`} >
-                <button className='cursor-pointer' onClick={toggleTheme}>
-                {theme !== 'light' ?
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg>
-                :
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000000" viewBox="0 0 256 256"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm8,24a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path></svg>
+                <div className={`btn-sc`}>
+                  <button
+                    className="cursor-pointer size-[60px] !p-0"
+                    onClick={toggleTheme}>
+                    {theme === "dark" && (
+                      <SunIcon className="max-w-5 max-h-5 min-w-5 min-h-5" />
+                    )}
 
-                }
-                </button>
+                    {theme === "light" && (
+                      <MoonIcon className="max-w-5 max-h-5 min-w-5 min-h-5" />
+                    )}
+                  </button>
                 </div>
                 {type == "normal" ? (
                   <>
@@ -241,28 +252,46 @@ function Nav({ initialData, type }) {
                         action={openCallBackModal}
                       />
                     </div>
-                    <Button
-                      size="normal"
-                      label="Open Menu"
-                      icon={true}
-                      showLabel={false}
-                      customIcon={`<svg className="cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 26 10">
+                    {theme === "dark" && (
+                      <Button
+                        size="normal"
+                        label="Open Menu"
+                        icon={true}
+                        showLabel={false}
+                        customIcon={`<svg className="cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 26 10">
                       <g id="Group 12" stroke="#DCF4FF" strokeLinecap="round" strokeWidth="2">
                         <path id="Line 2" d="M7 1.346h18" />
                         <path id="Line 3" d="M1 8.346h17" />
                       </g>
                     </svg>`}
-                      action={() => setOpen(!isOpen)}
-                      classes="!p-0"
-                    />
+                        action={() => setOpen(!isOpen)}
+                        classes="!p-0"
+                      />
+                    )}
+                    {theme === "light" && (
+                      <Button
+                        size="normal"
+                        label="Open Menu"
+                        icon={true}
+                        showLabel={false}
+                        customIcon={`<svg className="cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 26 10">
+                      <g id="Group 12" stroke="#000" strokeLinecap="round" strokeWidth="2">
+                        <path id="Line 2" d="M7 1.346h18" />
+                        <path id="Line 3" d="M1 8.346h17" />
+                      </g>
+                    </svg>`}
+                        action={() => setOpen(!isOpen)}
+                        classes="!p-0"
+                      />
+                    )}
                   </>
                 ) : (
                   <Button
-                  size="normal"
-                  label="Schedule a Call"
-                  icon={false}
-                  action={openCallBackModal}
-                />
+                    size="normal"
+                    label="Schedule a Call"
+                    icon={false}
+                    action={openCallBackModal}
+                  />
                 )}
               </div>
             </div>
@@ -272,20 +301,35 @@ function Nav({ initialData, type }) {
       {/* HEADER END */}
       {/* MOBILE MENU */}
       <div className={`header-nav-wrpr  ${isOpen ? "show-nav" : "hidden-nav"}`}>
-        <div className="wrpr backdrop-blur-xl">
+        <div
+          className={`${
+            theme === "dark" ? "backdrop-blur-xl" : "bg-white"
+          } wrpr`}>
           <button
             title="Close Menu"
             aria-label="Close Menu"
             className="closeButton mb-10"
             onClick={() => setOpen(!isOpen)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="#dcf4ff"
-              viewBox="0 0 256 256">
-              <path d="M204.24,195.76a6,6,0,1,1-8.48,8.48L128,136.49,60.24,204.24a6,6,0,0,1-8.48-8.48L119.51,128,51.76,60.24a6,6,0,0,1,8.48-8.48L128,119.51l67.76-67.75a6,6,0,0,1,8.48,8.48L136.49,128Z"></path>
-            </svg>
+            {theme === "light" && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="black"
+                viewBox="0 0 256 256">
+                <path d="M204.24,195.76a6,6,0,1,1-8.48,8.48L128,136.49,60.24,204.24a6,6,0,0,1-8.48-8.48L119.51,128,51.76,60.24a6,6,0,0,1,8.48-8.48L128,119.51l67.76-67.75a6,6,0,0,1,8.48,8.48L136.49,128Z"></path>
+              </svg>
+            )}
+            {theme === "dark" && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="#dcf4ff"
+                viewBox="0 0 256 256">
+                <path d="M204.24,195.76a6,6,0,1,1-8.48,8.48L128,136.49,60.24,204.24a6,6,0,0,1-8.48-8.48L119.51,128,51.76,60.24a6,6,0,0,1,8.48-8.48L128,119.51l67.76-67.75a6,6,0,0,1,8.48,8.48L136.49,128Z"></path>
+              </svg>
+            )}
           </button>
           <div className="nav-wrpr--">
             <div className="col- grid gap-[10px]">

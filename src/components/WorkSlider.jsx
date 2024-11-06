@@ -7,9 +7,12 @@ import 'swiper/css/autoplay';
 import { EffectCoverflow, Navigation, Autoplay } from 'swiper/modules';
 import { useModalContext } from '@/context/modalContext'; // Assuming you have a modal context defined
 import Images from './Images';
+import { useThemeContext } from '@/context/themeContext';
+
 
 export default function ThreeDSlider(props) {
     const { setModalData, setShowModal, setModalFor } = useModalContext();
+    const {theme} = useThemeContext()
     const swiperRef = useRef(null); // Reference for Swiper instance
 
     const openModal = (item) => {
@@ -65,17 +68,17 @@ export default function ThreeDSlider(props) {
             >
                 {props.data && props.data.data.works.nodes.map((item, index) => (
                     <SwiperSlide key={index}>
-                        <div className="card rounded-[30px] overflow-hidden" onClick={() => openModal(item)}>
+                        <div className={`${theme === 'dark' ? 'rounded-[30px]' : 'rounded-[20px]'} card overflow-hidden`} onClick={() => openModal(item)}>
                             <Images
                                 src={item.featuredImage.node.sourceUrl}
                                 imageurl={item.featuredImage.node.sourceUrl}
                                 styles={''}
                                 quality={100}
-                                width={'250'}
-                                height={'250'}
+                                width={theme === 'dark' ? '250' : '280'}
+                                height={theme === 'dark' ? '250' : '280'}
                                 alt={item.featuredImage.node.altText}
                                 placeholder={false}
-                                classes={'block w-full object-cover h-[250px]'}
+                                classes={`${theme === 'dark' ? 'h-[250px]' : 'block w-full object-cover h-[280px]'} block w-full object-cover `}
                                 onLoad={openModal}
                             />
                             <span className='hidden'>{item.title}</span>
