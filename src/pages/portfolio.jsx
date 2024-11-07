@@ -84,58 +84,14 @@ export default function Works({ worksPageData, worksDatas }) {
           heading={pageData.title && pageData.title}
           subHeading={pageData.pages.subHeading && pageData.pages.subHeading}
         />
-
-        <section
-          className="section-1 bg-box flex items-center sm:mt-[-100px] text-center"
+  <section
+          className="section-1 bg-box flex items-center sm:mt-[-100px] text-center lg:pb-[15vh] pb-[50px]"
           ref={section1}>
           <div className="container mx-auto">
             <ThreeDSlider popup="true" data={worksDatas} />
           </div>
         </section>
-
-        {/* <section
-          className="relative grid items-center section-2"
-          ref={section2}>
-          <div className="container">
-            <div className="flex flex-col items-start lg:flex-row sm:gap-[100px] gap-[30px]">
-              <div className="flex-1 lg:order-1 order-2">
-                <h2 className="heading-2 mb-[20px]">
-                  {pageData.pages.additionalDescriptionHeading &&
-                    pageData.pages.additionalDescriptionHeading}
-                </h2>
-                <ReadMore maxLength={500}>
-                  {pageData.pages.additionalDescription &&
-                    pageData.pages.additionalDescription}
-                </ReadMore>
-                <div></div>
-              </div>
-              <div className="lg:sticky top-0 lg:order-2 order-1">
-                <div className="image-box- mx-auto">
-                  <div className="line"></div>
-
-                  <Images
-                    imageurl={
-                      pageData.pages.additionalDescriptionImage.node
-                        .sourceUrl &&
-                      pageData.pages.additionalDescriptionImage.node.sourceUrl
-                    }
-                    styles={""}
-                    quality={80}
-                    width={"600"}
-                    height={"550"}
-                    alt={
-                      pageData.pages.additionalDescriptionImage.node.altText &&
-                      pageData.pages.additionalDescriptionImage.node.altText
-                    }
-                    placeholder={true}
-                    classes={"block w-full"}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-      </Layout>
+ </Layout>
     </>
   );
 }

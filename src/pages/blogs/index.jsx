@@ -70,7 +70,7 @@ export default function Blogs({ blogPageDatas, getAllBlogsData }) {
           subHeading={pageData.pages.subHeading && pageData.pages.subHeading}
         />
 
-        <section className="section-1 pt-0" ref={section1}>
+        <section className="section-1 pt-0 lg:pb-[15vh] pb-[50px]" ref={section1}>
           <div className="container mx-auto">
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
               {" "}
@@ -93,23 +93,13 @@ export default function Blogs({ blogPageDatas, getAllBlogsData }) {
                           height={500}
                           alt={blog.featuredImage.node.altText}
                           placeholder={true}
-                          classes={`${
-                            theme === "dark" && "opacity-[0.9] grayscale-[0.7]"
-                          } block w-full`}
+                          classes={`block w-full`}
                         />
                       )}
                       <div
-                        className={`${
-                          theme === "dark"
-                            ? "gap-[10px] px-[30px] pt-[10px] pb-[30px] "
-                            : "gap-[16px] px-[34px] pt-[20px] pb-[40px]"
-                        } grid `}>
+                        className={`gap-[16px] px-[34px] pt-[20px] pb-[40px] grid `}>
                         <h2
-                          className={`${
-                            theme === "dark"
-                              ? "text-lg font-semibold"
-                              : "text-[24px]"
-                          } mt-2`}>
+                          className={`text-[24px] mt-2`}>
                           {blog.title}
                         </h2>
                         <div className="overflow-hidden">

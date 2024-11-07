@@ -142,7 +142,7 @@ export default function QuickContactForm() {
     return (
         <>
 
-            <div className={`${!chatbox ? 'collapsed' : ''} ${theme === 'light' ? 'border bg-white' : 'border-[#fff] border border-opacity-5' } main-card bg-primary-custom`}>
+            <div className={`${!chatbox ? 'collapsed' : ''} ${theme === 'light' ? 'border bg-white' : 'border-[#fff] border border-opacity-5 backdrop-blur-lg' } main-card bg-primary-custom`}>
                 <button title="Quick Enquiry" aria-label="Quick Enquiry" id="chatbot_toggle" className={`${chatbox ? 'active  backdrop-filter backdrop-blur-lg' : ''} bg-sky-500`} onClick={() => setChatbox(!chatbox)}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

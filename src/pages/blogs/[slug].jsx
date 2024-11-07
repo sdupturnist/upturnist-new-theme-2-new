@@ -65,7 +65,7 @@ export default function BlogSingle({ singleBLogsData, blogSinglePageData, getAll
           <MetatagsBlogSingle data={[singleBLogsData]} />
           <Layout>
             <AOSInit />
-            <section className="sm:pt-[50px] pt-[20px]">
+            <section className="sm:pt-[50px] pt-[20px] lg:pb-[15vh] pb-[50px]">
               <div className="container">
                 <div className="grid gap-[30px] lg:max-w-[70%] mx-auto">
                   <div className="blog-single-">
@@ -108,14 +108,14 @@ export default function BlogSingle({ singleBLogsData, blogSinglePageData, getAll
                                   height={500}
                                   alt={blog.featuredImage.node.altText}
                                   placeholder={true}
-                                  classes={`${theme === 'dark' && 'opacity-[0.9] grayscale-[0.7]'} block w-full`}
+                                  classes={`block w-full`}
                                 />
                               )}
                               <div 
-                               className={`${theme === 'dark' ? 'gap-[10px] px-[30px] pt-[10px] pb-[30px] ' : 'gap-[16px] px-[34px] pt-[20px] pb-[40px]'} grid `}
+                               className={`gap-[16px] px-[34px] pt-[20px] pb-[40px] grid `}
                              >
                                 <h2
-                                className={`${theme === 'dark' ? 'text-lg font-semibold' : 'text-[24px]'} mt-2`}
+                                className={`text-[24px] mt-2`}
                                 >{blog.title}</h2>
                                 <div className="overflow-hidden">
                                   <p className="w-full block small">

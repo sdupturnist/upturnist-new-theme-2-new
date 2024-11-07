@@ -50,17 +50,13 @@ export default function WhoWeAre({
 
       gsap.set(item1, {
         x: 2000,
-        opacity: 0,
-        filter: "blur(5px)",
       });
 
       gsap.set(item2, {
         x: -2000,
-        opacity: 0,
-        filter: "blur(5px)",
       });
 
-      gsap.set(section, { opacity: 0.2 });
+
 
       gsap.to(section, {
         opacity: 1,
@@ -76,7 +72,6 @@ export default function WhoWeAre({
       gsap.to(item1, {
         opacity: 1,
         x: 0,
-        filter: "blur(0px)",
         scrollTrigger: {
           trigger: item1,
           start: "top 80%",
@@ -90,7 +85,6 @@ export default function WhoWeAre({
       gsap.to(item2, {
         opacity: 1,
         x: 0,
-        filter: "blur(0px)",
         scrollTrigger: {
           trigger: item2,
           start: "top 40%",
@@ -108,18 +102,6 @@ export default function WhoWeAre({
     () => {
       const section = document.querySelector(".section-2");
 
-      // gsap.set(section, { opacity: 0.2 });
-
-      // gsap.to(section, {
-      //   opacity: 1,
-      //   scrollTrigger: {
-      //     trigger: section,
-      //     start: "top 70%",
-      //     end: "bottom center",
-      //     scrub: 1,
-      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
-      //   },
-      // });
     },
     { scope: section2 }
   );
@@ -129,7 +111,7 @@ export default function WhoWeAre({
       const section = document.querySelector(".section-3");
       const img = document.querySelector(".section-3 .image-box-");
 
-      gsap.set(section, { opacity: 0.2 });
+ 
 
       gsap.to(section, {
         opacity: 1,
@@ -167,7 +149,7 @@ export default function WhoWeAre({
       const section = document.querySelector(".section-4");
       const img = document.querySelector(".section-4 .image-box-");
 
-      gsap.set(section, { opacity: 0.2 });
+ 
 
       gsap.to(section, {
         opacity: 1,
@@ -207,12 +189,12 @@ export default function WhoWeAre({
       const heading = document.querySelector(".section-5 .heading-2");
       const para = document.querySelector(".section-5 .para");
 
-      gsap.set(section, { opacity: 0.3 });
+  
 
       // Set different initial rotation angles for each list item
       list.forEach((item, index) => {
         gsap.set(item, {
-          filter: "blur(5px)",
+         
           rotation: index % 2 === 0 ? -10 : 10,
           y: 100 + index * 50, // Each item moves down by 50px incrementally
         });
@@ -232,7 +214,7 @@ export default function WhoWeAre({
       gsap.to(list, {
         rotation: 0,
         y: 0,
-        filter: "blur(0px)",
+       
         scrollTrigger: {
           trigger: list,
           start: "top 80%",
@@ -245,12 +227,11 @@ export default function WhoWeAre({
       gsap.set(heading, {
         position: "relative",
         y: 0,
-        // filter: 'blur(5px)',
       });
 
       gsap.to(heading, {
         position: "sticky",
-        filter: "blur(0px)",
+     
         y: "30%",
         scrollTrigger: {
           trigger: list,
@@ -264,12 +245,10 @@ export default function WhoWeAre({
       gsap.set(para, {
         position: "relative",
         y: 0,
-        // filter: 'blur(5px)',
       });
 
       gsap.to(para, {
         position: "sticky",
-        filter: "blur(0px)",
         y: "30%",
         scrollTrigger: {
           trigger: list,
@@ -287,7 +266,7 @@ export default function WhoWeAre({
     () => {
       const section = document.querySelector(".section-6");
 
-      gsap.set(section, { opacity: 0.2 });
+    
 
       gsap.to(section, {
         opacity: 1,
@@ -307,7 +286,7 @@ export default function WhoWeAre({
     () => {
       const section = document.querySelector(".section-7");
 
-      gsap.set(section, { opacity: 0.2 });
+ 
 
       gsap.to(section, {
         opacity: 1,
@@ -327,7 +306,7 @@ export default function WhoWeAre({
     () => {
       const section = document.querySelector(".section-8");
 
-      gsap.set(section, { opacity: 0.2 });
+ 
 
       gsap.to(section, {
         opacity: 1,
@@ -555,7 +534,7 @@ export default function WhoWeAre({
         </section>
 
         <section
-          className="relative grid items-center section-8 pt-0"
+          className="relative grid items-center section-8 pt-0 lg:pb-[15vh] pb-[50px]"
           ref={section8}>
           <div className="container">
             <div className="mx-auto lg:max-w-[80%]">
@@ -591,7 +570,7 @@ export default function WhoWeAre({
                           />
                         )}
                         <div className={`flex-1`}>
-                          <h2 className="sub-heading">{team.title}</h2>
+                          <h2 className="sub-heading mb-[8px]">{team.title}</h2>
                           <p className="mb-[20px]">{team.teamAcf.position}</p>
                           <div
                             dangerouslySetInnerHTML={{ __html: team.content }}

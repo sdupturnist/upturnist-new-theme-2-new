@@ -35,35 +35,26 @@ export default function Contact({ contactPageData, initialData }) {
   const section2 = useRef();
 
   useGSAP(() => {
-    const section = document.querySelector('.section-1');
+  
     const item1 = document.querySelector('.section-1 .item-1');
 
 
     gsap.set(item1, {
       //x: 2000,
       opacity: 0,
-      filter: 'blur(5px)',
+ 
     });
 
 
 
-    gsap.set(section, { opacity: 0.2 });
 
-    gsap.to(section, {
-      opacity: 1,
-      scrollTrigger: {
-        trigger: section,
-        start: 'top center',
-        end: 'bottom center',
-        scrub: 1,
-        onEnterBack: () => gsap.to(section, { opacity: 1 }),
-      },
-    });
+
+ 
 
     gsap.to(item1, {
       opacity: 1,
       // x: 0,
-      filter: 'blur(0px)',
+
       scrollTrigger: {
         trigger: item1,
         start: 'top 90%',
@@ -85,29 +76,19 @@ export default function Contact({ contactPageData, initialData }) {
 
 
   useGSAP(() => {
-    const section = document.querySelector('.section-2');
+   
     const item1 = document.querySelector('.section-2 .item-1');
 
 
     gsap.set(item1, {
       opacity: 0,
-      filter: 'blur(5px)',
+  
     });
 
 
 
-    gsap.set(section, { opacity: 0.2 });
+ 
 
-    gsap.to(section, {
-      opacity: 1,
-      scrollTrigger: {
-        trigger: section,
-        start: 'top center',
-        end: 'bottom center',
-        scrub: 1,
-        onEnterBack: () => gsap.to(section, { opacity: 1 }),
-      },
-    });
 
     gsap.to(item1, {
       opacity: 1,
@@ -147,7 +128,7 @@ export default function Contact({ contactPageData, initialData }) {
         />
 
 
-        <section className="section-1 flex items-center overflow-hidden pt-0 text-center" ref={section1}>
+        <section className="section-1 flex items-center overflow-hidden text-center" ref={section1}>
           <div className="container mx-auto">
             <div className="grid sm:gap-[20px] gap-[10px] sm:max-w-[70%] mx-auto item-1 items-center justify-center">
               {!_dataContact && <Loading />}

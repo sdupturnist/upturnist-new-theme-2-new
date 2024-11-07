@@ -22,9 +22,7 @@ export default function HeroDescription({
         <p
           data-aos="fade-up"
           data-delay="500"
-          className={`${
-            theme === "light" ? null : "sm:max-w-[70%] mx-auto"
-          }  first-letter:capitalize`}
+          className={`first-letter:capitalize`}
           dangerouslySetInnerHTML={{ __html: desc && desc }}
         />
       )}
@@ -35,7 +33,7 @@ export default function HeroDescription({
             label="Let's start"
             icon={true}
             action={modalAction}
-            classes={`${theme === "light" ? 'lg:m-0 mx-auto' : "mx-auto"}`}
+            classes={`lg:m-0 mx-auto`}
           />
         
       </div>}

@@ -292,7 +292,7 @@ export default function Service({ servicePageData, allPackagesData }) {
 
             {router.query.service[0] === "digital-marketing-uae" && (
               <section
-                className="section-1 flex items-center text-center relative pt-0"
+                className="section-1 flex items-center text-center relative pt-0 lg:pb-[15vh] pb-[50px]"
                 ref={section1}>
                 <div className="container mx-auto items-center">
                   <h2 className="heading-2 mb-[30px] sm:mb-[70px]">
@@ -335,7 +335,7 @@ export default function Service({ servicePageData, allPackagesData }) {
 
             {content && (
               <section
-                className="relative grid items-center section-3 content-service pt-0"
+                className="relative grid items-center section-3 content-service pt-0 lg:pb-[15vh] pb-[50px]"
                 data-aos-delay="1000"
                 data-aos="fade-up">
                 <div className="container" ref={additionalServiceList}>

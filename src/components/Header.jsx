@@ -213,21 +213,21 @@ function Nav({ initialData, type }) {
           <div className="sm:px-8 px-4">
             <div className="inner---">
               {/* {theme} */}
-              {theme === 'dark' ?
-              <Logo
-                url={`${frontendUrl}/images/upturnist-logo.webp`}
-                alt="digital marketing expert in Dubai_upturnist_logo"
-                logoTitle="digital marketing expert in Dubai_upturnist_logo"
-                for_page={type}
-              />
-              :
-              <Logo
-              url={`${frontendUrl}/images/upturnist-logo-2.webp`}
-              alt="digital marketing expert in Dubai_upturnist_logo"
-              logoTitle="digital marketing expert in Dubai_upturnist_logo"
-              for_page={type}
-            />
-              }
+              {theme === "dark" ? (
+                <Logo
+                  url={`${frontendUrl}/images/upturnist-logo.webp`}
+                  alt="digital marketing expert in Dubai_upturnist_logo"
+                  logoTitle="digital marketing expert in Dubai_upturnist_logo"
+                  for_page={type}
+                />
+              ) : (
+                <Logo
+                  url={`${frontendUrl}/images/upturnist-logo-2.webp`}
+                  alt="digital marketing expert in Dubai_upturnist_logo"
+                  logoTitle="digital marketing expert in Dubai_upturnist_logo"
+                  for_page={type}
+                />
+              )}
               <div className="wrpr--nav-1">
                 <div className={`btn-sc`}>
                   <button
