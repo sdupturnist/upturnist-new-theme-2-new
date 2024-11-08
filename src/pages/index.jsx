@@ -71,12 +71,12 @@ export default function Home({
       const section = document.querySelector(".hero-home");
 
       gsap.set(section, {
-        opacity: 1,
+       // opacity: 1,
         y: 0,
       });
 
       gsap.to(section, {
-        opacity: 0,
+       // opacity: 0,
         y: 0,
         scrollTrigger: {
           trigger: section,
@@ -837,12 +837,12 @@ export default function Home({
         <AOSInit />
 
         <section
-          className={`bg-black lg:text-start rounded-[15px] text-center items-center text-white sm:p-[100px] py-[30px] px-[50px] mt-[5px] sm:min-h-[80vh] hero-home flex overflow-hidden pb-[50px]`}
+          className={`bg-black lg:text-start rounded-[15px] text-center items-center text-white sm:p-[100px] sm:py-[30px] pt-[50px] px-[50px] mt-[5px] sm:min-h-[80vh] hero-home flex overflow-hidden pb-[60px]`}
           ref={hero}>
           <div
             className={`card- mx-auto z-10 relative`}>
             <div
-              className={`lg:max-w-[78%] grid gap-[30px]`}>
+              className={`lg:max-w-[78%] grid sm:gap-[30px] gap-[14px]`}>
               <HeroContent
                 title={pageData && pageData.heroTitle}
                 animatedHeading={pageData && pageData.heroAnimatedHeading}
@@ -880,7 +880,7 @@ export default function Home({
                       pageData.aboutHeadingTop && pageData.aboutHeadingTop,
                   }}
                 />
-                <h2 className="heading-3 my-[20px]">
+                <h2 className="heading-3 mt-[20px] mb-[10px]">
                   {pageData.aboutHeadingTopTwo && pageData.aboutHeadingTopTwo}
                 </h2>
 
@@ -1023,14 +1023,14 @@ export default function Home({
           className={`bg-black- rounded-[15px] text-white sm:pb-[100px] pb-[24px] lg:mt-[15vh] mt-[50px] section-2 relative flex items-center text-center overflow-hidden lg:min-h-screen`}
           ref={section2_1}>
           <div className="container lg:block grid sm:gap-[50px] relative z-10">
-            <div className="mb-[50px]">
-              <div className="grid gap-[20px] heading1">
+          <div className="mb-[50px] sm:px-0 px-[30px]">
+          <div className="grid gap-[10px] sm:gap-[20px] heading1">
                 <h2 className="heading-1">
                   {pageData.aboutCta1 && pageData.aboutCta1}
                 </h2>
                 <p
                   data-delay="500"
-                  className="sm:max-w-[70%] mx-auto text-[20px]"
+                  className="sm:max-w-[70%] mx-auto text-[14px] sm:text-[20px]"
                   dangerouslySetInnerHTML={{
                     __html: pageData.aboutCta1Desc && pageData.aboutCta1Desc,
                   }}
@@ -1038,14 +1038,14 @@ export default function Home({
               </div>
             </div>
 
-            <div className="mb-[50px]">
-              <div className="grid gap-[20px] heading3">
+            <div className="sm:mb-[50px] sm:px-0 px-[30px]">
+              <div className="grid gap-[10px] sm:gap-[20px] heading3">
                 <h2 className="heading-1">
                   {pageData.aboutCta2 && pageData.aboutCta2}
                 </h2>
                 <p
                   data-delay="500"
-                  className="sm:max-w-[70%] mx-auto text-[20px]"
+                  className="sm:max-w-[70%] mx-auto text-[14px] sm:text-[20px]"
                   dangerouslySetInnerHTML={{
                     __html: pageData.aboutCta2Desc && pageData.aboutCta2Desc,
                   }}
@@ -1054,7 +1054,7 @@ export default function Home({
             </div>
 
             <div
-              className={`card !rounded-[15px] text-white sm:p-[80px] p-[40px] rounded-[30px] lg:px-[180px] lg:py-[100px] heading4`}>
+              className={`card rounded-[15px] text-white sm:p-[80px] p-[40px]  lg:px-[180px] lg:py-[100px] heading4`}>
               <div className="grid gap-[20px]">
                 <h2 className="heading-3">
                   {pageData.aboutCta4 && pageData.aboutCta4}
@@ -1100,7 +1100,7 @@ export default function Home({
                   className="para"
                   dangerouslySetInnerHTML={{ __html: strippedHtml }}
                 />
-                <h2 className="heading-3 my-[20px]">
+                <h2 className="heading-3 mt-[10px] mb-[10px]">
                   {pageData.seoVisibilityReportHeading2 &&
                     pageData.seoVisibilityReportHeading2}
                 </h2>
@@ -1113,7 +1113,7 @@ export default function Home({
                         pageData.seoVisibilityReportHeadingDescription,
                     }}
                   />
-                  <div className="mt-[20px]">
+                  <div className="mt-[10px]">
                     <Button
                       size="normal"
                       label="Let's start"
@@ -1154,7 +1154,7 @@ export default function Home({
               className={`grid sm:gap-[70px] gap-[30px]`}>
               <div
               >
-                <h2 className="heading-3 my-[20px]">
+                <h2 className="heading-3 mt-[0px] mb-[10px]">
                   {pageData.specialzeHeading && pageData.specialzeHeading}
                 </h2>
 
@@ -1194,7 +1194,7 @@ export default function Home({
               className={`grid sm:gap-[70px] gap-[30px]`}>
               <div
                >
-                <h2 className="heading-3 my-[20px]">
+                <h2 className="heading-3 mt-[0px] mb-[10px]">
                   {pageData.services1Heading && pageData.services1Heading}
                 </h2>
 
@@ -1282,7 +1282,7 @@ export default function Home({
           ref={section7}>
           <div className="container">
             <div
-              className={`mx-auto lg:max-w-[80%] w-full  flex flex-col lg:flex-row gap-[50px]`}>
+              className={`mx-auto lg:max-w-[80%] w-full  flex flex-col lg:flex-row sm:gap-[50px] gap-[30px]`}>
               {/* {theme === "dark" && (
                 <VideoPreview theme="dark" data={_videosData} />
               )} */}
@@ -1313,7 +1313,7 @@ export default function Home({
           className={`${theme === "dark" && "bg-box"} section-8`}
           ref={section8}>
           <div className="container sm:gap-[70px] gap-[50px] grid">
-            <h3 className="heading-3 text-center">
+            <h3 className="heading-3 text-start sm:text-center">
               {pageData.servicesListHeading && pageData.servicesListHeading}
             </h3>
             <ul className="grid md:grid-cols-2 gap-[30px] col-wrpr">
@@ -1365,7 +1365,7 @@ export default function Home({
                 <h2 className="heading-3 mb-[20px]">
                   {pageData.about2Heading && pageData.about2Heading}
                 </h2>
-                <ReadMore btnpos="center" maxLength={100}>
+                <ReadMore btnpos="center" maxLength={65}>
                   {pageData.about2Description && pageData.about2Description}
                 </ReadMore>
               </div>
@@ -1441,7 +1441,7 @@ export default function Home({
               className={`grid sm:gap-[70px] gap-[30px]`}>
               <div
               >
-                <h2 className="heading-3 my-[20px]">
+                <h2 className="heading-3 mt-[20px] mb-[10px]">
                   {pageData.aboutBottom2 && pageData.aboutBottom2}
                 </h2>
 
@@ -1487,7 +1487,7 @@ export default function Home({
 
         <section className="section-13" ref={section13}>
           <div className="container">
-            <h3 className="heading-2 text-center sm:mb-[70px] mb-[50px]">
+            <h3 className="heading-2 text-center sm:mb-[70px] mb-[30px]">
               {pageData && pageData.faqHeading}
             </h3>
             <div className="faq-wrpr">
@@ -1498,7 +1498,7 @@ export default function Home({
 
         <section className="section-14 sm:mb-[100px] mb-[30px]" ref={section14}>
           <div className="container">
-            <h3 className="heading-2 text-center sm:mb-[70px] mb-[50px]">
+            <h3 className="heading-2 text-center sm:mb-[70px] mb-[30px]">
               {pageData.testimonialHeading && pageData.testimonialHeading}
             </h3>
             <div className="reviews-wrpr">

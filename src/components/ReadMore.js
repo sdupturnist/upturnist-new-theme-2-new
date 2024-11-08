@@ -75,7 +75,7 @@ const ReadMore = ({ children, maxLength, btnpos, inMobile }) => {
   return wordCount > maxLength ? (
     <div className="mt-[10px] more-content">
       <div
-        className="overflow-hidden transition-all [&>*]:mb-[20px] duration-300"
+        className="readmore-content overflow-hidden transition-all [&>*]:mb-[20px] duration-300"
         dangerouslySetInnerHTML={{
           __html: isReadMore ? content : truncatedContent,
         }}
@@ -89,7 +89,7 @@ const ReadMore = ({ children, maxLength, btnpos, inMobile }) => {
     </div>
   ) : (
     <div
-      className="overflow-hidden transition-all [&>*]:mb-[20px] duration-300"
+      className="readmore-content overflow-hidden transition-all [&>*]:mb-[20px] duration-300"
       dangerouslySetInnerHTML={{
         __html: content,
       }}

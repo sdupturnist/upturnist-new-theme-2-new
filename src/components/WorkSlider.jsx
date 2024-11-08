@@ -84,7 +84,7 @@ export default function ThreeDSlider(props) {
                   height={"350"}
                   alt={item.featuredImage.node.altText}
                   placeholder={false}
-                  classes={`block w-full object-cover h-[350px] block w-full object-cover`}
+                  classes={`block w-full object-cover sm:h-[350px] h-[250px] block w-full object-cover`}
                   onLoad={openModal}
                 />
                 <span className="hidden">{item.title}</span>

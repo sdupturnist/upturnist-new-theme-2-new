@@ -20,13 +20,13 @@ export default function Timeline(data) {
       list.forEach((item, index) => {
         gsap.set(item, {
           opacity: 0,
-          filter: "blur(5px)",
+         
         });
       });
 
       gsap.to(list, {
         opacity: 1,
-        filter: "blur(0px)",
+        
         scrollTrigger: {
           trigger: list,
           start: "top 60%",

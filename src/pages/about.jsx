@@ -2,13 +2,10 @@ import { wordpressGraphQlApiUrl } from "@/utils/variables";
 import Layout from "@/components/Layout";
 import Metatags from "@/components/Seo";
 import { AOSInit } from "@/components/Aos";
-import BlurAnimation from "@/components/BlurAnimation";
 import Images from "@/components/Images";
-import AnimatedImage from "@/components/AnimatedImage";
 import TimelineDelivery from "@/components/TimelineDelivery";
 import PageHeading from "@/components/PageHeading";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import ReadMore from "@/components/ReadMore";
@@ -87,10 +84,10 @@ export default function WhoWeAre({
         x: 0,
         scrollTrigger: {
           trigger: item2,
-          start: "top 40%",
+          start: "top 95%",
           end: "bottom center",
           scrub: 1,
-          //markers: true,
+        markers: true,
           onEnterBack: () => gsap.to(item2, { opacity: 1 }),
         },
       });
@@ -502,7 +499,7 @@ export default function WhoWeAre({
 
         <section className="section-6 " ref={section6}>
           <div className="container">
-            <h3 className="heading-2 text-center mb-[70px]">
+            <h3 className="heading-2 text-center sm:mb-[70px] mb-[30px]">
               {pageData.aboutUs.videoHeading && pageData.aboutUs.videoHeading}
             </h3>
             <div className="mx-auto lg:max-w-[80%]">

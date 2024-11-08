@@ -151,8 +151,9 @@ export default function ContactForm() {
                             name="name"
                             required
                         />
-                        {errors.name && <span className='text-red-500 mb-[4px] text-[14px] pt-[10px]'>{errors.name}</span>}
+                        {errors.name && <span className='text-red-500 mb-[4px] text-[14px] pt-[10px] block'>{errors.name}</span>}
                     </div>
+
                     <div>
                         <input
                             className={`${errors.place ? 'border-red-500' : ''} input-custom w-full`}
@@ -163,7 +164,7 @@ export default function ContactForm() {
                             name="place"
                             required
                         />
-                        {errors.place && <span className='text-red-500 mb-[4px] text-[14px] pt-[10px]'>{errors.place}</span>}
+                        {errors.place && <span className='text-red-500 mb-[4px] text-[14px] pt-[10px] block'>{errors.place}</span>}
                     </div>
                     <div>
                         <input
@@ -175,7 +176,7 @@ export default function ContactForm() {
                             name="email"
                             required
                         />
-                        {errors.email && <span className='text-red-500 mb-[4px] text-[14px] pt-[10px]'>{errors.email}</span>}
+                        {errors.email && <span className='text-red-500 mb-[4px] text-[14px] pt-[10px] block'>{errors.email}</span>}
                     </div>
                     <div>
                         <PhoneInput
@@ -186,7 +187,7 @@ export default function ContactForm() {
                             defaultCountry="AE"
                             required
                         />
-                        {errors.phone && <span className='text-red-500 mb-[4px] text-[14px] pt-[10px]'>{errors.phone}</span>}
+                        {errors.phone && <span className='text-red-500 mb-[4px] text-[14px] pt-[10px] block'>{errors.phone}</span>}
                     </div>
                     <div className="col-span-1 sm:col-span-2">
                         <textarea

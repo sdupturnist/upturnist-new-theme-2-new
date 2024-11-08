@@ -3,10 +3,11 @@ body.dark {
   color: #fff;
   font-size: 15px;
 }
-body.dark p:not(.header-nav-wrpr p, footer p),
+body.dark p:not(.header-nav-wrpr p, footer p, .content-service p),
 body.dark small,
 body.dark li:not(.header-nav-wrpr li, footer li),
 body.dark .para,
+body.dark a:not(.content-service a, .content-service a),
 body.dark label {
   background: #ffffff;
   background: linear-gradient(to left, rgba(255, 255, 255, 0.4117647059) 0%, #fff 100%);
@@ -14,11 +15,11 @@ body.dark label {
   -webkit-text-fill-color: transparent;
   line-height: 1.7em;
 }
-body.dark .card, body.dark .content-service .wp-block-columns .wp-block-column, .content-service .wp-block-columns body.dark .wp-block-column {
+body.dark .card, body.dark .content-service .wp-block-columns .wp-block-column, .content-service .wp-block-columns body.dark .wp-block-column, body.dark .service-single .wp-block-columns .wp-block-column, .service-single .wp-block-columns body.dark .wp-block-column {
   @apply relative border-gray-50 border-b border-t border-opacity-10;
   background: rgba(137, 137, 137, 0.06);
 }
-body.dark .card:before, body.dark .content-service .wp-block-columns .wp-block-column:before, .content-service .wp-block-columns body.dark .wp-block-column:before {
+body.dark .card:before, body.dark .content-service .wp-block-columns .wp-block-column:before, .content-service .wp-block-columns body.dark .wp-block-column:before, body.dark .service-single .wp-block-columns .wp-block-column:before, .service-single .wp-block-columns body.dark .wp-block-column:before {
   content: "";
   width: 1px;
   height: 50%;
@@ -44,18 +45,18 @@ body.dark .card:before, body.dark .content-service .wp-block-columns .wp-block-c
     display: none !important;
   }
 }
-body.dark h1,
-body.dark h2,
-body.dark h3,
-body.dark h4,
-body.dark h5,
-body.dark h6,
-body.dark .h1,
-body.dark .h2,
-body.dark .h3,
-body.dark .h4,
-body.dark .h5,
-body.dark .h6 {
+body.dark h1:not(.content-service h1),
+body.dark h2:not(.content-service h2),
+body.dark h3:not(.content-service h3),
+body.dark h4:not(.content-service h4),
+body.dark h5:not(.content-service h5),
+body.dark h6:not(.content-service h6),
+body.dark .h1:not(.content-service .h1),
+body.dark .h2:not(.content-service .h2),
+body.dark .h3:not(.content-service .h3),
+body.dark .h4:not(.content-service .h4),
+body.dark .h5:not(.content-service .h5),
+body.dark .h6:not(.content-service .h6) {
   font-family: "Helvetica Now Text";
   font-weight: inherit;
   background: #ffffff;
@@ -72,7 +73,7 @@ body.dark .image-box- {
     @apply size-[550px];
   }
 }
-@media only screen and (min-width: 999px) {
+@media only screen and (min-width: 1199px) {
   body.dark .image-box- {
     @apply size-[400px];
   }
@@ -358,7 +359,7 @@ body.dark .footer .inner-1 {
   @apply lg:basis-[40%] grid justify-between;
 }
 body.dark .footer .inner-2 {
-  @apply md:flex grid gap-[24px] md:gap-[100px];
+  @apply md:flex grid sm:gap-[24px] md:gap-[100px];
 }
 body.dark .footer .wrpr-2 {
   @apply lg:flex flex-col flex-grow justify-end hidden;
@@ -373,13 +374,13 @@ body.dark .footer p {
   @apply md:text-[16px] text-[14px] opacity-50;
 }
 body.dark .footer .wrpr-3 {
-  @apply basis-[60%] grid md:gap-[50px] gap-[24px] lg:justify-end;
+  @apply basis-[60%] grid md:gap-[50px] sm:gap-[24px] lg:justify-end;
 }
 body.dark .footer .inner {
-  @apply md:flex grid gap-[24px] md:gap-[100px];
+  @apply md:flex grid sm:gap-[24px] md:gap-[100px];
 }
 body.dark .footer .heading {
-  @apply block tracking-[1px] mb-5 sm:mb-5 text-[15px] whitespace-nowrap;
+  @apply block tracking-[1px] mb-[16px] sm:mb-5 text-[15px] whitespace-nowrap;
   background: #ffffff;
   background: linear-gradient(to left, rgba(255, 255, 255, 0.4117647059) 0%, #fff 100%);
   -webkit-background-clip: text;
@@ -398,7 +399,7 @@ body.dark .footer a {
   font-weight: 400;
 }
 body.dark .footer .inner-2 {
-  @apply md:flex grid gap-[24px] md:gap-[100px];
+  @apply md:flex grid sm:gap-[24px] md:gap-[100px];
 }
 body.dark .footer .bottom-footer {
   @apply flex lg:hidden items-end;
@@ -609,6 +610,29 @@ body.dark .view-full:after {
 body.dark .active-button > button {
   border: solid thin #0ea5e9 !important;
 }
+body.dark .content-service a {
+  @apply inline-flex items-center relative hover:opacity-50 text-white;
+}
+body.dark .content-service a:hover:after {
+  transition: 0.3s all;
+  opacity: 0.5;
+}
+body.dark .content-service a:after {
+  content: "";
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='white' aria-hidden='true' data-slot='icon' class='sm:size-%5B14px%5D size-%5B12px%5D hover:opacity-50 transition-all'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25'%3E%3C/path%3E%3C/svg%3E");
+  background-size: contain;
+  background-position: center;
+  @apply size-[14px] mt-[1px] ml-[7px] mr-[5px] bg-no-repeat;
+}
+body.dark .content-service h1,
+body.dark .content-service h2,
+body.dark .content-service h3,
+body.dark .content-service h4,
+body.dark .content-service h5,
+body.dark .content-service h6 {
+  opacity: 0.7;
+}
 
 body.light {
   background: #fff;
@@ -639,118 +663,177 @@ body.light .bg-black- .h6,
 body.light .bg-black- li {
   color: #fff;
 }
-body.light .bg-black- .card p, body.light .bg-black- .content-service .wp-block-columns .wp-block-column p, .content-service .wp-block-columns body.light .bg-black- .wp-block-column p,
+body.light .bg-black- .card p, body.light .bg-black- .content-service .wp-block-columns .wp-block-column p, .content-service .wp-block-columns body.light .bg-black- .wp-block-column p, body.light .bg-black- .service-single .wp-block-columns .wp-block-column p, .service-single .wp-block-columns body.light .bg-black- .wp-block-column p,
 body.light .bg-black- .card h1,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h1,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h1,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column h1,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column h1,
 body.light .bg-black- .card h2,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h2,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h2,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column h2,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column h2,
 body.light .bg-black- .card h3,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h3,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h3,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column h3,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column h3,
 body.light .bg-black- .card h4,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h4,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h4,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column h4,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column h4,
 body.light .bg-black- .card h5,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h5,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h5,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column h5,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column h5,
 body.light .bg-black- .card h6,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h6,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h6,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column h6,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column h6,
 body.light .bg-black- .card .h1,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h1,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h1,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h1,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column .h1,
 body.light .bg-black- .card .h2,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h2,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h2,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h2,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column .h2,
 body.light .bg-black- .card .h3,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h3,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h3,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h3,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column .h3,
 body.light .bg-black- .card .h4,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h4,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h4,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h4,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column .h4,
 body.light .bg-black- .card .h5,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h5,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h5,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h5,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column .h5,
 body.light .bg-black- .card .h6,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h6,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h6,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h6,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column .h6,
 body.light .bg-black- .card li,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column li,
-.content-service .wp-block-columns body.light .bg-black- .wp-block-column li {
+.content-service .wp-block-columns body.light .bg-black- .wp-block-column li,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column li,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column li {
   color: #152a37;
 }
-body.light .bg-black- .card .btn, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn {
+body.light .bg-black- .card .btn, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn {
   color: #152a37;
 }
-body.light .bg-black- .card .btn-sc a, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc a, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a,
+body.light .bg-black- .card .btn:hover, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn:hover, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn:hover, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn:hover, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn:hover, body.light .bg-black- .card .btn:active, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn:active, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn:active, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn:active, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn:active {
+  color: #fff;
+}
+body.light .bg-black- .card .btn-sc a, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc a, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc a, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a,
 body.light .bg-black- .card .btn-sc button,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc button,
-.content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button {
+.content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc button,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button {
   border: 1px solid #152a37;
   color: #152a37;
 }
-body.light .bg-black- .card .btn-sc a *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc a *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a *,
+body.light .bg-black- .card .btn-sc a *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc a *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a *, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc a *, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a *,
 body.light .bg-black- .card .btn-sc button *,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc button *,
-.content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button * {
+.content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button *,
+body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc button *,
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button * {
   color: #152a37;
   stroke: #152a37;
 }
-body.light .bg-black- .card .btn-sc:hover a, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover a, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a, body.light .bg-black- .card .btn-sc:hover button, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover button, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button {
+body.light .bg-black- .card .btn-sc:hover a, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover a, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover a, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a, body.light .bg-black- .card .btn-sc:hover button, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover button, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover button, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button {
   transition: 0.5s;
   border-color: #152a37;
   background: #152a37;
   color: #fff;
 }
-body.light .bg-black- .card .btn-sc:hover a *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover a *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a *, body.light .bg-black- .card .btn-sc:hover button *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover button *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button * {
+body.light .bg-black- .card .btn-sc:hover a *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover a *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a *, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover a *, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a *, body.light .bg-black- .card .btn-sc:hover button *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover button *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button *, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover button *, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button * {
   color: #fff;
   stroke: #fff !important;
 }
 body.light .bg-black {
   background: transparent !important;
 }
-body.light .bg-black .card p, body.light .bg-black .content-service .wp-block-columns .wp-block-column p, .content-service .wp-block-columns body.light .bg-black .wp-block-column p,
+body.light .bg-black .card p, body.light .bg-black .content-service .wp-block-columns .wp-block-column p, .content-service .wp-block-columns body.light .bg-black .wp-block-column p, body.light .bg-black .service-single .wp-block-columns .wp-block-column p, .service-single .wp-block-columns body.light .bg-black .wp-block-column p,
 body.light .bg-black .card h1,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h1,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h1,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column h1,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column h1,
 body.light .bg-black .card h2,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h2,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h2,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column h2,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column h2,
 body.light .bg-black .card h3,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h3,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h3,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column h3,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column h3,
 body.light .bg-black .card h4,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h4,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h4,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column h4,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column h4,
 body.light .bg-black .card h5,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h5,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h5,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column h5,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column h5,
 body.light .bg-black .card h6,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h6,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h6,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column h6,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column h6,
 body.light .bg-black .card .h1,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h1,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h1,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column .h1,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column .h1,
 body.light .bg-black .card .h2,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h2,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h2,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column .h2,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column .h2,
 body.light .bg-black .card .h3,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h3,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h3,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column .h3,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column .h3,
 body.light .bg-black .card .h4,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h4,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h4,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column .h4,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column .h4,
 body.light .bg-black .card .h5,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h5,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h5,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column .h5,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column .h5,
 body.light .bg-black .card .h6,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h6,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h6,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column .h6,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column .h6,
 body.light .bg-black .card li,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column li,
-.content-service .wp-block-columns body.light .bg-black .wp-block-column li, body.light .bg-black .card- p,
+.content-service .wp-block-columns body.light .bg-black .wp-block-column li,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column li,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column li, body.light .bg-black .card- p,
 body.light .bg-black .card- h1,
 body.light .bg-black .card- h2,
 body.light .bg-black .card- h3,
@@ -766,29 +849,33 @@ body.light .bg-black .card- .h6,
 body.light .bg-black .card- li {
   color: #fff;
 }
-body.light .bg-black .card .btn-sc a, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc a, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a,
+body.light .bg-black .card .btn-sc a, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc a, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc a, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a,
 body.light .bg-black .card .btn-sc button,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc button,
-.content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button, body.light .bg-black .card- .btn-sc a,
+.content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc button,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button, body.light .bg-black .card- .btn-sc a,
 body.light .bg-black .card- .btn-sc button {
   border: 1px solid #fff;
   color: #fff;
 }
-body.light .bg-black .card .btn-sc a *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc a *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a *,
+body.light .bg-black .card .btn-sc a *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc a *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a *, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc a *, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a *,
 body.light .bg-black .card .btn-sc button *,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc button *,
-.content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button *, body.light .bg-black .card- .btn-sc a *,
+.content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button *,
+body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc button *,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button *, body.light .bg-black .card- .btn-sc a *,
 body.light .bg-black .card- .btn-sc button * {
   color: #fff;
   stroke: #fff;
 }
-body.light .bg-black .card .btn-sc:hover a, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover a, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a, body.light .bg-black .card .btn-sc:hover button, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover button, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button, body.light .bg-black .card- .btn-sc:hover a, body.light .bg-black .card- .btn-sc:hover button {
+body.light .bg-black .card .btn-sc:hover a, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover a, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover a, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a, body.light .bg-black .card .btn-sc:hover button, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover button, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover button, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button, body.light .bg-black .card- .btn-sc:hover a, body.light .bg-black .card- .btn-sc:hover button {
   transition: 0.5s;
   border-color: #fff;
   background: #fff;
   color: #152a37;
 }
-body.light .bg-black .card .btn-sc:hover a *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover a *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a *, body.light .bg-black .card .btn-sc:hover button *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover button *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button *, body.light .bg-black .card- .btn-sc:hover a *, body.light .bg-black .card- .btn-sc:hover button * {
+body.light .bg-black .card .btn-sc:hover a *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover a *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a *, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover a *, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a *, body.light .bg-black .card .btn-sc:hover button *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover button *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button *, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover button *, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button *, body.light .bg-black .card- .btn-sc:hover a *, body.light .bg-black .card- .btn-sc:hover button * {
   color: #152a37;
   stroke: #152a37 !important;
 }
@@ -828,7 +915,7 @@ body.light .bg-black .btn-sc:hover a *, body.light .bg-black .btn-sc:hover butto
   color: #152a37;
   stroke: #152a37 !important;
 }
-body.light .card, body.light .content-service .wp-block-columns .wp-block-column, .content-service .wp-block-columns body.light .wp-block-column {
+body.light .card, body.light .content-service .wp-block-columns .wp-block-column, .content-service .wp-block-columns body.light .wp-block-column, body.light .service-single .wp-block-columns .wp-block-column, .service-single .wp-block-columns body.light .wp-block-column {
   @apply relative border;
   background: #fff;
 }
@@ -907,7 +994,7 @@ body.light .image-box- {
     @apply size-[550px];
   }
 }
-@media only screen and (min-width: 999px) {
+@media only screen and (min-width: 1199px) {
   body.light .image-box- {
     @apply size-[400px];
   }
@@ -1121,7 +1208,7 @@ body.light .footer .inner-1 {
   @apply lg:basis-[40%] grid justify-between;
 }
 body.light .footer .inner-2 {
-  @apply md:flex grid gap-[24px] md:gap-[100px];
+  @apply md:flex grid sm:gap-[24px] md:gap-[100px];
 }
 body.light .footer .wrpr-2 {
   @apply lg:flex flex-col flex-grow justify-end hidden;
@@ -1136,13 +1223,13 @@ body.light .footer p {
   @apply text-[13px];
 }
 body.light .footer .wrpr-3 {
-  @apply basis-[60%] grid md:gap-[50px] gap-[24px] lg:justify-end;
+  @apply basis-[60%] grid md:gap-[50px] sm:gap-[24px] lg:justify-end;
 }
 body.light .footer .inner {
-  @apply md:flex grid gap-[24px] md:gap-[100px];
+  @apply md:flex grid sm:gap-[24px] md:gap-[100px];
 }
 body.light .footer .heading {
-  @apply block tracking-[1px] mb-5 sm:mb-5 text-[15px] whitespace-nowrap;
+  @apply block tracking-[1px] mb-[16px] sm:mb-5 text-[15px] whitespace-nowrap;
 }
 body.light .footer .list-wrpr {
   @apply md:text-[16px] text-[14px];
@@ -1157,7 +1244,7 @@ body.light .footer li a {
   font-weight: 400;
 }
 body.light .footer .inner-2 {
-  @apply md:flex grid gap-[24px] md:gap-[100px];
+  @apply md:flex grid sm:gap-[24px] md:gap-[100px];
 }
 body.light .footer .bottom-footer {
   @apply flex lg:hidden items-end;
@@ -1284,6 +1371,21 @@ body.light .active-button > button {
   background: #152a37;
   color: #fff;
 }
+body.light .content-service a {
+  @apply inline-flex items-center relative hover:opacity-50;
+}
+body.light .content-service a:hover:after {
+  transition: 0.3s all;
+  opacity: 0.5;
+}
+body.light .content-service a:after {
+  content: "";
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' aria-hidden='true' data-slot='icon' class='sm:size-%5B14px%5D size-%5B12px%5D hover:opacity-50 transition-all'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25'%3E%3C/path%3E%3C/svg%3E");
+  background-size: contain;
+  background-position: center;
+  @apply size-[14px] mt-[1px] ml-[7px] mr-[5px] bg-no-repeat;
+}
 
 .heading-1 {
   font-size: max(3vw, 28px);
@@ -1296,18 +1398,16 @@ body.light .active-button > button {
 }
 @media only screen and (max-width: 575px) {
   .heading-1 {
-    font-size: max(3vw, 32px);
+    font-size: max(3vw, 24px);
   }
 }
 
-.heading-2, .content-service h1,
-.content-service h2,
-.content-service h3 {
+.heading-2, .content-service .wp-block-heading, .service-single .wp-block-heading {
   font-size: max(3.5vw, 24px);
 }
 
 .heading-3 {
-  font-size: max(3vw, 28px);
+  font-size: max(2.5vw, 28px);
 }
 
 .sub-heading {
@@ -1391,46 +1491,58 @@ section {
   @apply rounded-lg;
 }
 
+.content-service .heading-2, .content-service .wp-block-heading, .service-single .heading-2, .service-single .wp-block-heading {
+  font-size: max(2.5vw, 24px);
+}
 .content-service h1,
 .content-service h2,
-.content-service h3 {
+.content-service h3, .service-single h1,
+.service-single h2,
+.service-single h3 {
   @apply mb-[20px];
 }
-.content-service .has-text-align-center {
+.content-service .has-text-align-center, .service-single .has-text-align-center {
   @apply text-center;
 }
-.content-service .wp-block-columns {
-  @apply flex gap-[30px] mb-[50px];
+.content-service .wp-block-columns, .service-single .wp-block-columns {
+  @apply flex gap-[30px] sm:mb-[50px] mb-[30px];
 }
-.content-service .wp-block-columns .wp-block-column {
+.content-service .wp-block-columns .wp-block-column, .service-single .wp-block-columns .wp-block-column {
   @apply rounded-[30px] w-full min-h-[150px] overflow-hidden;
 }
-.content-service .wp-block-columns .wp-block-column .wp-block-columns {
+.content-service .wp-block-columns .wp-block-column .wp-block-columns, .service-single .wp-block-columns .wp-block-column .wp-block-columns {
   @apply mb-0;
 }
-.content-service .wp-block-columns .wp-block-column .wp-block-columns .card, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column {
+.content-service .wp-block-columns .wp-block-column .wp-block-columns .card, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column {
   @apply bg-transparent border-0;
 }
-.content-service .wp-block-columns .wp-block-column .wp-block-columns .card:after, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:after, .content-service .wp-block-columns .wp-block-column .wp-block-columns .card:before, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:before {
+.content-service .wp-block-columns .wp-block-column .wp-block-columns .card:after, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:after, .content-service .wp-block-columns .wp-block-column .wp-block-columns .card:before, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:before, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card:after, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:after, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card:before, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:before {
   display: none;
 }
-.content-service .wp-block-columns .wp-block-column .wp-block-columns .card img, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column img {
+.content-service .wp-block-columns .wp-block-column .wp-block-columns .card img, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column img, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card img, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column img {
   margin: 0;
   border-radius: 12px;
 }
-.content-service .wp-block-columns .wp-block-column img {
+.content-service .wp-block-columns .wp-block-column img, .service-single .wp-block-columns .wp-block-column img {
   @apply mb-[20px] block w-full;
 }
 .content-service .wp-block-columns .wp-block-column h3,
 .content-service .wp-block-columns .wp-block-column h4,
 .content-service .wp-block-columns .wp-block-column h5,
-.content-service .wp-block-columns .wp-block-column h6 {
+.content-service .wp-block-columns .wp-block-column h6, .service-single .wp-block-columns .wp-block-column h3,
+.service-single .wp-block-columns .wp-block-column h4,
+.service-single .wp-block-columns .wp-block-column h5,
+.service-single .wp-block-columns .wp-block-column h6 {
   @apply text-[1.375rem];
+  line-height: 1.5;
 }
 .content-service .wp-block-columns .wp-block-column h3 strong,
 .content-service .wp-block-columns .wp-block-column h4 strong,
 .content-service .wp-block-columns .wp-block-column h5 strong,
-.content-service .wp-block-columns .wp-block-column h6 strong {
+.content-service .wp-block-columns .wp-block-column h6 strong, .service-single .wp-block-columns .wp-block-column h3 strong,
+.service-single .wp-block-columns .wp-block-column h4 strong,
+.service-single .wp-block-columns .wp-block-column h5 strong,
+.service-single .wp-block-columns .wp-block-column h6 strong {
   font-weight: 500;
 }
 .content-service .wp-block-columns .wp-block-column h1,
@@ -1438,27 +1550,51 @@ section {
 .content-service .wp-block-columns .wp-block-column h3,
 .content-service .wp-block-columns .wp-block-column h4,
 .content-service .wp-block-columns .wp-block-column h5,
-.content-service .wp-block-columns .wp-block-column h6 {
+.content-service .wp-block-columns .wp-block-column h6, .service-single .wp-block-columns .wp-block-column h1,
+.service-single .wp-block-columns .wp-block-column h2,
+.service-single .wp-block-columns .wp-block-column h3,
+.service-single .wp-block-columns .wp-block-column h4,
+.service-single .wp-block-columns .wp-block-column h5,
+.service-single .wp-block-columns .wp-block-column h6 {
   @apply m-[30px] mb-0 mt-[20px];
 }
-.content-service .wp-block-columns .wp-block-column p {
+.content-service .wp-block-columns .wp-block-column p, .service-single .wp-block-columns .wp-block-column p {
   @apply m-[30px] mt-[10px];
 }
 .content-service .wp-block-columns .wp-block-column ul,
-.content-service .wp-block-columns .wp-block-column ol {
+.content-service .wp-block-columns .wp-block-column ol, .service-single .wp-block-columns .wp-block-column ul,
+.service-single .wp-block-columns .wp-block-column ol {
   @apply m-[30px];
 }
 .content-service .wp-block-columns .wp-block-column ul li,
-.content-service .wp-block-columns .wp-block-column ol li {
+.content-service .wp-block-columns .wp-block-column ol li, .service-single .wp-block-columns .wp-block-column ul li,
+.service-single .wp-block-columns .wp-block-column ol li {
   @apply block mb-[10px];
 }
 @media only screen and (max-width: 999px) {
-  .content-service .wp-block-columns {
+  .content-service .wp-block-columns, .service-single .wp-block-columns {
     @apply grid;
   }
 }
-.content-service strong {
+.content-service strong, .service-single strong {
   font-weight: 500 !important;
+}
+@media only screen and (max-width: 575px) {
+  .content-service .wp-block-spacer, .service-single .wp-block-spacer {
+    height: 30px !important;
+  }
+}
+.content-service ul, .content-service ol, .service-single ul, .service-single ol {
+  list-style: inherit;
+}
+.content-service ul li, .content-service ol li, .service-single ul li, .service-single ol li {
+  color: red;
+}
+.content-service .readmore-content, .service-single .readmore-content {
+  line-height: 1.8;
+}
+.content-service .readmore-content *, .service-single .readmore-content * {
+  line-height: 1.8;
 }
 
 @media only screen and (max-width: 575px) {

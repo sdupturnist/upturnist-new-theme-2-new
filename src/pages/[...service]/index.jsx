@@ -1,20 +1,12 @@
 import { wordpressGraphQlApiUrl } from "@/utils/variables";
 import Layout from "@/components/Layout";
 import { AOSInit } from "@/components/Aos";
-import BlurAnimation from "@/components/BlurAnimation";
-import EnquiryService from "@/components/EnquiryService";
 import MetatagsServiceSingle from "@/components/SeoServiceSingle";
-import AnimatedTextCharacter from "@/components/AnimatedText";
-import BackgroundAnimation from "@/components/BackgroundAnimation";
-import Accordion from "@/components/Accordion";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useRouter } from "next/router";
 import { HeroContent } from "@/utils/DynamicComponents";
 import ReadMore from "@/components/ReadMore";
 import Images from "@/components/Images";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import Package from "@/components/Package";
 import ComparePackages from "@/components/PackageCompare";
@@ -34,173 +26,7 @@ export default function Service({ servicePageData, allPackagesData }) {
 
   const content = pageData?.content;
 
-  //console.log(servicePageData?.data?.pages?.nodes[0]?.additionalServicesRepeaterFields)
-
-  const serviceList = useRef();
-  const additionalServiceList = useRef();
-
-  //console.log(pageData?.content)
-
-  useGSAP(
-    () => {
-      const section = document.querySelector(".section-2");
-      const list = gsap.utils.toArray(".section-2 .list-items .item"); // Adjusted selector
-
-      gsap.set(section, {
-        opacity: 1,
-      });
-
-      // Set initial styles for the first list item (no animation)
-      gsap.set(list[0], {
-        opacity: 1,
-        x: 0, // No movement for the first item
-        y: 0,
-      });
-
-      // Set initial styles for the rest of the list items
-      list.slice(1).forEach((item, index) => {
-        gsap.set(item, {
-          opacity: 0.1,
-          x: index % 2 === 0 ? -1000 : 1000, // Even items from left, odd from right
-          y: 0,
-        });
-      });
-
-      gsap.to(section, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          onEnterBack: () => gsap.to(section, { opacity: 1 }),
-        },
-      });
-
-      gsap.to(list.slice(1), {
-        opacity: 1,
-        x: 0, // Animate the rest to original position
-        stagger: 0.1, // Stagger the animation by 0.1 seconds for each item
-        scrollTrigger: {
-          trigger: section, // Triggering the section
-          start: "top",
-          end: "bottom center",
-          scrub: 1,
-          // markers: true,
-        },
-      });
-    },
-    { scope: serviceList }
-  );
-
-  useGSAP(
-    () => {
-      const section = document.querySelector(".section-3");
-      const list = gsap.utils.toArray(".section-3 .service-list .item");
-      const heading = document.querySelector(".section-3 .heading-2");
-
-      // Set different initial rotation angles for each list item
-      list.forEach((item, index) => {
-        gsap.set(item, {
-          // rotation: index % 2 === 0 ? -10 : 10,
-          y: 300 + index * 50, // Each item moves down by 50px incrementally
-        });
-      });
-
-      // Sequential animation for list items
-      gsap.to(list, {
-        //  rotation: 0,
-        y: 0,
-        stagger: 0.1, // Delay between each item animation
-        scrollTrigger: {
-          trigger: list,
-          start: "top 80%",
-          end: "bottom center",
-          scrub: 1,
-          //markers: true,
-        },
-      });
-
-      gsap.set(heading, {
-        opacity: 0.5,
-      });
-
-      gsap.to(heading, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: list,
-          start: "top 90%",
-          end: "bottom 70%",
-          scrub: 1,
-          onEnterBack: () => gsap.to(heading, { position: "relative" }),
-        },
-      });
-    },
-    { scope: additionalServiceList }
-  );
-
-  const section1 = useRef();
-  const section2 = useRef();
-
-  useGSAP(
-    () => {
-      const section = document.querySelector(".section-1");
-
-    //  gsap.set(section, { opacity: 0.2 });
-
-      // gsap.to(section, {
-      //   opacity: 1,
-      //   scrollTrigger: {
-      //     trigger: section,
-      //     start: "top center",
-      //     end: "bottom center",
-      //     scrub: 1,
-      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
-      //   },
-      // });
-    },
-    { scope: section1 }
-  );
-
-  useGSAP(
-    () => {
-      const section = document.querySelector(".section-2");
-      const list = gsap.utils.toArray(".section-2 ul li");
-
-    //  gsap.set(section, { opacity: 0.3 });
-
-      // Set different initial rotation angles for each list item
-      list.forEach((item, index) => {
-        gsap.set(item, {
-          filter: "blur(5px)",
-          y: 100 + index * 50, // Each item moves down by 50px incrementally
-        });
-      });
-
-      // gsap.to(section, {
-      //   opacity: 1,
-      //   scrollTrigger: {
-      //     trigger: section,
-      //     start: "top center",
-      //     end: "bottom center",
-      //     scrub: 1,
-      //     onEnterBack: () => gsap.to(section, { opacity: 1 }),
-      //   },
-      // });
-
-      gsap.to(list, {
-        y: 0,
-        filter: "blur(0px)",
-        scrollTrigger: {
-          trigger: list,
-          start: "top 80%",
-          end: "bottom center",
-          scrub: 1,
-        },
-      });
-    },
-    { scope: section2 }
-  );
+  
 
   const [isExpanded, setIsExpanded] = useState(false);
   const packageRef = useRef(null);
@@ -218,7 +44,7 @@ export default function Service({ servicePageData, allPackagesData }) {
       {pageData && (
         <Layout>
           <AOSInit />
-          <div className="service-single">
+          <div className="service-single overflow-hidden">
             <section className="hero-home bg-box flex items-center text-center !pb-0">
               <div className="container mx-auto">
                 <div className="grid gap-[30px]">
@@ -233,12 +59,11 @@ export default function Service({ servicePageData, allPackagesData }) {
 
             {servicePageData && (
               <section
-                className="relative grid items-center section-2 pt-[50px]"
-                data-aos-delay="1000"
-                data-aos="fade-up">
+                className="relative grid items-center section-2 pt-[50px] xl:pb-[15vh] pb-[50px]"
+              >
                 <div
                   className="container grid sm:gap-[100px] gap-[50px] list-items"
-                  ref={serviceList}>
+                >
                   {servicePageData &&
                     serviceData &&
                     serviceData.map((item, key) => {
@@ -246,8 +71,8 @@ export default function Service({ servicePageData, allPackagesData }) {
                       return (
                         <div
                           key={key}
-                          className="card card-lg item card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center lg:flex-row sm:gap-[100px] gap-[30px]">
-                          <div className="flex-1 lg:order-1 order-2">
+                          className="card card-lg item card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center xl:flex-row sm:gap-[100px] gap-[30px]">
+                          <div className="flex-1 xl:order-1 order-2">
                             {key === 0 ? (
                               <h1 className="heading-3 mb-[20px]">
                                 {item?.title}
@@ -257,7 +82,7 @@ export default function Service({ servicePageData, allPackagesData }) {
                                 {item?.title}
                               </h2>
                             )}
-                            {console.log(item?.description)}
+                          
                             <ReadMore maxLength={500}>
                               {item?.description}
                             </ReadMore>
@@ -266,7 +91,7 @@ export default function Service({ servicePageData, allPackagesData }) {
                           {item?.image_url && (
                             <div
                               className={`${
-                                columnOrder ? "lg:order-2 order-1" : ""
+                                columnOrder ? "xl:order-2 order-1" : ""
                               } image-box- mx-auto`}>
                               <div className="line"></div>
                               <Images
@@ -292,15 +117,15 @@ export default function Service({ servicePageData, allPackagesData }) {
 
             {router.query.service[0] === "digital-marketing-uae" && (
               <section
-                className="section-1 flex items-center text-center relative pt-0 lg:pb-[15vh] pb-[50px]"
-                ref={section1}>
+                className="section-1 flex items-center text-center relative pt-0 xl:pb-[15vh] pb-[50px]"
+               >
                 <div className="container mx-auto items-center">
                   <h2 className="heading-2 mb-[30px] sm:mb-[70px]">
                     Our Digital Marketing Packages{" "}
                   </h2>
                   <div
-                    ref={packageRef}
-                    className="grid grid-cols-1 lg:grid-cols-3 gap-[30px] package-wrpr-">
+                 
+                    className="grid grid-cols-1 xl:grid-cols-3 gap-[30px] package-wrpr-">
                     {packageData &&
                       packageData.map((item, key) => (
                         <div key={key}>
@@ -335,10 +160,9 @@ export default function Service({ servicePageData, allPackagesData }) {
 
             {content && (
               <section
-                className="relative grid items-center section-3 content-service pt-0 lg:pb-[15vh] pb-[50px]"
-                data-aos-delay="1000"
-                data-aos="fade-up">
-                <div className="container" ref={additionalServiceList}>
+                className="relative grid items-center section-3 content-service pt-0 xl:pb-[15vh] pb-[50px]"
+              >
+                <div className="container">
                   <div dangerouslySetInnerHTML={{ __html: content }} />
                 </div>
               </section>

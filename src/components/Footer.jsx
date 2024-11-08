@@ -92,15 +92,7 @@ export default function Footer({ initialData }) {
                         Home
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        title="Packages"
-                        aria-label="About Us"
-                        href="/packages/"
-                        className="link-hover">
-                        Packages
-                      </Link>
-                    </li>
+                  
                     <li>
                       <Link
                         title="About Us"

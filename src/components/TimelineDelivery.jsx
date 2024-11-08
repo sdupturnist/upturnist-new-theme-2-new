@@ -22,7 +22,7 @@ export default function TimelineDelivery(data) {
       list.forEach((item, index) => {
         gsap.set(item, {
           opacity: 0,
-          filter: "blur(5px)",
+        
         });
       });
 
@@ -39,7 +39,7 @@ export default function TimelineDelivery(data) {
 
       gsap.to(list, {
         opacity: 1,
-        filter: "blur(0px)",
+       
         scrollTrigger: {
           trigger: list,
           start: "top 80%",
