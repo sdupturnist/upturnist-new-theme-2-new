@@ -15,11 +15,11 @@ body.dark label {
   -webkit-text-fill-color: transparent;
   line-height: 1.7em;
 }
-body.dark .card, body.dark .content-service .wp-block-columns .wp-block-column, .content-service .wp-block-columns body.dark .wp-block-column, body.dark .service-single .wp-block-columns .wp-block-column, .service-single .wp-block-columns body.dark .wp-block-column {
+body.dark .card, body.dark .content-service .wp-block-columns .wp-block-column, .content-service .wp-block-columns body.dark .wp-block-column, body.dark .service-single .wp-block-columns .wp-block-column, .service-single .wp-block-columns body.dark .wp-block-column, body.dark .content-service .full-col, .content-service body.dark .full-col, body.dark .service-single .full-col, .service-single body.dark .full-col {
   @apply relative border-gray-50 border-b border-t border-opacity-10;
   background: rgba(137, 137, 137, 0.06);
 }
-body.dark .card:before, body.dark .content-service .wp-block-columns .wp-block-column:before, .content-service .wp-block-columns body.dark .wp-block-column:before, body.dark .service-single .wp-block-columns .wp-block-column:before, .service-single .wp-block-columns body.dark .wp-block-column:before {
+body.dark .card:before, body.dark .content-service .wp-block-columns .wp-block-column:before, .content-service .wp-block-columns body.dark .wp-block-column:before, body.dark .service-single .wp-block-columns .wp-block-column:before, .service-single .wp-block-columns body.dark .wp-block-column:before, body.dark .content-service .full-col:before, .content-service body.dark .full-col:before, body.dark .service-single .full-col:before, .service-single body.dark .full-col:before {
   content: "";
   width: 1px;
   height: 50%;
@@ -663,177 +663,393 @@ body.light .bg-black- .h6,
 body.light .bg-black- li {
   color: #fff;
 }
-body.light .bg-black- .card p, body.light .bg-black- .content-service .wp-block-columns .wp-block-column p, .content-service .wp-block-columns body.light .bg-black- .wp-block-column p, body.light .bg-black- .service-single .wp-block-columns .wp-block-column p, .service-single .wp-block-columns body.light .bg-black- .wp-block-column p,
+body.light .bg-black- .card p, body.light .bg-black- .content-service .wp-block-columns .wp-block-column p, .content-service .wp-block-columns body.light .bg-black- .wp-block-column p, body.light .bg-black- .service-single .wp-block-columns .wp-block-column p, .service-single .wp-block-columns body.light .bg-black- .wp-block-column p, body.light .bg-black- .content-service .full-col.right-col p, .content-service body.light .bg-black- .full-col.right-col p, body.light .bg-black- .service-single .full-col.right-col p, .service-single body.light .bg-black- .full-col.right-col p, body.light .bg-black- .content-service .full-col p, .content-service body.light .bg-black- .full-col p, body.light .bg-black- .service-single .full-col p, .service-single body.light .bg-black- .full-col p,
 body.light .bg-black- .card h1,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h1,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h1,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column h1,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column h1,
+body.light .bg-black- .content-service .full-col.right-col h1,
+.content-service body.light .bg-black- .full-col.right-col h1,
+body.light .bg-black- .service-single .full-col.right-col h1,
+.service-single body.light .bg-black- .full-col.right-col h1,
+body.light .bg-black- .content-service .full-col h1,
+.content-service body.light .bg-black- .full-col h1,
+body.light .bg-black- .service-single .full-col h1,
+.service-single body.light .bg-black- .full-col h1,
 body.light .bg-black- .card h2,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h2,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h2,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column h2,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column h2,
+body.light .bg-black- .content-service .full-col.right-col h2,
+.content-service body.light .bg-black- .full-col.right-col h2,
+body.light .bg-black- .service-single .full-col.right-col h2,
+.service-single body.light .bg-black- .full-col.right-col h2,
+body.light .bg-black- .content-service .full-col h2,
+.content-service body.light .bg-black- .full-col h2,
+body.light .bg-black- .service-single .full-col h2,
+.service-single body.light .bg-black- .full-col h2,
 body.light .bg-black- .card h3,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h3,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h3,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column h3,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column h3,
+body.light .bg-black- .content-service .full-col.right-col h3,
+.content-service body.light .bg-black- .full-col.right-col h3,
+body.light .bg-black- .service-single .full-col.right-col h3,
+.service-single body.light .bg-black- .full-col.right-col h3,
+body.light .bg-black- .content-service .full-col h3,
+.content-service body.light .bg-black- .full-col h3,
+body.light .bg-black- .service-single .full-col h3,
+.service-single body.light .bg-black- .full-col h3,
 body.light .bg-black- .card h4,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h4,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h4,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column h4,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column h4,
+body.light .bg-black- .content-service .full-col.right-col h4,
+.content-service body.light .bg-black- .full-col.right-col h4,
+body.light .bg-black- .service-single .full-col.right-col h4,
+.service-single body.light .bg-black- .full-col.right-col h4,
+body.light .bg-black- .content-service .full-col h4,
+.content-service body.light .bg-black- .full-col h4,
+body.light .bg-black- .service-single .full-col h4,
+.service-single body.light .bg-black- .full-col h4,
 body.light .bg-black- .card h5,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h5,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h5,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column h5,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column h5,
+body.light .bg-black- .content-service .full-col.right-col h5,
+.content-service body.light .bg-black- .full-col.right-col h5,
+body.light .bg-black- .service-single .full-col.right-col h5,
+.service-single body.light .bg-black- .full-col.right-col h5,
+body.light .bg-black- .content-service .full-col h5,
+.content-service body.light .bg-black- .full-col h5,
+body.light .bg-black- .service-single .full-col h5,
+.service-single body.light .bg-black- .full-col h5,
 body.light .bg-black- .card h6,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column h6,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column h6,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column h6,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column h6,
+body.light .bg-black- .content-service .full-col.right-col h6,
+.content-service body.light .bg-black- .full-col.right-col h6,
+body.light .bg-black- .service-single .full-col.right-col h6,
+.service-single body.light .bg-black- .full-col.right-col h6,
+body.light .bg-black- .content-service .full-col h6,
+.content-service body.light .bg-black- .full-col h6,
+body.light .bg-black- .service-single .full-col h6,
+.service-single body.light .bg-black- .full-col h6,
 body.light .bg-black- .card .h1,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h1,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h1,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h1,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column .h1,
+body.light .bg-black- .content-service .full-col.right-col .h1,
+.content-service body.light .bg-black- .full-col.right-col .h1,
+body.light .bg-black- .service-single .full-col.right-col .h1,
+.service-single body.light .bg-black- .full-col.right-col .h1,
+body.light .bg-black- .content-service .full-col .h1,
+.content-service body.light .bg-black- .full-col .h1,
+body.light .bg-black- .service-single .full-col .h1,
+.service-single body.light .bg-black- .full-col .h1,
 body.light .bg-black- .card .h2,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h2,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h2,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h2,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column .h2,
+body.light .bg-black- .content-service .full-col.right-col .h2,
+.content-service body.light .bg-black- .full-col.right-col .h2,
+body.light .bg-black- .service-single .full-col.right-col .h2,
+.service-single body.light .bg-black- .full-col.right-col .h2,
+body.light .bg-black- .content-service .full-col .h2,
+.content-service body.light .bg-black- .full-col .h2,
+body.light .bg-black- .service-single .full-col .h2,
+.service-single body.light .bg-black- .full-col .h2,
 body.light .bg-black- .card .h3,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h3,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h3,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h3,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column .h3,
+body.light .bg-black- .content-service .full-col.right-col .h3,
+.content-service body.light .bg-black- .full-col.right-col .h3,
+body.light .bg-black- .service-single .full-col.right-col .h3,
+.service-single body.light .bg-black- .full-col.right-col .h3,
+body.light .bg-black- .content-service .full-col .h3,
+.content-service body.light .bg-black- .full-col .h3,
+body.light .bg-black- .service-single .full-col .h3,
+.service-single body.light .bg-black- .full-col .h3,
 body.light .bg-black- .card .h4,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h4,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h4,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h4,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column .h4,
+body.light .bg-black- .content-service .full-col.right-col .h4,
+.content-service body.light .bg-black- .full-col.right-col .h4,
+body.light .bg-black- .service-single .full-col.right-col .h4,
+.service-single body.light .bg-black- .full-col.right-col .h4,
+body.light .bg-black- .content-service .full-col .h4,
+.content-service body.light .bg-black- .full-col .h4,
+body.light .bg-black- .service-single .full-col .h4,
+.service-single body.light .bg-black- .full-col .h4,
 body.light .bg-black- .card .h5,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h5,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h5,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h5,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column .h5,
+body.light .bg-black- .content-service .full-col.right-col .h5,
+.content-service body.light .bg-black- .full-col.right-col .h5,
+body.light .bg-black- .service-single .full-col.right-col .h5,
+.service-single body.light .bg-black- .full-col.right-col .h5,
+body.light .bg-black- .content-service .full-col .h5,
+.content-service body.light .bg-black- .full-col .h5,
+body.light .bg-black- .service-single .full-col .h5,
+.service-single body.light .bg-black- .full-col .h5,
 body.light .bg-black- .card .h6,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .h6,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .h6,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column .h6,
 .service-single .wp-block-columns body.light .bg-black- .wp-block-column .h6,
+body.light .bg-black- .content-service .full-col.right-col .h6,
+.content-service body.light .bg-black- .full-col.right-col .h6,
+body.light .bg-black- .service-single .full-col.right-col .h6,
+.service-single body.light .bg-black- .full-col.right-col .h6,
+body.light .bg-black- .content-service .full-col .h6,
+.content-service body.light .bg-black- .full-col .h6,
+body.light .bg-black- .service-single .full-col .h6,
+.service-single body.light .bg-black- .full-col .h6,
 body.light .bg-black- .card li,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column li,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column li,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column li,
-.service-single .wp-block-columns body.light .bg-black- .wp-block-column li {
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column li,
+body.light .bg-black- .content-service .full-col.right-col li,
+.content-service body.light .bg-black- .full-col.right-col li,
+body.light .bg-black- .service-single .full-col.right-col li,
+.service-single body.light .bg-black- .full-col.right-col li,
+body.light .bg-black- .content-service .full-col li,
+.content-service body.light .bg-black- .full-col li,
+body.light .bg-black- .service-single .full-col li,
+.service-single body.light .bg-black- .full-col li {
   color: #152a37;
 }
-body.light .bg-black- .card .btn, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn {
+body.light .bg-black- .card .btn, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn, body.light .bg-black- .content-service .full-col .btn, .content-service body.light .bg-black- .full-col .btn, body.light .bg-black- .service-single .full-col .btn, .service-single body.light .bg-black- .full-col .btn {
   color: #152a37;
 }
-body.light .bg-black- .card .btn:hover, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn:hover, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn:hover, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn:hover, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn:hover, body.light .bg-black- .card .btn:active, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn:active, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn:active, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn:active, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn:active {
+body.light .bg-black- .card .btn:hover, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn:hover, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn:hover, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn:hover, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn:hover, body.light .bg-black- .content-service .full-col .btn:hover, .content-service body.light .bg-black- .full-col .btn:hover, body.light .bg-black- .service-single .full-col .btn:hover, .service-single body.light .bg-black- .full-col .btn:hover, body.light .bg-black- .card .btn:active, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn:active, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn:active, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn:active, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn:active, body.light .bg-black- .content-service .full-col .btn:active, .content-service body.light .bg-black- .full-col .btn:active, body.light .bg-black- .service-single .full-col .btn:active, .service-single body.light .bg-black- .full-col .btn:active {
   color: #fff;
 }
-body.light .bg-black- .card .btn-sc a, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc a, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc a, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a,
+body.light .bg-black- .card .btn-sc a, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc a, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc a, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a, body.light .bg-black- .content-service .full-col .btn-sc a, .content-service body.light .bg-black- .full-col .btn-sc a, body.light .bg-black- .service-single .full-col .btn-sc a, .service-single body.light .bg-black- .full-col .btn-sc a,
 body.light .bg-black- .card .btn-sc button,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc button,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc button,
-.service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button {
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button,
+body.light .bg-black- .content-service .full-col .btn-sc button,
+.content-service body.light .bg-black- .full-col .btn-sc button,
+body.light .bg-black- .service-single .full-col .btn-sc button,
+.service-single body.light .bg-black- .full-col .btn-sc button {
   border: 1px solid #152a37;
   color: #152a37;
 }
-body.light .bg-black- .card .btn-sc a *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc a *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a *, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc a *, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a *,
+body.light .bg-black- .card .btn-sc a *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc a *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a *, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc a *, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc a *, body.light .bg-black- .content-service .full-col .btn-sc a *, .content-service body.light .bg-black- .full-col .btn-sc a *, body.light .bg-black- .service-single .full-col .btn-sc a *, .service-single body.light .bg-black- .full-col .btn-sc a *,
 body.light .bg-black- .card .btn-sc button *,
 body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc button *,
 .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button *,
 body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc button *,
-.service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button * {
+.service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc button *,
+body.light .bg-black- .content-service .full-col .btn-sc button *,
+.content-service body.light .bg-black- .full-col .btn-sc button *,
+body.light .bg-black- .service-single .full-col .btn-sc button *,
+.service-single body.light .bg-black- .full-col .btn-sc button * {
   color: #152a37;
   stroke: #152a37;
 }
-body.light .bg-black- .card .btn-sc:hover a, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover a, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover a, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a, body.light .bg-black- .card .btn-sc:hover button, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover button, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover button, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button {
+body.light .bg-black- .card .btn-sc:hover a, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover a, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover a, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a, body.light .bg-black- .content-service .full-col .btn-sc:hover a, .content-service body.light .bg-black- .full-col .btn-sc:hover a, body.light .bg-black- .service-single .full-col .btn-sc:hover a, .service-single body.light .bg-black- .full-col .btn-sc:hover a, body.light .bg-black- .card .btn-sc:hover button, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover button, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover button, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button, body.light .bg-black- .content-service .full-col .btn-sc:hover button, .content-service body.light .bg-black- .full-col .btn-sc:hover button, body.light .bg-black- .service-single .full-col .btn-sc:hover button, .service-single body.light .bg-black- .full-col .btn-sc:hover button {
   transition: 0.5s;
   border-color: #152a37;
   background: #152a37;
   color: #fff;
 }
-body.light .bg-black- .card .btn-sc:hover a *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover a *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a *, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover a *, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a *, body.light .bg-black- .card .btn-sc:hover button *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover button *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button *, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover button *, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button * {
+body.light .bg-black- .card .btn-sc:hover a *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover a *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a *, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover a *, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover a *, body.light .bg-black- .content-service .full-col .btn-sc:hover a *, .content-service body.light .bg-black- .full-col .btn-sc:hover a *, body.light .bg-black- .service-single .full-col .btn-sc:hover a *, .service-single body.light .bg-black- .full-col .btn-sc:hover a *, body.light .bg-black- .card .btn-sc:hover button *, body.light .bg-black- .content-service .wp-block-columns .wp-block-column .btn-sc:hover button *, .content-service .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button *, body.light .bg-black- .service-single .wp-block-columns .wp-block-column .btn-sc:hover button *, .service-single .wp-block-columns body.light .bg-black- .wp-block-column .btn-sc:hover button *, body.light .bg-black- .content-service .full-col .btn-sc:hover button *, .content-service body.light .bg-black- .full-col .btn-sc:hover button *, body.light .bg-black- .service-single .full-col .btn-sc:hover button *, .service-single body.light .bg-black- .full-col .btn-sc:hover button * {
   color: #fff;
   stroke: #fff !important;
 }
 body.light .bg-black {
   background: transparent !important;
 }
-body.light .bg-black .card p, body.light .bg-black .content-service .wp-block-columns .wp-block-column p, .content-service .wp-block-columns body.light .bg-black .wp-block-column p, body.light .bg-black .service-single .wp-block-columns .wp-block-column p, .service-single .wp-block-columns body.light .bg-black .wp-block-column p,
+body.light .bg-black .card p, body.light .bg-black .content-service .wp-block-columns .wp-block-column p, .content-service .wp-block-columns body.light .bg-black .wp-block-column p, body.light .bg-black .service-single .wp-block-columns .wp-block-column p, .service-single .wp-block-columns body.light .bg-black .wp-block-column p, body.light .bg-black .content-service .full-col.right-col p, .content-service body.light .bg-black .full-col.right-col p, body.light .bg-black .service-single .full-col.right-col p, .service-single body.light .bg-black .full-col.right-col p, body.light .bg-black .content-service .full-col p, .content-service body.light .bg-black .full-col p, body.light .bg-black .service-single .full-col p, .service-single body.light .bg-black .full-col p,
 body.light .bg-black .card h1,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h1,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h1,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column h1,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column h1,
+body.light .bg-black .content-service .full-col.right-col h1,
+.content-service body.light .bg-black .full-col.right-col h1,
+body.light .bg-black .service-single .full-col.right-col h1,
+.service-single body.light .bg-black .full-col.right-col h1,
+body.light .bg-black .content-service .full-col h1,
+.content-service body.light .bg-black .full-col h1,
+body.light .bg-black .service-single .full-col h1,
+.service-single body.light .bg-black .full-col h1,
 body.light .bg-black .card h2,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h2,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h2,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column h2,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column h2,
+body.light .bg-black .content-service .full-col.right-col h2,
+.content-service body.light .bg-black .full-col.right-col h2,
+body.light .bg-black .service-single .full-col.right-col h2,
+.service-single body.light .bg-black .full-col.right-col h2,
+body.light .bg-black .content-service .full-col h2,
+.content-service body.light .bg-black .full-col h2,
+body.light .bg-black .service-single .full-col h2,
+.service-single body.light .bg-black .full-col h2,
 body.light .bg-black .card h3,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h3,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h3,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column h3,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column h3,
+body.light .bg-black .content-service .full-col.right-col h3,
+.content-service body.light .bg-black .full-col.right-col h3,
+body.light .bg-black .service-single .full-col.right-col h3,
+.service-single body.light .bg-black .full-col.right-col h3,
+body.light .bg-black .content-service .full-col h3,
+.content-service body.light .bg-black .full-col h3,
+body.light .bg-black .service-single .full-col h3,
+.service-single body.light .bg-black .full-col h3,
 body.light .bg-black .card h4,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h4,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h4,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column h4,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column h4,
+body.light .bg-black .content-service .full-col.right-col h4,
+.content-service body.light .bg-black .full-col.right-col h4,
+body.light .bg-black .service-single .full-col.right-col h4,
+.service-single body.light .bg-black .full-col.right-col h4,
+body.light .bg-black .content-service .full-col h4,
+.content-service body.light .bg-black .full-col h4,
+body.light .bg-black .service-single .full-col h4,
+.service-single body.light .bg-black .full-col h4,
 body.light .bg-black .card h5,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h5,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h5,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column h5,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column h5,
+body.light .bg-black .content-service .full-col.right-col h5,
+.content-service body.light .bg-black .full-col.right-col h5,
+body.light .bg-black .service-single .full-col.right-col h5,
+.service-single body.light .bg-black .full-col.right-col h5,
+body.light .bg-black .content-service .full-col h5,
+.content-service body.light .bg-black .full-col h5,
+body.light .bg-black .service-single .full-col h5,
+.service-single body.light .bg-black .full-col h5,
 body.light .bg-black .card h6,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column h6,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column h6,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column h6,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column h6,
+body.light .bg-black .content-service .full-col.right-col h6,
+.content-service body.light .bg-black .full-col.right-col h6,
+body.light .bg-black .service-single .full-col.right-col h6,
+.service-single body.light .bg-black .full-col.right-col h6,
+body.light .bg-black .content-service .full-col h6,
+.content-service body.light .bg-black .full-col h6,
+body.light .bg-black .service-single .full-col h6,
+.service-single body.light .bg-black .full-col h6,
 body.light .bg-black .card .h1,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h1,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h1,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column .h1,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column .h1,
+body.light .bg-black .content-service .full-col.right-col .h1,
+.content-service body.light .bg-black .full-col.right-col .h1,
+body.light .bg-black .service-single .full-col.right-col .h1,
+.service-single body.light .bg-black .full-col.right-col .h1,
+body.light .bg-black .content-service .full-col .h1,
+.content-service body.light .bg-black .full-col .h1,
+body.light .bg-black .service-single .full-col .h1,
+.service-single body.light .bg-black .full-col .h1,
 body.light .bg-black .card .h2,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h2,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h2,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column .h2,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column .h2,
+body.light .bg-black .content-service .full-col.right-col .h2,
+.content-service body.light .bg-black .full-col.right-col .h2,
+body.light .bg-black .service-single .full-col.right-col .h2,
+.service-single body.light .bg-black .full-col.right-col .h2,
+body.light .bg-black .content-service .full-col .h2,
+.content-service body.light .bg-black .full-col .h2,
+body.light .bg-black .service-single .full-col .h2,
+.service-single body.light .bg-black .full-col .h2,
 body.light .bg-black .card .h3,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h3,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h3,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column .h3,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column .h3,
+body.light .bg-black .content-service .full-col.right-col .h3,
+.content-service body.light .bg-black .full-col.right-col .h3,
+body.light .bg-black .service-single .full-col.right-col .h3,
+.service-single body.light .bg-black .full-col.right-col .h3,
+body.light .bg-black .content-service .full-col .h3,
+.content-service body.light .bg-black .full-col .h3,
+body.light .bg-black .service-single .full-col .h3,
+.service-single body.light .bg-black .full-col .h3,
 body.light .bg-black .card .h4,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h4,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h4,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column .h4,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column .h4,
+body.light .bg-black .content-service .full-col.right-col .h4,
+.content-service body.light .bg-black .full-col.right-col .h4,
+body.light .bg-black .service-single .full-col.right-col .h4,
+.service-single body.light .bg-black .full-col.right-col .h4,
+body.light .bg-black .content-service .full-col .h4,
+.content-service body.light .bg-black .full-col .h4,
+body.light .bg-black .service-single .full-col .h4,
+.service-single body.light .bg-black .full-col .h4,
 body.light .bg-black .card .h5,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h5,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h5,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column .h5,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column .h5,
+body.light .bg-black .content-service .full-col.right-col .h5,
+.content-service body.light .bg-black .full-col.right-col .h5,
+body.light .bg-black .service-single .full-col.right-col .h5,
+.service-single body.light .bg-black .full-col.right-col .h5,
+body.light .bg-black .content-service .full-col .h5,
+.content-service body.light .bg-black .full-col .h5,
+body.light .bg-black .service-single .full-col .h5,
+.service-single body.light .bg-black .full-col .h5,
 body.light .bg-black .card .h6,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .h6,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .h6,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column .h6,
 .service-single .wp-block-columns body.light .bg-black .wp-block-column .h6,
+body.light .bg-black .content-service .full-col.right-col .h6,
+.content-service body.light .bg-black .full-col.right-col .h6,
+body.light .bg-black .service-single .full-col.right-col .h6,
+.service-single body.light .bg-black .full-col.right-col .h6,
+body.light .bg-black .content-service .full-col .h6,
+.content-service body.light .bg-black .full-col .h6,
+body.light .bg-black .service-single .full-col .h6,
+.service-single body.light .bg-black .full-col .h6,
 body.light .bg-black .card li,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column li,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column li,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column li,
-.service-single .wp-block-columns body.light .bg-black .wp-block-column li, body.light .bg-black .card- p,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column li,
+body.light .bg-black .content-service .full-col.right-col li,
+.content-service body.light .bg-black .full-col.right-col li,
+body.light .bg-black .service-single .full-col.right-col li,
+.service-single body.light .bg-black .full-col.right-col li,
+body.light .bg-black .content-service .full-col li,
+.content-service body.light .bg-black .full-col li,
+body.light .bg-black .service-single .full-col li,
+.service-single body.light .bg-black .full-col li, body.light .bg-black .card- p,
 body.light .bg-black .card- h1,
 body.light .bg-black .card- h2,
 body.light .bg-black .card- h3,
@@ -849,33 +1065,41 @@ body.light .bg-black .card- .h6,
 body.light .bg-black .card- li {
   color: #fff;
 }
-body.light .bg-black .card .btn-sc a, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc a, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc a, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a,
+body.light .bg-black .card .btn-sc a, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc a, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc a, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a, body.light .bg-black .content-service .full-col .btn-sc a, .content-service body.light .bg-black .full-col .btn-sc a, body.light .bg-black .service-single .full-col .btn-sc a, .service-single body.light .bg-black .full-col .btn-sc a,
 body.light .bg-black .card .btn-sc button,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc button,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc button,
-.service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button, body.light .bg-black .card- .btn-sc a,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button,
+body.light .bg-black .content-service .full-col .btn-sc button,
+.content-service body.light .bg-black .full-col .btn-sc button,
+body.light .bg-black .service-single .full-col .btn-sc button,
+.service-single body.light .bg-black .full-col .btn-sc button, body.light .bg-black .card- .btn-sc a,
 body.light .bg-black .card- .btn-sc button {
   border: 1px solid #fff;
   color: #fff;
 }
-body.light .bg-black .card .btn-sc a *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc a *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a *, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc a *, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a *,
+body.light .bg-black .card .btn-sc a *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc a *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a *, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc a *, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc a *, body.light .bg-black .content-service .full-col .btn-sc a *, .content-service body.light .bg-black .full-col .btn-sc a *, body.light .bg-black .service-single .full-col .btn-sc a *, .service-single body.light .bg-black .full-col .btn-sc a *,
 body.light .bg-black .card .btn-sc button *,
 body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc button *,
 .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button *,
 body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc button *,
-.service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button *, body.light .bg-black .card- .btn-sc a *,
+.service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc button *,
+body.light .bg-black .content-service .full-col .btn-sc button *,
+.content-service body.light .bg-black .full-col .btn-sc button *,
+body.light .bg-black .service-single .full-col .btn-sc button *,
+.service-single body.light .bg-black .full-col .btn-sc button *, body.light .bg-black .card- .btn-sc a *,
 body.light .bg-black .card- .btn-sc button * {
   color: #fff;
   stroke: #fff;
 }
-body.light .bg-black .card .btn-sc:hover a, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover a, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover a, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a, body.light .bg-black .card .btn-sc:hover button, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover button, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover button, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button, body.light .bg-black .card- .btn-sc:hover a, body.light .bg-black .card- .btn-sc:hover button {
+body.light .bg-black .card .btn-sc:hover a, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover a, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover a, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a, body.light .bg-black .content-service .full-col .btn-sc:hover a, .content-service body.light .bg-black .full-col .btn-sc:hover a, body.light .bg-black .service-single .full-col .btn-sc:hover a, .service-single body.light .bg-black .full-col .btn-sc:hover a, body.light .bg-black .card .btn-sc:hover button, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover button, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover button, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button, body.light .bg-black .content-service .full-col .btn-sc:hover button, .content-service body.light .bg-black .full-col .btn-sc:hover button, body.light .bg-black .service-single .full-col .btn-sc:hover button, .service-single body.light .bg-black .full-col .btn-sc:hover button, body.light .bg-black .card- .btn-sc:hover a, body.light .bg-black .card- .btn-sc:hover button {
   transition: 0.5s;
   border-color: #fff;
   background: #fff;
   color: #152a37;
 }
-body.light .bg-black .card .btn-sc:hover a *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover a *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a *, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover a *, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a *, body.light .bg-black .card .btn-sc:hover button *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover button *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button *, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover button *, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button *, body.light .bg-black .card- .btn-sc:hover a *, body.light .bg-black .card- .btn-sc:hover button * {
+body.light .bg-black .card .btn-sc:hover a *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover a *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a *, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover a *, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover a *, body.light .bg-black .content-service .full-col .btn-sc:hover a *, .content-service body.light .bg-black .full-col .btn-sc:hover a *, body.light .bg-black .service-single .full-col .btn-sc:hover a *, .service-single body.light .bg-black .full-col .btn-sc:hover a *, body.light .bg-black .card .btn-sc:hover button *, body.light .bg-black .content-service .wp-block-columns .wp-block-column .btn-sc:hover button *, .content-service .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button *, body.light .bg-black .service-single .wp-block-columns .wp-block-column .btn-sc:hover button *, .service-single .wp-block-columns body.light .bg-black .wp-block-column .btn-sc:hover button *, body.light .bg-black .content-service .full-col .btn-sc:hover button *, .content-service body.light .bg-black .full-col .btn-sc:hover button *, body.light .bg-black .service-single .full-col .btn-sc:hover button *, .service-single body.light .bg-black .full-col .btn-sc:hover button *, body.light .bg-black .card- .btn-sc:hover a *, body.light .bg-black .card- .btn-sc:hover button * {
   color: #152a37;
   stroke: #152a37 !important;
 }
@@ -915,7 +1139,7 @@ body.light .bg-black .btn-sc:hover a *, body.light .bg-black .btn-sc:hover butto
   color: #152a37;
   stroke: #152a37 !important;
 }
-body.light .card, body.light .content-service .wp-block-columns .wp-block-column, .content-service .wp-block-columns body.light .wp-block-column, body.light .service-single .wp-block-columns .wp-block-column, .service-single .wp-block-columns body.light .wp-block-column {
+body.light .card, body.light .content-service .wp-block-columns .wp-block-column, .content-service .wp-block-columns body.light .wp-block-column, body.light .service-single .wp-block-columns .wp-block-column, .service-single .wp-block-columns body.light .wp-block-column, body.light .content-service .full-col, .content-service body.light .full-col, body.light .service-single .full-col, .service-single body.light .full-col {
   @apply relative border;
   background: #fff;
 }
@@ -1500,9 +1724,86 @@ section {
 .service-single h2,
 .service-single h3 {
   @apply mb-[20px];
+  line-height: 1.5;
 }
 .content-service .has-text-align-center, .service-single .has-text-align-center {
   @apply text-center;
+}
+.content-service .full-col, .service-single .full-col {
+  @apply rounded-[30px] w-full min-h-[150px] overflow-hidden;
+  gap: 0 !important;
+}
+.content-service .full-col .wp-block-column, .service-single .full-col .wp-block-column {
+  @apply rounded-none p-[50px] border-none;
+  border-radius: 0 !important;
+  border: 0 !important;
+}
+.content-service .full-col .wp-block-column img, .service-single .full-col .wp-block-column img {
+  @apply rounded-[42px] relative sm:h-[400px] h-[300px]  object-cover;
+}
+.content-service .full-col .wp-block-column p, .service-single .full-col .wp-block-column p {
+  margin: 0 !important;
+}
+.content-service .full-col .wp-block-column h1,
+.content-service .full-col .wp-block-column h2,
+.content-service .full-col .wp-block-column h3,
+.content-service .full-col .wp-block-column h4,
+.content-service .full-col .wp-block-column h5,
+.content-service .full-col .wp-block-column h6, .service-single .full-col .wp-block-column h1,
+.service-single .full-col .wp-block-column h2,
+.service-single .full-col .wp-block-column h3,
+.service-single .full-col .wp-block-column h4,
+.service-single .full-col .wp-block-column h5,
+.service-single .full-col .wp-block-column h6 {
+  margin: 0 !important;
+  font-size: max(2.5vw, 28px) !important;
+}
+.content-service .full-col div:first-child, .service-single .full-col div:first-child {
+  @apply lg:pb-[50px] pb-0;
+}
+.content-service .full-col div:last-child, .service-single .full-col div:last-child {
+  @apply sm:gap-[24px] gap-[10px] grid items-center lg:pl-0 pt-0;
+}
+.content-service .full-col div:last-child div, .service-single .full-col div:last-child div {
+  @apply p-0;
+}
+.content-service .full-col.right-col, .service-single .full-col.right-col {
+  @apply rounded-[30px] w-full min-h-[150px] overflow-hidden;
+  gap: 0 !important;
+}
+.content-service .full-col.right-col .wp-block-column, .service-single .full-col.right-col .wp-block-column {
+  @apply rounded-none p-[50px] border-none;
+  border-radius: 0 !important;
+  border: 0 !important;
+}
+.content-service .full-col.right-col .wp-block-column img, .service-single .full-col.right-col .wp-block-column img {
+  @apply rounded-[42px] relative sm:h-[400px] h-[300px]  object-cover;
+}
+.content-service .full-col.right-col .wp-block-column p, .service-single .full-col.right-col .wp-block-column p {
+  margin: 0 !important;
+}
+.content-service .full-col.right-col .wp-block-column h1,
+.content-service .full-col.right-col .wp-block-column h2,
+.content-service .full-col.right-col .wp-block-column h3,
+.content-service .full-col.right-col .wp-block-column h4,
+.content-service .full-col.right-col .wp-block-column h5,
+.content-service .full-col.right-col .wp-block-column h6, .service-single .full-col.right-col .wp-block-column h1,
+.service-single .full-col.right-col .wp-block-column h2,
+.service-single .full-col.right-col .wp-block-column h3,
+.service-single .full-col.right-col .wp-block-column h4,
+.service-single .full-col.right-col .wp-block-column h5,
+.service-single .full-col.right-col .wp-block-column h6 {
+  margin: 0 !important;
+  font-size: max(2.5vw, 28px) !important;
+}
+.content-service .full-col.right-col div:last-child, .service-single .full-col.right-col div:last-child {
+  @apply lg:pb-[50px] pb-0 lg:order-last order-first;
+}
+.content-service .full-col.right-col div:first-child, .service-single .full-col.right-col div:first-child {
+  @apply sm:gap-[24px] gap-[10px] grid items-center lg:pr-0 pt-0 lg:order-first order-last;
+}
+.content-service .full-col.right-col div:first-child div, .service-single .full-col.right-col div:first-child div {
+  @apply p-0;
 }
 .content-service .wp-block-columns, .service-single .wp-block-columns {
   @apply flex gap-[30px] sm:mb-[50px] mb-[30px];
@@ -1511,15 +1812,15 @@ section {
   @apply rounded-[30px] w-full min-h-[150px] overflow-hidden;
 }
 .content-service .wp-block-columns .wp-block-column .wp-block-columns, .service-single .wp-block-columns .wp-block-column .wp-block-columns {
-  @apply mb-0;
+  @apply mb-0 gap-0;
 }
-.content-service .wp-block-columns .wp-block-column .wp-block-columns .card, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column {
+.content-service .wp-block-columns .wp-block-column .wp-block-columns .card, .content-service .wp-block-columns .wp-block-column .wp-block-columns .full-col, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card, .service-single .wp-block-columns .wp-block-column .wp-block-columns .full-col, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column {
   @apply bg-transparent border-0;
 }
-.content-service .wp-block-columns .wp-block-column .wp-block-columns .card:after, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:after, .content-service .wp-block-columns .wp-block-column .wp-block-columns .card:before, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:before, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card:after, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:after, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card:before, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:before {
+.content-service .wp-block-columns .wp-block-column .wp-block-columns .card:after, .content-service .wp-block-columns .wp-block-column .wp-block-columns .full-col:after, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:after, .content-service .wp-block-columns .wp-block-column .wp-block-columns .card:before, .content-service .wp-block-columns .wp-block-column .wp-block-columns .full-col:before, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:before, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card:after, .service-single .wp-block-columns .wp-block-column .wp-block-columns .full-col:after, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:after, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card:before, .service-single .wp-block-columns .wp-block-column .wp-block-columns .full-col:before, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column:before {
   display: none;
 }
-.content-service .wp-block-columns .wp-block-column .wp-block-columns .card img, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column img, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card img, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column img {
+.content-service .wp-block-columns .wp-block-column .wp-block-columns .card img, .content-service .wp-block-columns .wp-block-column .wp-block-columns .full-col img, .content-service .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column img, .service-single .wp-block-columns .wp-block-column .wp-block-columns .card img, .service-single .wp-block-columns .wp-block-column .wp-block-columns .full-col img, .service-single .wp-block-columns .wp-block-column .wp-block-columns .wp-block-column img {
   margin: 0;
   border-radius: 12px;
 }
@@ -1557,6 +1858,7 @@ section {
 .service-single .wp-block-columns .wp-block-column h5,
 .service-single .wp-block-columns .wp-block-column h6 {
   @apply m-[30px] mb-0 mt-[20px];
+  line-height: 1.5;
 }
 .content-service .wp-block-columns .wp-block-column p, .service-single .wp-block-columns .wp-block-column p {
   @apply m-[30px] mt-[10px];

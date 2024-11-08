@@ -159,13 +159,7 @@ export default function Footer({ initialData }) {
                   </ul>
                 </div>
                 <div>
-                  <Link
-                    title="BRANDING"
-                    aria-label="BRANDING"
-                    href="/branding-uae/"
-                    className="link-hover heading">
-                    BRANDING
-                  </Link>
+                <span className="heading">BRANDING</span>
                   <ul className="list-wrpr">
                     <li>
                       <Link
@@ -194,16 +188,7 @@ export default function Footer({ initialData }) {
                         Brand Collateral
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        title="Brand Consulting"
-                        aria-label="Brand Consulting"
-                        href="/branding-consulting"
-                        className="link-hover">
-                        Brand Consulting
-                      </Link>
-                    </li>
-                    <li>
+                   <li>
                       <Link
                         title="Website Design & Development"
                         aria-label="Website Design & Development"
@@ -259,7 +244,7 @@ export default function Footer({ initialData }) {
                       <Link
                         title="SMM"
                         aria-label="SMM"
-                        href="/social-media-management-dubai"
+                        href="/social-media-marketing-company-uae"
                         className="link-hover">
                         SMM
                       </Link>

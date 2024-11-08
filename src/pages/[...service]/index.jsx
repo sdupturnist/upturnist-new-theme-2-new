@@ -45,9 +45,9 @@ export default function Service({ servicePageData, allPackagesData }) {
         <Layout>
           <AOSInit />
           <div className="service-single overflow-hidden">
-            <section className="hero-home bg-box flex items-center text-center !pb-0">
+            <section className="hero-home bg-box flex items-center text-center sm:mb-[50px]" data-aos="fade-up">
               <div className="container mx-auto">
-                <div className="grid gap-[30px]">
+                <div className="grid sm:gap-[20px] gap-[10px]">
                   <HeroContent
                     title={pageData && pageData.title}
                     animatedHeading={pageData && pageData.subHeading}
@@ -70,6 +70,7 @@ export default function Service({ servicePageData, allPackagesData }) {
                       const columnOrder = key % 2 !== 0; // Check if the index is odd
                       return (
                         <div
+                        data-aos="fade-up"
                           key={key}
                           className="card card-lg item card-effect sm:p-[80px] p-[40px] rounded-[30px] flex flex-col items-center xl:flex-row sm:gap-[100px] gap-[30px]">
                           <div className="flex-1 xl:order-1 order-2">
@@ -118,11 +119,14 @@ export default function Service({ servicePageData, allPackagesData }) {
             {router.query.service[0] === "digital-marketing-uae" && (
               <section
                 className="section-1 flex items-center text-center relative pt-0 xl:pb-[15vh] pb-[50px]"
+                data-aos="fade-up"
                >
                 <div className="container mx-auto items-center">
-                  <h2 className="heading-2 mb-[30px] sm:mb-[70px]">
-                    Our Digital Marketing Packages{" "}
+                <div className="mb-[30px] sm:mb-[70px]">
+                  <h2 className="heading-2">
+                    Our Digital Marketing Packages
                   </h2>
+                  </div>
                   <div
                  
                     className="grid grid-cols-1 xl:grid-cols-3 gap-[30px] package-wrpr-">
@@ -160,6 +164,7 @@ export default function Service({ servicePageData, allPackagesData }) {
 
             {content && (
               <section
+              data-aos="fade-up"
                 className="relative grid items-center section-3 content-service pt-0 xl:pb-[15vh] pb-[50px]"
               >
                 <div className="container">
